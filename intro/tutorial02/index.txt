@@ -89,7 +89,7 @@ Double-click the video to capture the image. To clear an image, hold down the Ct
 key and double-click the image, after that the video will be displayed.
 
 The image is uploaded automaticaly to the server, providing the ".png" is added 
-on Parameters :doc:`Accept string </admin/accept_string>`.
+on application :doc:`Parameters </admin/project/parameters>`  :doc:`Accept string </admin/accept_string>`.
 
 
 Adding file field
