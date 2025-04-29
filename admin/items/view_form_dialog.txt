@@ -84,7 +84,7 @@ specify the options of the table displayed in the view form:
 
 * **Freeze columns** - an integer, if it is greater than 0, it specifies 
   number of first columns that become frozen - they will not scroll when the table
-  is scrolled horizontally.
+  is scrolled horizontally. This option for V7 is an attribute of the item.
 
 * **Sort fields** - click the button to the right of the input field to open the list of fields and
   select the fields by which you can sort the contents of the table by clicking
@@ -97,7 +97,7 @@ specify the options of the table displayed in the view form:
 
 You can get or change these values programmatically on the client by using the
 :doc:`table_options </refs/client/item/at_table_options>` 
-attribute of the item 
+attribute of the item. 
 
 Form tab
 ========
