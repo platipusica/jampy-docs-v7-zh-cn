@@ -158,7 +158,7 @@ Interface tab for Image field
   in the edit form. If it not specified, the height is auto
 
 * **Capture from camera** - if this checkbox is set, the user will be able to 
-  capture image from cameraby double-click. The image is automatically uploded
+  capture image from camera by double-click. The image is automatically uploded
   to the server, 
   providing the ".png" is added on Parameters :doc:`Accept string </admin/accept_string>`.
 
