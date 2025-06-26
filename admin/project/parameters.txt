@@ -14,8 +14,8 @@ General tab
 
 On the General tab, you can specify general parameters of the project:
 
-* **Production** - if this checkbox is checked, you will not be able to change the 
-  project database in Application Builder.
+* **Production** - if this checkbox is checked, the access to Application Builder is disabled.
+  To enable the access, the ``builder.html`` file should be deleted from the application folder.
 
 * **Safe mode** - if safe mode is enabled, authentication  is needed for user to 
   work in the system (See 
