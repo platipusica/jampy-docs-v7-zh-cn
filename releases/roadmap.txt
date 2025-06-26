@@ -31,21 +31,29 @@ will be released as a fork, which means the merge will be synced to the fork and
 
 Q: Why forking as jam.py-v5?
 
-A: Because of the GitHub Organisation. We need project maintainers, who can manage GitHub Actions and PyPi. Current Jam.py is owned by Andrew, which does not support this I'm afraid. Hence, new releases will exist on PyPi as jam.py-v5. Similar to this is a v7 fork as jam.py-v7, also available on PyPi.
+A: Because of the GitHub Organisation. We need project maintainers, who can manage GitHub Actions and PyPi. Current 
+Jam.py github page is owned by Andrew, which does not support this I'm afraid. Hence, new releases will exist on PyPi
+as jam.py-v5. Similar to this is a v7 fork as jam.py-v7, also available on PyPi.
 
 Q: So the v7 is also available?
 
-A: Yes it is. Currently, it is not production ready. However, if Andrew will be able to do some tweaks during the year 2024 or latter, it might be production ready. We will see.
+A: Yes it is. It is production ready, as from version 7.0.50, due to almost finished Docs. If Andrew will be able to do some tweaks during the 
+year 2024 or latter, even better. We will see.
 
 Q: Are the v7 Docs ready?
 
-A: We also decided to move Docs from the PyPi distribution, due to work in progress. We believe that the users very rarely built the Docs themselves, hence it would be better to point the users to any online documents repository, which is again built by the GitHub Actions. At the moment when v7 Docs are ready, we will publish them by Actions as well.
+A: We also decided to move Docs from the PyPi distribution, due to work in progress. We believe that the users very 
+rarely built the Docs themselves, hence it would be better to point the users to any online documents repository,
+which is again built by the GitHub Actions. At the moment when v7 Docs are ready, we will publish them by Actions as well.
 
 Q: What is the Jam.py future?
 
-A: I see a very bright future with Jam.py! Ultimately, we would love to see Jam.py built as Windows App Store application by the GitHub Actions. This would enable a huge exposure to the Windows users and bring the very bright future. 
+A: I see a very bright future with Jam.py! Ultimately, we would love to see Jam.py built as Windows App Store application by the GitHub Actions.
+This would enable a huge exposure to the Windows users and bring even brighter future. 
 
 Thanks for reading.
+
+Jun 2025.
 
 
 
