@@ -1,7 +1,11 @@
-=================================
-How to execute script from client
-=================================
+======================================
+How to execute Python code from client
+======================================
 
+
+
+While it is possible to execute any Python script on the OS level with the 
+``Popen`` command, first we will demonstrate using the ``Server module[F8]`` code.
 
 You can use 
 :doc:`server </refs/client/abstr_item/m_server>`
@@ -39,3 +43,47 @@ The code in the server module:
 
   def calculate(item, a, b, c):
       return a + b + c
+      
+      
+
+To execute the OS script, we could use the Server module code with ``Popen`` and 
+a button similar to above:
+
+
+.. code-block:: py
+
+        build = Popen([make, 'html'] , cwd=build_path, stderr=STDOUT,stdout = PIPE, shell=shell)
+        result, err = build.communicate()
+        result = result.decode("utf-8") 
+
+
+To review the build result, we can use JavaScript modal form with a button to 
+display it:
+
+.. code-block:: js
+
+        item.edit_form.find("#build-info-btn").hide().click(function() {
+            show_build_info(item);
+        });
+
+        function show_build_info(item) {
+            var i = 0,
+                color,
+                html = '<p>',
+                info = item.build_result.split('\n');
+            
+            for (i = 0; i < info.length; i++) {
+                color = '#333333';
+                if (build_problems(item, info[i])) {
+                    color = 'red';
+                }
+                html += '<span style="color: ' + color + ';">' + info[i] + '</span><br>';
+            }
+            html += '</p>';
+            html = $(html).css("margin", 20);
+            task.message(html, {width: 700, height: 600,
+                title: 'Build information', footer: false, print: true});
+        }
+
+
+On this example, the Sphinx ``make`` command is used to build Jam.py Docs.
