@@ -2,8 +2,19 @@
 Version 7
 =========
 
+.. toctree::
+   :maxdepth: 1
+ 
+   version_7_0_39
+   version_7_0_50
+   version_7_0_53
+   version_7_0_64
+   version_7_0_69
+   
+   
 The version 7 is still under development and accepting pull requests. The biggest difference to V5 is routing
-support, Bootstrap 5 and working with Details, enabling modern support for mobile devices.
+support, Bootstrap 5 and working with Details, enabling modern support for mobile devices. In addition, the Monaco
+editor will be introduced witing the Application Builder.
 
 Here are the main differences to Jam.py V5, written in Nov. 2022. by Andrew Yushev:
 
@@ -74,11 +85,4 @@ Here are the main differences to Jam.py V5, written in Nov. 2022. by Andrew Yush
     This control is available due to setting roles to the elements and fields of the project and
     is very simple way of implementing restrictions with the server event handlers.
 
-.. toctree::
-   :maxdepth: 1
- 
-   version_7_0_39
-   version_7_0_50
-   version_7_0_53
-   version_7_0_64
-   version_7_0_69
+
