@@ -22,7 +22,8 @@ The ``field`` parameter is the field whose
 is processed. To get the item that owns the field, use the
 :doc:`owner </refs/client/field/at_owner>` attribute of the field.
 
-The function used to concatenate two or more fields.
+The function is used to concatenate two or more fields for displaying. The 
+fields can be any lookups from some other tables.
 
 Example
 =======
