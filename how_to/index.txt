@@ -34,4 +34,4 @@ Here is a useful code that you can use in your applications:
     export_import_csv_files    
     authentication/index
     how_to_migrate_to_v7
-    how_to _write_tests
+    how_to_write_tests
