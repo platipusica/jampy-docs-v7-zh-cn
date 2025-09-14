@@ -1,11 +1,21 @@
 ===============
-Version 7.0.70
+Version 7.0.7x
 ===============
 
-First version with Monaco editor released.
 
-Use from Jam.py 7.0.71:
+In version 7.0.70, first version with Monaco editor released.
 
-``CTRL+ALT+SHIFT+W`` shortcut to close editor.
+In version 7.0.71, the Modal Form closing bufas fixed.
 
-``CTRL+ALT+ left or right`` shortcut to move from/to editors.
+In version 7.0.72, below Monaco editor shortcuts were added:
+
+
+``CTRL+ALT+SHIFT+W`` shortcut to close the editor.
+
+``CTRL+ALT+←/→`` shortcut to move from/to editors.
+
+With Apple keyboard:
+
+``control+Option+Shift+W`` shortcut to close the editor.
+
+``Cmd(⌘)+Option+←/→`` shortcut to move from/to editors.
