@@ -37,12 +37,10 @@ Next, clone your fork::
 
         ...\> git clone https://github.com/YourGitHubName/jam-py-v7.git
 
-and start the server:
+and start the server::
 
-.. code-block:: console
-
-    $ cd jam-py-v7/builder
-    $ ./server.py
+        ...\> cd jam-py-v7/builder
+        ...\> ./server.py
 
 
 Open a Web browser and enter
@@ -72,19 +70,14 @@ No changes made within a builder will show in here if the newer run time files
 were not installed.
 
 After customisation is finished, the ``Prepare files`` clicked, we copy all the 
-files from ``jam_files`` folder into to distribution folders:
+files from ``jam_files`` folder into to distribution folders::
 
 
-.. code-block:: console
-  
-  	$ cp -fr jam_files/* ../jam/.
+  	    ...\> cp -fr jam_files/* ../jam/.
 
-To increase the Jam.py version number, we edit below file:
+To increase the Jam.py version number, we edit below file::
 
-
-.. code-block:: console
-  
-  	$ jam/__init__.py
+  	    ...\> vi jam/__init__.py
 
 
 We can now install updated version as usual with the new version number. 

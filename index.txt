@@ -71,7 +71,7 @@ Jam.py classes APIs.
 accomplish common tasks.
 
 Please visit the
-:doc:`table of contents <contents>` or even.
+:doc:`table of contents <contents>` or even
 
 `Jam.py Application Design Tips`_, for a detailed steps how to build the applications or migrate from MS Access.
 
