@@ -82,14 +82,14 @@ Capturing image from camera
 ===========================
 
 You can capture the image from the camera. To do so check the **Capture from camera**
-check box. In this case when the image is not set the video from camera will 
+check box. In this case when the image is not set, the video from camera will 
 be displayed instead of the image placeholder. 
 
 Double-click the video to capture the image. To clear an image, hold down the Ctrl 
 key and double-click the image, after that the video will be displayed.
 
 The image is uploaded automatically to the server, providing the ".png" is added 
-on application :doc:`Parameters </admin/project/parameters>`  :doc:`Accept string </admin/accept_string>`.
+on application :doc:`Parameters </admin/project/parameters>`  :doc:`list of accepted values </admin/accept_string>`.
 
 
 Adding file field
