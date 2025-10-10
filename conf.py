@@ -344,7 +344,7 @@ html_last_updated_fmt = '%b %d, %Y'
 
 # If true, links to the reST sources are added to the pages.
 
-html_show_sourcelink = True
+html_show_sourcelink = False
 
 
 
