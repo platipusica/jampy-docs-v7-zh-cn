@@ -173,9 +173,11 @@ This example uses the Bootstrap grid system:
         </div>
     </div>
 
+
 or:
 
 .. code-block:: html
+
     <div class="tracks-edit">
         <div class="form-body">
             <div class="row">
@@ -214,12 +216,13 @@ or:
 	:alt: Edit form template using grid layout
 
 
+
+
 With headers around each section, like “Track Info” / “Technical Info”:
 
-.. code-block:: js
+.. code-block:: html
 
-    <div class="tracks-edit container-fluid form-body">
-        <!-- Top section -->
+    <div class="tracks-edit">
         <div class="card mb-3">
             <div class="card-header">
                 <h6 class="mb-0">General Information</h6>
@@ -228,8 +231,6 @@ With headers around each section, like “Track Info” / “Technical Info”:
                 <div id="edit-top"></div>
             </div>
         </div>
-
-        <!-- Two-column section -->
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="card h-100">
@@ -239,7 +240,6 @@ With headers around each section, like “Track Info” / “Technical Info”:
                     <div class="card-body" id="edit-left"></div>
                 </div>
             </div>
-
             <div class="col-md-6">
                 <div class="card h-100">
                     <div class="card-header">
@@ -251,7 +251,9 @@ With headers around each section, like “Track Info” / “Technical Info”:
         </div>
     </div>
 
-
+.. image:: /programming/_images/edit_form_tepmlate_layout_headers_jampy.png
+	:align: center
+	:alt: Edit form template using grid layout with headers
 
 
 Catalogs view form template
