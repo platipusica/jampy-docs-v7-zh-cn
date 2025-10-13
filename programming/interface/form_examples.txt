@@ -162,22 +162,31 @@ This example uses the Bootstrap grid system:
 .. code-block:: html
 
     <div class="tracks-edit">
-        <div class="form-body">
-            <div class="row-fluid">
-                <div id="edit-top" class="span12 edit-border"></div>
+        <div class="container-fluid form-body">
+            <div class="row mb-3">
+                <div id="edit-top" class="col-12 edit-border"></div>
             </div>
-            <div class="row-fluid">
-                <div id="edit-left" class="span6 edit-border"></div>
-                <div id="edit-right" class="span6 edit-border"></div>
+            <div class="row">
+                <div id="edit-left" class="col-md-6 edit-border"></div>
+                <div id="edit-right" class="col-md-6 edit-border"></div>
             </div>
         </div>
-        <div class="form-footer">
-            <button type="button" id="ok-btn" class="btn btn-ary expanded-btn">
-                <i class="icon-ok"></i> OK<small class="muted">&nbsp;[Ctrl+Enter]</small>
-            </button>
-            <button type="button" id="cancel-btn" class="btn expanded-btn">
-                <i class="icon-remove"></i> Cancel
-            </button>
+    </div>
+
+or:
+
+.. code-block:: html
+    <div class="tracks-edit">
+        <div class="form-body">
+            <div class="row">
+                <div id="edit-top" edit-border"></div>
+                <div class="col-lg-6">
+                        <div id="edit-left" class="edit-border"></div>
+                </div>                            
+                <div class="col-lg-6">                        
+                        <div id="edit-right" class="edit-border"></div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -185,21 +194,65 @@ This example uses the Bootstrap grid system:
 
     function on_edit_form_created(item) {
         item.edit_options.width = 900;
-        item.create_inputs(item.edit_form.find("#edit-top"), {fields: ['name']});
-        item.create_inputs(item.edit_form.find("#edit-left"), {
-            fields: ['album', 'artist', 'composer', 'media_type'],
-            label_width: 90
+
+        item.create_inputs(item.edit_form.find("#edit-top"), {
+            fields: ['name']
         });
+
+        item.create_inputs(item.edit_form.find("#edit-left"), {
+            fields: ['album', 'artist', 'composer', 'media_type']
+        });
+
         item.create_inputs(item.edit_form.find("#edit-right"), {
-            fields: ['genre', 'milliseconds', 'bytes', 'unitprice'],
-            label_width: 90
-        }); 
+            fields: ['genre', 'milliseconds', 'bytes', 'unitprice']
+        });
     }
 
 
 .. image:: /programming/_images/edit_form_tepmlate_layout_jampy.png
 	:align: center
 	:alt: Edit form template using grid layout
+
+
+With headers around each section, like “Track Info” / “Technical Info”:
+
+.. code-block:: js
+
+    <div class="tracks-edit container-fluid form-body">
+        <!-- Top section -->
+        <div class="card mb-3">
+            <div class="card-header">
+                <h6 class="mb-0">General Information</h6>
+            </div>
+            <div class="card-body">
+                <div id="edit-top"></div>
+            </div>
+        </div>
+
+        <!-- Two-column section -->
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h6 class="mb-0">Track Info</h6>
+                    </div>
+                    <div class="card-body" id="edit-left"></div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h6 class="mb-0">Technical Info</h6>
+                    </div>
+                    <div class="card-body" id="edit-right"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
 
 Catalogs view form template
 -----------------------------------
