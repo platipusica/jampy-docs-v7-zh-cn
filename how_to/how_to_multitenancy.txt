@@ -78,4 +78,7 @@ a user_id field:
                               raise Exception('You are not allowed to change record.')
                       elif d.rec_deleted():
                           if d.user_id.old_value != user_id:
-                              raise Exception('You are not allowed to delete record.')                  
+                              raise Exception('You are not allowed to delete record.')      
+                              
+                              
+The user might combine the above with the :doc:`authentication </how_to/authentication/index>`.
