@@ -14,7 +14,7 @@ Here are Andrew's notes:
     The application is started as any other Jam.py application.
     The development process is similar to the development of a regular Jam.py application, except that all server code must be located in the task Server module.
     All functions in Server module that are called from client code using the server method should be registered in the register_events function at the end of the module using the register method, and server item events should be defined in this function.
-    After making and testing changes, the 'Prepare files' button is used. The application will create necessary files in the jam_files folder.
+    After making and testing changes, the "Prepare files" button is used. The application will create necessary files in the jam_files folder.
     If the folder does not exist, it will create one.
     Content of this folder should be copied to the jam folder of the Jam.py distribution package.
 
@@ -25,9 +25,9 @@ Here are Andrew's notes:
     The admin loads the task using get_info method from the builder_structure.info file that was saved when the "Prepare files" button was clicked.
     This is done in the admin.py module that is located in the admin folder of the package.
     The task tree of the project is created when the first request is received by the web application.
-    The task.py module from the 'admin' folder of the package contains the code that creates the project Task tree.
+    The task.py module from the "admin" folder of the package contains the code that creates the project Task tree.
     It uses the administrator user to read the data from admin.sqlite database.
-    To speed up the process the information from corresponding tables is loaded to dictionaries.
+    To speed up the process, the information from corresponding tables is loaded to dictionaries.
 
 First, start with forking `Jam.py-v7`_.
 
@@ -77,7 +77,7 @@ files from ``jam_files`` folder into to distribution folders::
 
 To increase the Jam.py version number, we edit below file::
 
-  	    ...\> vi jam/__init__.py
+  	    ...\> vi ../jam/__init__.py
 
 
 We can now install updated version as usual with the new version number. 
