@@ -139,11 +139,11 @@ Oracle
 Databricks
 ----------
 
-.. image:: /admin/_images/databricks_connection_jampy.pn
+.. image:: /admin/_images/databricks_connection_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: Databricks setup
 
 
 .. note::
-   Databricks workspace/database name is typed as workspace.database in the database field.
+   Databricks workspace and database schema name is typed as ``workspace.database`` in the ``Database`` field.
