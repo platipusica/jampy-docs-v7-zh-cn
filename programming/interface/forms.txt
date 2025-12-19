@@ -44,7 +44,7 @@ For example, all edit forms of the Demo project use the following html template:
     </div>
 
 You can define your own form templates to create your own custom forms. See 
-:doc:`Form templates <form_templates>`
+:doc:`Form templates <form_templates>`.
 
 When some method creates a form the application finds corresponding html template. 
 
@@ -79,7 +79,7 @@ Below is an example of the ``on_edit_form_created`` event handler of the task:
       return true;
   }
 
-In this example, the the ``find`` method  of JQuery is used to to find 
+In this example, the ``find`` method  of JQuery is used to to find 
 elements on the form. 
 
 First, we assign a JQuery ``click`` event to **OK** and **Cancel** buttons,    

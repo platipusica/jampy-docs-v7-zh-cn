@@ -36,31 +36,40 @@ The event handler must return the dictionary with the following attributes:
   :doc:`Roles </admin/roles>`
 * ``role_name`` - role name
 
-The login form is located in the 
-:doc:`index.html </programming/interface/index_html>`
-file. You can add your own
-custom inputs and get their values using form_data parameter
+The login form as a template is located in the Jam.py ``login.html``
+file. 
+You can add your own
+custom file with inputs and get their values using form_data parameter.
+
+The custom ``login.html`` in the project folder will override the default file.
 
 .. code-block:: html
 
-  <form id="login-form" target="dummy" class="form-horizontal" data-caption="Log in">
-      <div class="control-group">
-          <label class="control-label" for="input-login">Login</label>
-          <div class="controls">
-              <input type="text" id="input-login" name="login" tabindex="1" placeholder="login">
-          </div>
-      </div>
-      <div class="control-group">
-          <label class="control-label" for="input-password">Password</label>
-          <div class="controls">
-              <input type="password" id="input-password" name="password" tabindex="2" 
-                  placeholder="password" autocomplete="on">
-          </div>
-      </div>
-      <div class="form-footer">
-          <input type="submit" class="btn expanded-btn pull-right" id="login-btn" value="OK" tabindex="3">
-      </div>
-  </form>
+        <form action="" method="post">
+            <div class="modal-body">
+                <div class="my-1 mx-4 row">
+                    <label for="login" class="col-sm-3 col-form-label">%(login_text)s</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="login" id="login" placeholder="%(login_text)s" value="%(login)s" required>
+                    </div>
+                </div>
+				
+				<div class="my-1 mx-4 row">
+                    <label for="password" class="col-sm-3 col-form-label">%(password_text)s</label>
+                    <div class="col-sm-9">
+					<div class="input-group">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="%(password_text)s" value="%(password)s">
+						<button class="btn btn-outline" type="button" id="togglePassword">
+							<i class="bi bi-eye-fill"></i>
+						</button>
+					</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input class="btn btn-primary px-4" type="submit" value="OK">
+            </div>
+        </form>
 
 
 Example
@@ -83,7 +92,44 @@ project database:
                   'role_id': users.role.value,
                   'role_name': users.role.display_text
               }
+
        
+Adding a Reset Password
+=======================
+
+To add a reset password option, create a custom ``login.html`` file with i.e. below link, 
+develop a custom ``reset_pass.html`` file, and develop ``on_ext_request`` logic and ``on_request`` routing:
+
+.. code-block:: html
+
+		<div class="modal-footer">
+			<a href="/reset_pass.html" class="button" target="_blank">Forgotten password?</a>
+			<button class="btn btn-lg btn-primary w-100 mt-3" type="submit">Login</button>
+		</div>
+
+.. code-block:: py
+
+        def on_request(task, request):
+            parts = request.path.strip('/').split('/')
+            if not parts[0]:
+                if task.logged_in(request):
+                    return task.serve_page('index.html')
+                else:
+                    return task.redirect('/login.html')
+            .
+            .
+            elif parts[0] == 'reset_pass.html':
+                return task.serve_page('reset_pass.html')
+
+        def on_ext_request(task, request, params):
+            reqs = request.split('/')
+            
+            #reset password
+            if reqs[2] == 'reset_pass':
+            .
+            .
+
+
 See also
 ========
 

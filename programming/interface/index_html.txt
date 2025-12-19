@@ -34,8 +34,7 @@ For example
 For forms templates, please see 
 :doc:`Forms <forms>` 
 and
-:doc:`Form templates <form_templates>`.
-for details.
+:doc:`Form templates <form_templates>` for details.
 
 At the end of the file there is a following script:
 
