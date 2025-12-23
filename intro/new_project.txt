@@ -135,7 +135,7 @@ Examples of database setups
     * If using MySQL or MariaDB, the ``MySQLdb`` for Python 2.x is needed. For Python 3.x, the  ``mysql-connector-python`` and ``mysqlclient`` package is needed, as well as database client development files. 
     * If using MSSQL, the ``pymssql`` is needed.
     * If using Oracle, the `cx_Oracle`_ is needed, as well as Python headers (development files).
-    * If using SQLCipher_,  ``sqlcipher3-binary`` package is needed for Linux. There is a standalone DLL for Windows available.
+    * If using SQLCipher_ (TBA),  ``sqlcipher3-binary`` package is needed for Linux. There is a standalone DLL for Windows available.
     * If using IBM_ (TBA),  ``ibm_db`` and ``ibm_db_dbi`` package is needed.
     * If using Firebird,  ``fdb`` package is needed.
     * If using Databricks, ``databricks-sql-connector`` is needed.
@@ -166,6 +166,12 @@ Examples of database setups
     For **SQLite** database, Jam.py doesn’t support importing of metadata into an 
     existing project (project with tables in the database). 
     You can only import metadata into a new project.
+
+
+
+More about the database setups is within the :doc:`Project management </admin/project/database>`.
+
+
 
 If all goes well, a new project will be created and the project tree will appear 
 in the Application builder.    
