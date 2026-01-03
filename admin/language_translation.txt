@@ -17,6 +17,7 @@ folder in the package.
 
 If you want your language translation to be included to Jam.py package,
 export it to a file and contact the package maintainer on GitHub to include it.
+Or, send the file to Jam.py mailgroup.
 
 Please note that Jam.py is constantly evolving and by submitting your translation 
 you might need to make the necessary changes in the future. If you don't mind 
