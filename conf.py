@@ -450,7 +450,7 @@ latex_elements = {
 
 latex_documents = [
 
-  (master_doc, 'Jampydocumentation.tex', u'Jam.py documentation Documentation',
+  (master_doc, 'Jampydocumentation.tex', u'Jam.py V7 文档',
 
    u'Andrew Yushev & Dean D. Babic', 'manual'),
 
