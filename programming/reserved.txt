@@ -1,12 +1,12 @@
 ==============
-Reserved words
+保留字
 ==============
 
-Since Jam.py is Python and JavaScript language framework, valid Python and JavaScript identifiers 
-should be used.
-In addition, for all supported databases, their own valid identifiers should be used.
+由于 Jam.py 是 Python 和 JavaScript 语言框架，因此应使用有效的 Python 和 JavaScript 标识符。
+此外，对于所有支持的数据库，应使用它们各自的有效标识符。
 
-The file containing example list is ``keywords.py``, with below content:
+包含示例列表的文件是 ``keywords.py``，其内容如下：
+
 
 .. code-block:: py
 

@@ -1,135 +1,116 @@
 =========================
-Tutorial. Part 3. Details 
+教程。第三部分：明细表
 =========================
 
-In this part of the tutorial we will explain how to work with details.
+在本部分教程中，我们将解释如何使用明细表。
 
-
-Let's select the "Task/Groups" item in the project tree and and click the **New** 
-button at the bottom right corner of the page:
-
+让我们在项目树中选择"Task/Groups"（任务/组）项目，并点击页面右下角的 **New** （新建）按钮：
 
 .. image:: /intro/_images/detail_group_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: detail_group_jampy.png
 
-Name it "Details":
+将其命名为"Details"（明细表）：
 
 .. image:: /intro/_images/detail_group_not_visible_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: detail_group_not_visible_jampy.png
 
-
-In the
-:doc:`Item Editor </admin/items/item_editor_dialog>`
-dialog box, we will name the new item "To do list" and add the two fields 
-"Created" and "To do" in the same way as in the previous tutorial:
+在
+:doc:`项目编辑器 </admin/items/item_editor_dialog>`
+对话框中，我们将新项目命名为"To do list"（待办事项列表），并按照前一教程的方式添加"Created"（创建时间）和"To do"（待办事项）两个字段：
 
 .. image:: /intro/_images/new_detail_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: new_detail_jampy.png
 
-
 .. note::
-    The most important step now is to create the field that "links" the Detail to its Master.
-    This is a key difference from Jam.py v5, where Detail records were handled as a legacy feature.
+    现在最重要的一步是创建将明细表与其主表"链接"起来的字段。
+    这是与 Jam.py v5 的一个关键区别，在 v5 中明细表记录是作为遗留功能处理的。
 
-For example, create field "ContactID":
+例如，创建字段"ContactID"（联系人ID）：
 
 .. image:: /intro/_images/new_detail_lookup_id_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: new_detail_lookup_id_jampy.png
 
-
-The "ID" field is a :doc:`lookup field </programming/data/lookup_fields>` to "Contacts" table.
-
+"ID"字段是到"Contacts"（联系人）表的 :doc:`查找字段 </programming/data/lookup_fields>`。
 
 .. image:: /intro/_images/new_detail_lookup_id_field_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: new_detail_lookup_id_field_jampy.png
-	
 
-After saving the "To do list", select the "Contacts" journal and click the 
-**Details** button in the right pane to open the 
-:doc:`Details Dialog </admin/items/details_dialog>`.
-
-
+保存"To do list"（待办事项列表）后，选择"Contacts"（联系人）日志，然后点击右侧窗格中的 **Details** （明细表）按钮，打开
+:doc:`明细表对话框 </admin/items/details_dialog>`。
 
 .. image:: /intro/_images/new_detail_to_do_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: new_detail_to_do_jampy.png
 
-
-Click the right arrow button to add the "To do list" to the "Contacts" details 
-and the **OK** button to save changes.
+点击右箭头按钮将"To do list"（待办事项列表）添加到"Contacts"（联系人）的明细表中，然后点击 **OK** （确定）按钮保存更改。
 
 .. image:: /intro/_images/details_dialog_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: details_dialog_jampy.png
 
-A new "To do list" item will be created as a child of the "Contacts" journal.
+一个新的"To do list"（待办事项列表）项目将被创建为"Contacts"（联系人）日志的子项。
 
 .. image:: /intro/_images/contacts_to_do_list_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: contacts_to_do_list_jampy.png
 
-Select the "Contacts" journal again and  click the **Edit form** button to open the
-:doc:`Edit Form Dialog </admin/items/edit_form_dialog>`. Select **Form** tab,
-click the button to the right of the **Edit details** input and select the 
-"To do list" check box.
+再次选择"Contacts"（联系人）日志，点击 **Edit form** （编辑表单）按钮打开
+:doc:`编辑表单对话框 </admin/items/edit_form_dialog>`。选择 **Form** （表单）选项卡，
+点击 **Edit details** （编辑明细表）输入框右侧的按钮，然后勾选"To do list"（待办事项列表）复选框。
 
 .. image:: /intro/_images/details_to_edit_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: details_to_edit_jampy.png
 
-Let's update the project page and dblclick on the contact. Now we can add items 
-to the to-do list of the contact.
+让我们更新项目页面并双击某个联系人。现在我们可以为该联系人的待办事项列表添加项目。
 
 .. image:: /intro/_images/new_to_do_item_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: new_to_do_item_jampy.png
 
-
-Click the **Groups** node in the project tree, dblclick the **Details** row and 
-set Visible attribute to true.
+点击项目树中的 **Groups** （组）节点，双击 **Details** （明细表）行，并将 Visible（可见）属性设置为 true（是）。
 
 .. image:: /intro/_images/detail_group_visible_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: detail_group_visible_jampy.png
 
-When we refresh the project page, we will see the "To do list" item in the main menu.	
-Click on it to see the to do list of all contacts.
+当我们刷新项目页面时，我们将在主菜单中看到"To do list"（待办事项列表）项目。
+点击它以查看所有联系人的待办事项列表。
 
 .. image:: /intro/_images/todo_all_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: todo_all_jampy.png
 
-Select the "Contacts" journal again and  click the **View form** button to open the
-:doc:`View Form Dialog </admin/items/view_form_dialog>`.
-Select **Form** tab, click the button to the right of the **View detail** input and 
-select the "To do list" check box.
+再次选择"Contacts"（联系人）日志，点击 **View form** （查看表单）按钮打开
+:doc:`查看表单对话框 </admin/items/view_form_dialog>`。
+选择 **Form** （表单）选项卡，点击 **View detail** （查看明细表）输入框右侧的按钮，
+然后勾选"To do list"（待办事项列表）复选框。
 
 .. image:: /intro/_images/contacts_view_detail_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: contacts_view_detail_jampy.png
 
-In the project page will see that the to-do list changes when the contact changes.
+在项目页面中，您将看到当联系人更改时，待办事项列表也会相应更改。
 
 .. image:: /intro/_images/todo_completed_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: todo_completed_jampy.png
-

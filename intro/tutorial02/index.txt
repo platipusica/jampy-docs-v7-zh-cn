@@ -1,30 +1,29 @@
 =======================================
-Tutorial. Part 2. File and image fields
+教程。第二部分：文件和图像字段
 =======================================
 
-In this part we will demonstrate how to work with files and images in Jam.py.
+在本部分中，我们将演示如何在 Jam.py 中处理文件和图像。
 
-Adding Image field
+添加图像字段
 ==================
 
-Let's select the "Customers" catalog, Double-click it to open the
-:doc:`Item Editor Dialog </admin/items/item_editor_dialog>`
-and add an image field "Photo":
+让我们选择"Customers"（客户）目录，双击它以打开
+:doc:`项目编辑器对话框 </admin/items/item_editor_dialog>`
+并添加一个图像字段"Photo"（照片）：
 
 .. image:: /intro/_images/image_field_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: image_field_jampy.png
 
-Now refresh the project page, click the Customers menu item and open the edit form.
+现在刷新项目页面，点击 Customers（客户）菜单项并打开编辑表单。
 
 .. image:: /intro/_images/image_project1_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: image_project1_jampy.png
 
-Double-click the image in the editing form to select an image from the Open File 
-dialog box.
+双击编辑表单中的图像，从“打开文件”对话框中选择一张图像。
 
 .. image:: /intro/_images/select_image_jampy.png
 	:scale: 50%
@@ -39,12 +38,12 @@ dialog box.
 
 .. note::
 
-  To clear an image, hold down the Ctrl key and double-click the image.
+  要清除图像，请按住 Ctrl 键并双击图像。
 
-Let's open the
-:doc:`Field Editor Dialog </admin/items/field_editor_dialog>`
-in Application Builder and set **View width** to 120 and
-**Edit width** to 314 on the **Interface** tab.
+让我们在应用程序构建器中打开
+:doc:`字段编辑器对话框 </admin/items/field_editor_dialog>`
+并在 **Interface**（界面）选项卡上将 **View width**（查看宽度）设置为 120，
+将 **Edit width**（编辑宽度）设置为 314。
 
 .. image:: /intro/_images/image_field2_jampy.png
 	:scale: 50%
@@ -53,18 +52,18 @@ in Application Builder and set **View width** to 120 and
 
 .. note::
 
-  You can set the image placeholder by double-clicking on it.
+  您可以通过双击来设置图像占位符。
 
-In the
-:doc:`View Form Dialog </admin/items/view_form_dialog>`
-we set **Row lines** to 4 and the width of the "Photo" field to 120.  
+在
+:doc:`查看表单对话框 </admin/items/view_form_dialog>`
+中，我们将 **Row lines**（行数）设置为 4，并将"Photo"（照片）字段的宽度设置为 120。
 
 .. image:: /intro/_images/image_view_form_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: image_view_form_jampy.png
 
-Now on the project page we will have:
+现在在项目页面上我们将看到：
 
 .. image:: /intro/_images/image_edit_jampy.png
 	:scale: 50%
@@ -72,69 +71,64 @@ Now on the project page we will have:
 	:alt: image_edit_jampy.png
 
 
-See also
+另请参阅
 ========
 
-:doc:`accept string </admin/accept_string>`
+:doc:`接受字符串 </admin/accept_string>`
 
 	
-Capturing image from camera
+从摄像头捕获图像
 ===========================
 
-You can capture the image from the camera. To do so check the **Capture from camera**
-check box. In this case when the image is not set, the video from camera will 
-be displayed instead of the image placeholder. 
+您可以从摄像头捕获图像。为此，请勾选 **Capture from camera**（从摄像头捕获）复选框。
+在这种情况下，当图像未设置时，将显示摄像头视频流而不是图像占位符。
 
-Double-click the video to capture the image. To clear an image, hold down the Ctrl 
-key and double-click the image, after that the video will be displayed.
+双击视频以捕获图像。要清除图像，请按住 Ctrl 键并双击图像，之后将显示视频流。
 
-The image is uploaded automatically to the server, providing the ".png" is added 
-on application :doc:`Parameters </admin/project/parameters>`  :doc:`list of accepted values </admin/accept_string>`.
+图像会自动上传到服务器，前提是应用程序的 :doc:`参数 </admin/project/parameters>` 
+中的 :doc:`可接受值列表 </admin/accept_string>` 中添加了 ".png"。
 
 
-Adding file field
+添加文件字段
 =================
 
-Now we add a field that will store an attachment file to the "Contacts" journal.
+现在，我们向"Contacts"（联系人）日志添加一个用于存储附件的字段。
 
 .. image:: /intro/_images/file_field_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: file_field_jampy.png
 
-This field will be displayed in the editing form as follows:
+该字段在编辑表单中将如下显示：
 
 .. image:: /intro/_images/appendix_edit_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: appendix_edit_jampy.png
 	
-The field input have three buttons on the right - to upload, to download and to 
-open a file. 	
+字段输入框右侧有三个按钮——用于上传、下载和打开文件。
 
-Let's open the
-:doc:`Field Editor Dialog </admin/items/field_editor_dialog>`
-in Application Builder and uncheck the **Download btn** check box and set
-**Accept** attribute to '.pdf'.
+让我们在应用程序构建器中打开
+:doc:`字段编辑器对话框 </admin/items/field_editor_dialog>`
+取消勾选 **Download btn**（下载按钮）复选框，并将
+**Accept**（接受）属性设置为 '.pdf'。
 
-Please review the :doc:`list of accepted values </admin/accept_string>`,
-before adding the values.
-
+在添加值之前，请查看 :doc:`可接受值列表 </admin/accept_string>`。
 
 .. image:: /intro/_images/appendix_interface_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: appendix_interface_jampy.png
-	
-Let's	refresh the project page, open the "Contacts" edit form and upload a file
-by clicking the upload button:
+
+让我们刷新项目页面，打开"Contacts"（联系人）编辑表单，
+通过点击上传按钮上传文件：
 
 .. image:: /intro/_images/appendix_select_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: appendix_select_jampy.png
 
-Now we can open a file in the browser by clicking on the open button.
+现在，我们可以通过点击打开按钮在浏览器中打开文件。
 
 .. image:: /intro/_images/appendix_field2_jampy.png
 	:scale: 50%
@@ -150,14 +144,12 @@ Now we can open a file in the browser by clicking on the open button.
 
 .. note::
 
-  Files and images are stored in the *static/files* folder on the server.
+  文件和图像存储在服务器上的 *static/files* 文件夹中。
   
-  You can limit the size of files that can be uploaded to the server by
-  setting **Max content length** attribute in the 
-  :doc:`project parameters </admin/project/parameters>`.
+  您可以通过在 :doc:`项目参数 </admin/project/parameters>` 中设置 **Max content length**（最大内容长度）属性
+  来限制可以上传到服务器的文件大小。
 
-See also
+另请参阅
 ========
 
-:doc:`accept string </admin/accept_string>`
-
+:doc:`接受字符串 </admin/accept_string>`

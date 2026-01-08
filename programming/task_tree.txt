@@ -1,57 +1,47 @@
 =========
-Task tree
+任务树
 =========
 
-All objects of the framework represent a tree of objects. These object are 
-called items.
+框架的所有对象都表示为一个对象树。这些对象被称为项目。
 
-All items of the tree have common ancestor class ``AbstractItem`` (
-:doc:`client reference </refs/client/abstractitem_api>`
+树中的所有项目都有一个共同的祖先类 ``AbstractItem`` (
+:doc:`客户端参考 </refs/client/abstractitem_api>`
 /
-:doc:`server reference </refs/server/abstractitem_api>`
-) and common attributes:.
+:doc:`服务器端参考 </refs/server/abstractitem_api>`
+)，并具有以下共同属性：
 
-
-* ``ID``  - unique in the framework ID of the item
+* ``ID`` - 项目中在框架内唯一的 ID
 	
-* ``owner`` - immediate parent and owner of the item
+* ``owner`` - 项目的直接父级和所有者
 	
-* ``task`` - root of the task tree
+* ``task`` - 任务树的根节点
 	
-* ``items`` - list of child items
+* ``items`` - 子项目列表
 	
-* ``item_type`` - type of the item
+* ``item_type`` - 项目类型
       
-* ``item_name`` - the name of the item that will be used in programming code 
-  to get access to the item
-	  
-* ``item_caption`` - the item name that appears to users
+* ``item_name`` - 项目的名称，将在编程代码中用于访问该项目
 
-At the root of the tree is the task item. 
+* ``item_caption`` - 向用户显示的项目名称 树的根节点是任务项目。
 
-The task contains group items. There are three types of groups that have the 
-following values of the ``item_type`` attribute:
+任务包含组项目。组有三种类型，它们的 ``item_type`` 属性具有以下值：
 
-* "journals" - these groups contain items with "item" ``item_type``, that can have 
-  associated database table. 
+* "journals" - 这些组包含 ``item_type`` 为"item"的项目，这些项目可以有关联的数据库表。
  
-* "catalogs" - such groups also contain items that can have associated database 
-  tables, but they can be used to create details for other items (see 
-  :doc:`Details <data/details>`
-  ). 
+* "catalogs" - 这类组也包含可以有关联数据库表的项目，但它们可用于为其他项目创建明细表（参见
+  :doc:`明细表 <data/details>`
+  ）。
 
-* "reports" - these groups contain reports - items with "report" ``item_type``, 
-  that are used to create reports.
+* "reports" - 这些组包含报告 - ``item_type`` 为"report"的项目，
+  用于创建报告。
 
-There can be an unlimited number of groups. We would suggest logical name for the
-group, since the name is used for the drop-down menu.
+组的数量没有限制。我们建议为组使用逻辑名称，因为该名称用于下拉菜单。
 
-Items that can have associated database table can own details, that are used to 
-store records that belong to a record of the master.
+可以有关联数据库表的项目可以拥有明细表，用于存储属于主表记录的记录。
 
-For example the task tree of the 
-:doc:`Demo project </intro/demo_project>`
-is::
+例如，
+:doc:`演示项目 </intro/demo_project>`
+的任务树为：::
 
     /demo/
         catalogs/
@@ -76,43 +66,38 @@ is::
         system
         
 
-At the root of the task tree is a task with the ``item_name`` **demo**. It has
-five groups: **catalogs**, **journals**, **details**, **reports**, **analytics** 
-and **system**. The
-**catalogs** and **journals** groups have ``item_type`` "items". The items they own
-are wrappers over the corresponding database tables. There is one detail item with 
-``item_name`` **invoice_table**, that also has its own database table, and three 
-reports in the **reports** group.
+任务树的根节点是一个 ``item_name`` 为 **demo** 的任务。它有
+五个组：**catalogs**、**journals**、**details**、**reports**、**analytics** 
+和 **system**。
+**catalogs** 和 **journals** 组的 ``item_type`` 为"items"。它们所拥有的项目
+是对应数据库表的包装器。有一个明细表项目，其 ``item_name`` 为 **invoice_table**，
+它也有自己的数据库表，而 **reports** 组中有三个报告。
 
-The **invoices** journal has the **invoice_table** detail, which keeps a list 
-of tracks in a customer's invoice. 
-So there are three items with the same name 
-"invoice_table", detail table in Details Group, details for Journal/Invoices and
-detail for Catalogs/Tracks.
+**invoices** 日志拥有 **invoice_table** 明细表，用于保存客户发票中的曲目列表。
+因此，有三个同名的"invoice_table"项目：Details Group 中的明细表、
+Journal/Invoices 的明细表以及 Catalogs/Tracks 的明细表。
 
-Every item is an attribute of its owner and all items, tables and reports are 
-attributes the task as well (they all have a unique ``item_name``). 
+每个项目都是其所有者的属性，所有项目、表和报告也都是
+任务的属性（它们都有唯一的 ``item_name``）。
 
-A task is a global object on the client. To access it, just type ``task`` 
-anywhere in the code.
+在客户端，任务是一个全局对象。要访问它，只需在代码中的任何位置输入 ``task``。
 
-On the server, the task is not global. Jam.py is an event-driven environment.
-Each event has as a parameter the item (or field) that triggered the event.
-Functions defined in the server module of an item that can be executed from 
-the client module using the 
+在服务器端，任务不是全局的。Jam.py 是一个事件驱动的环境。
+每个事件都有一个参数，即触发该事件的项目（或字段）。
+在项目的服务器模块中定义的函数可以通过 
 :doc:`server </refs/client/abstr_item/m_server>`
-method have the corresponding item as the first parameter as well.
+方法从客户端模块执行，这些函数的第一个参数也是相应的项目。
 
-Knowing an item, we can access any other item of the task tree. For example to
-get access to the **customers** catalog we can write
+了解一个项目后，我们就可以访问任务树中的任何其他项目。例如，要
+访问 **customers** 目录，我们可以这样写：
 
 .. code-block:: js
 
   def on_apply(item, delta, params): 
       customers = item.task.catalogs.customers.copy()
-    
 
-or just
+
+或者直接写：
 
 .. code-block:: js
 
@@ -120,22 +105,22 @@ or just
       customers = item.task.customers.copy()
 
 
-The hierarchical structure of the project is one of the bases of the DRY 
-(don't repeat yourself) principle of the framework. 
+项目的层次结构是框架 DRY 
+（不要重复自己）原则的基础之一。
 
-For example, some methods of the items, when executed, successively generate 
-events for the task, group and the item.
+例如，项目的一些方法在执行时，会依次为任务、组和项目生成事件。
 
-This way we can define a basic behavior for all items in the event handler of 
-the task, that can be expanded in the event handler of the group, and finally, 
-if necessary, can be specified in the event handler of the item itself. For more 
-details see
-:doc:`Form events <interface/form_events>`
+这样，我们就可以在任务的事件处理程序中为所有项目定义基本行为，
+这些行为可以在组的事件处理程序中扩展，最后，
+如有必要，可以在项目本身的事件处理程序中具体指定。更多
+详细信息，请参阅
+:doc:`表单事件 <interface/form_events>`
 
-Video
+视频
 =====
 
-The `Task tree`_  video tutorial demonstrates the task tree using
-:doc:`Demo project </intro/demo_project>`
+`Task tree`_ 视频教程使用
+:doc:`演示项目 </intro/demo_project>`
+演示了任务树。
 
 .. _`Task tree`: https://youtu.be/hsSKqEh6vL4

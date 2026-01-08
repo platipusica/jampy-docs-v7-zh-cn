@@ -2,10 +2,10 @@
 新建目录
 ===========
 
-让我们回到应用程序构建器页面，创建一个"Customers"（客户）目录。
+让我们回到应用程序构建器页面，创建一个"Customers" （客户）目录。
 一个目录对应数据库中的一个新表。
 
-为此，在项目树中选择"Catalogs"（目录）组，然后点击页面右下角的 **New**（新建）按钮
+为此，在项目树中选择"Catalogs" （目录）组，然后点击页面右下角的 **New** （新建）按钮
 
 .. image:: /intro/_images/catalogs_jampy.png
 	:scale: 50%
@@ -21,23 +21,23 @@
 	:align: center
 	:alt: 新客户目录
 
-然后，点击对话框右下角的 **New**（新建）按钮添加新字段。将出现
+然后，点击对话框右下角的 **New** （新建）按钮添加新字段。将出现
 :doc:`字段编辑器 </admin/items/field_editor_dialog>`
-对话框。输入"Firstname"（名字）字段的标题和名称，选择其类型（此处为 30 个字符的 ``TEXT`` 类型），然后点击 **OK**（确定）按钮。
+对话框。输入"Firstname" （名字）字段的标题和名称，选择其类型（此处为 30 个字符的 ``TEXT`` 类型），然后点击 **OK** （确定）按钮。
 
 .. image:: /intro/_images/firstname_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: 新任务日志
 
-类似地，添加"Lastname"（姓氏）和"Phone"（电话）字段。添加"Lastname"（姓氏）字段时，请勾选 **Required**（必填）属性。这要求在创建新项目时必须设置该字段。
+类似地，添加"Lastname" （姓氏）和"Phone" （电话）字段。添加"Lastname" （姓氏）字段时，请勾选 **Required** （必填）属性。这要求在创建新项目时必须设置该字段。
 
 .. image:: /intro/_images/customers_fields_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: 客户字段
-	
-现在，要保存更改，请点击 **OK**（确定）按钮。保存时，应用程序构建器将在 ``crm.sqlite`` 数据库中创建 ``CRM_CUSTOMERS`` 表：
+
+现在，要保存更改，请点击 **OK** （确定）按钮。保存时，应用程序构建器将在 ``crm.sqlite`` 数据库中创建 ``CRM_CUSTOMERS`` 表：
 
 
 .. image:: /intro/_images/customer_sql_jampy.png
@@ -54,8 +54,8 @@
 
 
 
-然后，点击 **New**（新建）按钮创建一个新客户。
-填写对话框，然后点击 **OK**（确定）按钮：
+然后，点击 **New** （新建）按钮创建一个新客户。
+填写对话框，然后点击 **OK** （确定）按钮：
 
 .. image:: /intro/_images/customers_refresh_jampy.png
 	:scale: 50%

@@ -1,53 +1,50 @@
 ======
-Fields
+字段
 ======
 
-All items, working with database table data have a 
+所有处理数据库表数据的项目都有一个
 :doc:`fields </refs/client/item/at_fields>`
-attribute - a list of field objects, which are used to represent fields in item's
-table records. 
+属性——一个字段对象列表，用于表示项目表记录中的字段。
 
-Every field have the following attributes:
+每个字段都有以下属性：
+
+.. csv-table:: 
+   :header: 客户端, 服务器端, 描述
+   :widths: 10, 10, 80
+
+   :doc:`owner </refs/client/field/at_owner>`, :doc:`owner </refs/server/field/at_owner>`, "拥有此字段的项目。"
+   :doc:`field_name </refs/client/field/at_field_name>`, :doc:`field_name </refs/server/field/at_field_name>`, "字段的名称，将在编程代码中用于访问字段对象。"   
+   :doc:`field_caption </refs/client/field/at_field_caption>`, :doc:`field_caption </refs/server/field/at_field_caption>`, "向用户显示的字段名称。"   
+   :doc:`field_type </refs/client/field/at_field_type>`, :doc:`field_type </refs/server/field/at_field_type>`, "字段类型，为以下值之一：**text**、**integer**、**float**、**currency**、**date**、**datetime**、**boolean**、**blob**。"      
+   :doc:`field_size </refs/client/field/at_field_size>`, :doc:`field_size </refs/server/field/at_field_size>`, "类型为 **text** 的字段大小"   
+   :doc:`required </refs/client/field/at_required>`, :doc:`required </refs/server/field/at_required>`, "指定字段是否需要非空值。"   
+
+为了访问项目数据集数据，Field 类具有以下属性：
 
 .. csv-table:: 
    :header: Client, Server, Description
    :widths: 10, 10, 80
 
-   :doc:`owner </refs/client/field/at_owner>`, :doc:`owner </refs/server/field/at_owner>`, "The item that owns this field."
-   :doc:`field_name </refs/client/field/at_field_name>`, :doc:`field_name </refs/server/field/at_field_name>`, "The name of the field that will be used in programming code to get access to the field object."   
-   :doc:`field_caption </refs/client/field/at_field_caption>`, :doc:`field_caption </refs/server/field/at_field_caption>`, "The name of the field that appears to users."   
-   :doc:`field_type </refs/client/field/at_field_type>`, :doc:`field_type </refs/server/field/at_field_type>`, "Type of the field, one of the following values: **text**, **integer**, **float**, **currency**,  **date**, **datetime**, **boolean**, **blob**."      
-   :doc:`field_size </refs/client/field/at_field_size>`, :doc:`field_size </refs/server/field/at_field_size>`, "A size of the field with type **text**"   
-   :doc:`required </refs/client/field/at_required>`, :doc:`required </refs/server/field/at_required>`, "Specifies whether a nonblank value for a field is required."   
+   :doc:`value </refs/client/field/at_value>`, :doc:`value </refs/server/field/at_value>`, "使用此属性获取或设置当前记录的字段值。读取时，值会转换为字段的类型。因此，对于 integer、float 和 currency 类型的字段，如果数据库表记录中此字段的值为 NULL，则此属性的值为 0。要获取未转换的值，请使用 raw_value 属性。"
+   :doc:`text </refs/client/field/at_text>`, :doc:`text </refs/server/field/at_text>`, "使用此属性以文本形式获取或设置字段的值。"
+   :doc:`lookup_value </refs/client/field/at_lookup_value>`, :doc:`lookup_value </refs/server/field/at_lookup_value>`, "使用此属性获取或设置查找值，请参阅 :doc:`查找字段 <lookup_fields>`。"
+   :doc:`lookup_text </refs/client/field/at_lookup_text>`, :doc:`lookup_text </refs/server/field/at_lookup_text>`, "使用此属性以文本形式获取或设置字段的查找值，请参阅 :doc:`查找字段 <lookup_fields>`。"
+   :doc:`display_text </refs/client/field/at_display_text>`, :doc:`display_text </refs/server/field/at_display_text>`, "表示字段值在数据感知控件中的显示形式。如果字段是查找字段，则其值为 lookup_text 值；否则，考虑到项目区域设置参数，其为 text 值。此行为可由拥有该字段的项目的 :doc:`on_field_get_text </refs/client/item/on_field_get_text>` 事件处理程序覆盖。"   
+   :doc:`raw_value </refs/client/field/at_raw_value>`, :doc:`raw_value </refs/server/field/at_raw_value>`, "使用此属性获取当前记录的字段值，如其存储在数据库中的形式。不进行任何转换。"      
 
+此外，每个字段都是其所属项目的一个属性。因此，要
+访问项目的字段，请使用以下语法：``item.field_name``
 
-To get access to the item dataset data, the Field class have the following properties: 
-
-.. csv-table:: 
-   :header: Client, Server, Description
-   :widths: 10, 10, 80
-
-   :doc:`value </refs/client/field/at_value>`, :doc:`value </refs/server/field/at_value>`, "Use this property to get or set the field's value of the current record. When reading the value is converted to the type of the field. So for fields of type integer, float and currency, if value for this field in database table record is NULL, value of this property is 0. To get unconverted value use the raw_value property."
-   :doc:`text </refs/client/field/at_text>`, :doc:`text </refs/server/field/at_text>`, "Use this property to get or set the value of the field as text."
-   :doc:`lookup_value </refs/client/field/at_lookup_value>`, :doc:`lookup_value </refs/server/field/at_lookup_value>`, "Use this property to get or set lookup value, see :doc:`Lookup fields <lookup_fields>`."
-   :doc:`lookup_text </refs/client/field/at_lookup_text>`, :doc:`lookup_text </refs/server/field/at_lookup_text>`, "Use this property to get or set the lookup value of the field as text, see :doc:`Lookup fields <lookup_fields>`."
-   :doc:`display_text </refs/client/field/at_display_text>`, :doc:`display_text </refs/server/field/at_display_text>`, "Represents the field's value as it is displayed in data-aware controls. When the field is a lookup field it's value is the lookup_text value, otherwise it is the text value, with regard of project locale parameters. This behavior can be overridden by the :doc:`on_field_get_text </refs/client/item/on_field_get_text>` event handler of the item that owns the field."   
-   :doc:`raw_value </refs/client/field/at_raw_value>`, :doc:`raw_value </refs/server/field/at_raw_value>`, "Use this property to get field value of the current record as it is stored in database. No conversion is used."      
-
-In addition every field is an attribute of the item that owns it. So, to get 
-access to a field of an item use the following syntax: ``item.field_name``
 
 .. code-block:: js
     
     invoices.total.value  
     
-``invoices.total`` is the reference to the
-**Total** field of the **Invoices** item and the 
-``invoices.total.value`` is the value of this field
+``invoices.total`` 是对 **Invoices** （发票）项目的 **Total** （总计）字段的引用，
+而 ``invoices.total.value`` 是该字段的值。
 
     
-Below are the values of the attributes of the fields of the **invoices** item in the 
-:doc:`Demo project </intro/demo_project>`
+以下是 :doc:`演示项目 </intro/demo_project>` 中 **invoices** （发票）项目字段的属性值：
 ::
 
   customer integer 

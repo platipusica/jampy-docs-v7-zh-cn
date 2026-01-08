@@ -1,22 +1,21 @@
 =======
-Details
+明细表
 =======
 
-Details are used in the framework to work with tabular data, pertaining to a record 
-in an item's table.
+在框架中，明细表用于处理与项目表中记录相关的表格数据。
 
-For example, the **Invoices** journal in the Demo application has the 
-**InvoiceTable** detail, which keeps a list of tracks in a customer's invoice.
+例如，演示应用程序中的 **Invoices** （发票）日志拥有
+**InvoiceTable** （发票表格）明细表，用于保存客户发票中的曲目列表。
 
-Details and detail items share the same underlying database table.
- 
-To create a detail, you must first create a detail item (select Details group of 
-the project tree and click on New button) and then use the
-:doc:`Details Dialog </admin/items/details_dialog>`
-(select item in the project tree and click on Details button)
-to add a detail to an item.
+明细表和明细表项目共享相同的底层数据库表。
 
-For example the following code
+要创建明细表，您必须首先创建一个明细表项目（选择项目树中的 Details（明细表）组，
+然后点击 New（新建）按钮），然后使用
+:doc:`明细表对话框 </admin/items/details_dialog>`
+（在项目树中选择项目，然后点击 Details（明细表）按钮）
+将明细表添加到项目中。
+
+例如，以下代码
 
 .. code-block:: py
 
@@ -27,44 +26,41 @@ For example the following code
         task.invoices.open(limit=1)
             task.invoices.invoice_table.open()	
         print task.invoices.invoice_table.record_count()
-    
-will print::
+
+将打印：::
 
     2259
     6
 
-In Jam.py v5, Details have two 
-:doc:`common fields <common_fields>` -
-``master_id`` and ``master_rec_id``, that are used to store information about the 
-``ID`` of the master (each item have its own unique ID) and the value of the primary 
-field of the record of its master. This way each table can be linked to several 
-items. As well as each item can have several details. To get access to details of 
-an item use its ``details`` attribute. To get access to the master of the detail 
-use its ``master`` attribute.
+在 Jam.py v5 中，明细表有两个
+:doc:`公共字段 <common_fields>` -
+``master_id`` 和 ``master_rec_id``，用于存储有关主表
+``ID`` 的信息（每个项目都有自己唯一的 ID）以及其主表记录的主字段值。
+这样，每个表都可以链接到多个项目。同样，每个项目也可以有多个明细表。
+要访问项目的明细表，请使用其 ``details`` 属性。要访问明细表的主表，
+请使用其 ``master`` 属性。
 
-In Jam.py v7, the above two fields do not exist, however, they are supported for
-migrated v5 application. The Jam.py v7 application will use the Lookup fields for 
-master as details, normally as Foreign Keys fields.
+在 Jam.py v7 中，上述两个字段不存在，但对于迁移的 v5 应用程序，它们仍受支持。
+Jam.py v7 应用程序将使用查找字段作为主表的明细表，通常作为外键字段。
 
-
-Detail class, used to create details, is an ancestor of the Item class and 
-inherits all its attributes, methods and events.
+用于创建明细表的 Detail 类是 Item 类的祖先，并
+继承了其所有属性、方法和事件。
 
 .. note::
 
-    The ``apply`` method of the Detail class does nothing. To write changes made 
-    to a detail use ``apply`` method of its master.
+    Detail 类的 ``apply`` 方法不执行任何操作。要保存对明细表所做的更改，
+    请使用其主表的 ``apply`` 方法。
     
-    To work with a detail its muster must be active
+    要使用明细表，其主表必须处于活动状态。
     
-    To make any changes to a detail its master must be in an edit or insert mode
-    
-Examples
+    要对明细表进行任何更改，其主表必须处于编辑或插入模式。
+
+示例
 ========
 
-In this example from the client module of the **Invoices** item of 
-:doc:`Demo project </intro/demo_project>`, the **Invoice_table** detail is 
-reopened every time the cursor of its master moves to another record.
+在这个来自
+:doc:`演示项目 </intro/demo_project>` 的 **Invoices** （发票）项目客户端模块的示例中，
+每次其主表的游标移动到另一条记录时， **Invoice_table** （发票表格）明细表都会重新打开。
 
 .. code-block:: js
 
@@ -80,7 +76,7 @@ reopened every time the cursor of its master moves to another record.
         );
     }
 
-And just as an example:
+以下是一个示例：
 
 .. code-block:: py
 
@@ -100,7 +96,7 @@ And just as an example:
             i.post()
         invoices.apply()
     
-The same code on the client will be as follows:
+客户端上的相同代码如下：
 
 .. code-block:: js
 

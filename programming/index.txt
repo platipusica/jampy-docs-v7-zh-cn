@@ -1,8 +1,8 @@
 ==================
-Jam.py programming
+Jam.py 编程
 ==================
 
-Here, the basic concepts of Jam.py programming  will be explained.
+在这里，我们将解释 Jam.py 编程的基本概念。
 
 .. toctree::
    :maxdepth: 2

@@ -1,76 +1,73 @@
 ========
-Workflow
+工作流程
 ========
 
-In the Jam.py framework, two tasks work at the same time: the Application builder 
-and the Project. 
-Each of them represents a tree of objects - there is the Application builder task 
-tree and the Project task tree. Therefore, before considering the Jam.py workflow, 
-you need to familiarize yourself with the concept of the 
-:doc:`task tree <task_tree>`.
+在 Jam.py 框架中，同时运行着两个任务：应用程序构建器
+和项目。
+每个任务都代表一个对象树——有应用程序构建器任务树
+和项目任务树。因此，在了解 Jam.py 工作流程之前，
+您需要先熟悉 
+:doc:`任务树 <task_tree>`
+的概念。
 
-The the Jam.py workflow is the following:
+Jam.py 的工作流程如下：
 
-* When server.py is run it creates WSGI application that, in its own turn, 
-  creates the Application builder task tree.
-* The Project task tree is created on the server by Application builder after the 
-  server receives first request from the Project client. To do so, the 
-  Application builder uses metadata stored in admin.sqlite database in the root folder
-  of the project. After creating a task tree the server application triggers the
+* 当运行 server.py 时，它会创建 WSGI 应用程序，而该应用程序又会
+  创建应用程序构建器任务树。
+* 项目任务树由应用程序构建器在服务器端创建，当
+  服务器收到来自项目客户端的第一个请求时。为此，
+  应用程序构建器使用存储在项目根文件夹中的 admin.sqlite 数据库中的元数据。
+  创建任务树后，服务器应用程序会触发
   :doc:`on_created </refs/server/task/on_created>`
-  event, that can be used to initialize the server task tree.
-* When an application on the client (Application builder or Project) is first run in 
-  the browser (after ``builder.html`` or ``index.html`` have been loaded) the 
-  empty task object is built that sends to the server a request to initialize 
-  itself.
-* If the project 
-  :doc:`safe mode </admin/project/parameters>`
-  parameter is set, the framework checks if a user is logged, before executing 
-  any request. If not, then the 
-  application on the client creates a login form, and after the user inputs its 
-  login and password, the client task sends the server a request to login.
-* After successful login or if the project
-  :doc:`safe mode </admin/project/parameters>`
-  parameter is not set, the server sends the client information about the 
-  requested task. The task on the client builds its tree, based on this 
-  information, assigns event handlers to its objects and executes 
+  事件，该事件可用于初始化服务器任务树。
+* 当客户端应用程序（应用程序构建器或项目）首次在浏览器中运行
+  （加载 ``builder.html`` 或 ``index.html`` 后），会
+  构建一个空的任务对象，该对象向服务器发送请求以初始化自身。
+* 如果项目的
+  :doc:`安全模式 </admin/project/parameters>`
+  参数已设置，框架在执行任何请求之前会检查用户是否已登录。
+  如果未登录，则
+  客户端应用程序会创建登录表单，用户输入其
+  用户名和密码后，客户端任务会向服务器发送登录请求。
+* 登录成功后，或者如果项目的
+  :doc:`安全模式 </admin/project/parameters>`
+  参数未设置，服务器会向客户端发送有关
+  所请求任务的信息。客户端的任务根据此
+  信息构建其树，为其对象分配事件处理程序，并执行
   :doc:`on_page_loaded </refs/client/task/on_page_loaded>`
-  event handler. 
-* In this event handler a developer should attach JQuery event handler 
-  functions to HTML elements of the DOM, defined in the ``index.html`` file. 
-  In these functions a developer can use methods of items of the 
-  :doc:`task tree <task_tree>`
-  to perform some specific tasks. 
-  These methods, when executed, trigger different events in which other methods 
-  could be called and so on. See
-  :doc:`Client side programming <interface/index>`.
-* Items of the task tree, that have corresponding database tables, have methods 
-  to read and write data in the server database. See 
-  :doc:`Data programming <data/index>`.
-* The report items generate the reports on the server, based on the LibrOffice
-  templates. See
-  :doc:`Programming reports <reports/index>`.
-* All the items, whose methods generate a request to the server, do it the 
-  following way: they call the method of the task that sends to the server the 
+  事件处理程序。
+* 在此事件处理程序中，开发人员应将 JQuery 事件处理程序函数
+  附加到 ``index.html`` 文件中定义的 DOM 的 HTML 元素。
+  在这些函数中，开发人员可以使用
+  :doc:`任务树 <task_tree>`
+  项目的方法来执行某些特定任务。
+  这些方法在执行时，会触发不同的事件，在这些事件中可以调用其他方法，
+  依此类推。请参阅
+  :doc:`客户端编程 <interface/index>`。
+* 任务树中具有对应数据库表的项目，有方法
+  可以在服务器数据库中读取和写入数据。请参阅
+  :doc:`数据编程 <data/index>`。
+* 报告项目基于 LibreOffice 模板在服务器上生成报告。请参阅
+  :doc:`报告编程 <reports/index>`。
+* 所有其方法生成对服务器的请求的项目，都以
+  以下方式执行：它们调用任务的方法，向服务器发送任务的
   :doc:`ID </refs/client/abstr_item/at_id>`
-  of the task, the
+  和项目的
   :doc:`ID </refs/client/abstr_item/at_id>`
-  the item, the type of the request and its parameters.
-  The server on receiving the request, based on passed IDs, finds the task 
-  (it can be Project task or Application builder task) and the item on the server, 
-  executes the corresponding method with passed parameters and returns the result 
-  of the execution to the client. These server methods could trigger their own 
-  events that can override the default behavior. See
-  :doc:`Server side programming <server/index>`
+  请求类型及其参数。
+  服务器收到请求后，根据传递的 ID，找到服务器上的任务
+  （可以是项目任务或应用程序构建器任务）和项目，
+  使用传递的参数执行相应方法，并将执行结果
+  返回给客户端。这些服务器方法可能会触发它们自己的
+  事件，这些事件可以覆盖默认行为。请参阅
+  :doc:`服务器端编程 <server/index>`。
 
-Video
+视频
 =====
 
-`Form events`_ and `Client-server interactions`_ video tutorials illustrate 
-the workflow of Jam.py project.
- 
+`Form events`_ 和 `Client-server interactions`_ 视频教程说明了
+Jam.py 项目的工作流程。
+
 .. _`Form events`: https://youtu.be/DY463lcv0R4
 
 .. _`Client-server interactions`: https://youtu.be/nLOhdA2FX0I
-
-  

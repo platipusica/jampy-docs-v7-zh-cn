@@ -5,7 +5,7 @@
 :doc:`过滤器 </programming/data/filters>`
 用于根据指定条件从数据库表中选择记录。
 
-点击 **Filters**（过滤器）按钮打开
+点击 **Filters** （过滤器）按钮打开
 :doc:`过滤器对话框 </admin/items/filters_dialog>`。
 
 .. image:: /intro/_images/filters_dlg_jampy.png
@@ -13,7 +13,7 @@
 	:align: center
 	:alt: 过滤器对话框
 
-现在点击 **New**（新建）按钮并填写以下表单：
+现在点击 **New** （新建）按钮并填写以下表单：
 
 .. image:: /intro/_images/new_filter_jampy.png
 	:scale: 50%
@@ -26,9 +26,9 @@
 	:scale: 50%
 	:align: center
 	:alt: 所有过滤器
-	
-当我们刷新项目页面时，**Filters**（过滤器）按钮将出现在
-"Contacts"（联系人）表单的标题栏中。点击此按钮将打开"Filters"（过滤器）对话框：
+
+当我们刷新项目页面时， **Filters** （过滤器）按钮将出现在
+"Contacts" （联系人）表单的标题栏中。点击此按钮将打开"Filters" （过滤器）对话框：
 
 .. image:: /intro/_images/contacts_filters_jampy.png
 	:scale: 50%

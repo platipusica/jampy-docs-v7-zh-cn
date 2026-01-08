@@ -1,27 +1,26 @@
 ====================
-Working with modules
+使用模块
 ====================
 
-For every item of the project :doc:`task tree <task_tree>` a developer can write 
-code that will be executed on the client or server. In Application builder for every 
-item there is two upper-right buttons **Client module** and **Server module**. 
-Clicking on these will open the
-:doc:`code editor </admin/code_editor>`.
+对于项目 :doc:`任务树 <task_tree>` 中的每个项目，开发人员都可以编写
+将在客户端或服务器上执行的代码。在应用程序构建器中，每个
+项目的右上角都有两个按钮：**Client module** （客户端模块）和 **Server module** （服务器模块）。
+点击这些按钮将打开
+:doc:`代码编辑器 </admin/code_editor>`。
 
-Every item has a predefined set of events that could be triggered by  
-application. An event is a function defined in the module of an item that starts 
-with the **on_** prefix. All published events are listed in the Events tab of the 
-information pane of the
-:doc:`code editor </admin/code_editor>`
+每个项目都有一组由应用程序触发的预定义事件。
+事件是在项目模块中定义的、以 **on_** 前缀开头的函数。
+所有已发布的事件都列在
+:doc:`代码编辑器 </admin/code_editor>`
+信息窗格的 Events（事件）选项卡中。
 
-In the 
-:doc:`code editor </admin/code_editor>`
-the developer 
-can write code for these events as well as define some functions. 
+在
+:doc:`代码编辑器 </admin/code_editor>`
+中，开发人员
+可以为这些事件编写代码，也可以定义一些函数。
 
-For example the following code means that immediately after adding a new record 
-to the Invoices journal of the Demo project, the value of the invoicedate field 
-will be equal to the current date.
+例如，以下代码意味着在向演示项目的 Invoices（发票）日志添加新记录后，
+invoicedate（发票日期）字段的值将等于当前日期。
 
 .. code-block:: js
 
@@ -29,17 +28,14 @@ will be equal to the current date.
         item.invoicedate.value = new Date(); 
     } 
 
-
 .. note::
-    These events and functions became attributes of the item and could be 
-    accessed anywhere in the project code.
+    这些事件和函数成为项目的属性，并且可以在项目代码中的任何地方访问。
 
-For example, the following code defined in the item client module will execute
-on_edit_form_created event handler defined in the **Customers** item for this item.
+例如，在项目客户端模块中定义的以下代码将为该项目执行
+定义在 **Customers** （客户）项目中的 on_edit_form_created 事件处理程序。
 
 .. code-block:: js
 
     function on_edit_form_created(item) { 
         task.customers.on_edit_form_created(item);
-    } 
-  
+    }

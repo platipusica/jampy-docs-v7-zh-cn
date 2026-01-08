@@ -1,27 +1,24 @@
 =================
-Filtering records
+筛选记录
 =================
 
-There are three ways to define what records an item
-:doc:`dataset <dataset>`
-will get from the database table 
-when the ``open`` method is called:
+有三种方法可以定义在调用 ``open`` 方法时，项目
+:doc:`数据集 <dataset>`
+将从数据库表中获取哪些记录：
 
-* to specify ``where`` parameter (option) of the ``open`` method, 
-* call the ``set_where`` method, before calling the ``open`` method,
-* or use 
-  :doc:`filters <filters>`.
-  
-When ``where`` parameter is specified, it is always used even if the ``set_where`` 
-method was called or item has filters whose values have been set.
+* 指定 ``open`` 方法的 ``where`` 参数（选项），
+* 在调用 ``open`` 方法之前调用 ``set_where`` 方法，
+* 或者使用
+  :doc:`过滤器 <filters>`。
 
-When ``where`` parameter is omitted the parameter passed to the ``set_where`` 
-method are used.
+当指定了 ``where`` 参数时，即使调用了 ``set_where`` 方法或项目具有已设置值的过滤器，也会始终使用该参数。
 
-For example, on the ``Client Module`` in the following code, in the first call of the ``open``
-method the ``where`` option will be used to filter records, 
-in the second call the parameters passed to ``set_where`` and only the third 
-time the value of ``invoicedate1`` filter will be used:
+当省略 ``where`` 参数时，将使用传递给 ``set_where`` 方法的参数。
+
+例如，在以下代码的 ``Client Module`` （客户端模块）中，在第一次调用 ``open``
+方法时，将使用 ``where`` 选项来筛选记录，
+在第二次调用时，将使用传递给 ``set_where`` 的参数，而只有在第三次
+才会使用 ``invoicedate1`` 过滤器的值：
 
 .. code-block:: js
 
@@ -42,7 +39,7 @@ time the value of ``invoicedate1`` filter will be used:
     
     date = datetime.datetime.now() - datetime.timedelta(days=3*365)
 
-The same code within the ``Server Module`` looks the following way:
+在 ``Server Module`` （服务器模块）中的相同代码如下所示：
 
 .. code-block:: py
 
@@ -62,8 +59,7 @@ The same code within the ``Server Module`` looks the following way:
         
         invoices.open()
 
-In the framework, the following symbols and corresponding constants are defined 
-to filter records:
+在框架中，定义了以下符号和相应的常量来筛选记录：
 
 .. csv-table:: 
    :header: Filter type, Filter symbol, Constant, SQL Operator
@@ -80,19 +76,20 @@ to filter records:
    ``RANGE``, 'range', ``FILTER_RANGE``, ``BETWEEN``
    ``ISNULL``, 'isnull', ``FILTER_ISNULL``, ``IS NULL``
    ``EXACT``, 'exact', ``FILTER_EXACT``, ``=``
-   ``CONTAINS``, 'contains', ``FILTER_CONTAINS``, uses ``LIKE`` with the "%" sign to find records where field value contains a search string
-   ``STARTWITH``, 'startwith', ``FILTER_STARTWITH``, uses ``LIKE`` with the "%" sign to find records where field value starts with a search string
-   ``ENDWITH``, 'endwith', ``FILTER_ENDWITH``, uses ``LIKE`` with the "%" sign to find records where field value ends with a search string
-   ``CONTAINS ALL``, 'contains_all', ``FILTER_CONTAINS_ALL``, uses ``LIKE`` with the "%" sign to find records where field value contains all words of a search string
+   ``CONTAINS``, 'contains', ``FILTER_CONTAINS``, 使用 ``LIKE`` 和 "%" 符号来查找字段值包含搜索字符串的记录
+   ``STARTWITH``, 'startwith', ``FILTER_STARTWITH``, 使用 ``LIKE`` 和 "%" 符号来查找字段值以搜索字符串开头的记录
+   ``ENDWITH``, 'endwith', ``FILTER_ENDWITH``, 使用 ``LIKE`` 和 "%" 符号来查找字段值以搜索字符串结尾的记录
+   ``CONTAINS ALL``, 'contains_all', ``FILTER_CONTAINS_ALL``, 使用 ``LIKE`` 和 "%" 符号来查找字段值包含搜索字符串所有单词的记录
   
-The ``where`` parameter of the ``open`` method is a dictionary, whose keys 
-are the names of the fields that are followed, after double underscore, by a 
-filter symbol. For ``EQ`` filter the filtering symbol '__eq' can be omitted. 
-For example ``{'id': 100}`` is equivalent to ``{'id__eq': 100}``.
+``open`` 方法的 ``where`` 参数是一个字典，其键
+是字段名称，后面跟着双下划线和
+过滤器符号。对于 ``EQ`` 过滤器，过滤符号 '__eq' 可以省略。
+例如，``{'id': 100}`` 等价于 ``{'id__eq': 100}``。
 
-The '__isnull' filter symbol is used with Boolean. 
+'__isnull' 过滤符号与布尔值一起使用。
 
-For example, at the above ``Server Module`` code:
+例如，在上面的 ``Server Module`` （服务器模块）代码中：
+
 
 .. code-block:: py
 
@@ -100,21 +97,21 @@ For example, at the above ``Server Module`` code:
 
 
 
-See also
+另请参阅
 ========
 
-:doc:`Dataset <dataset>`
+:doc:`数据集 <dataset>`
 
-:doc:`Filters <filters>`
+:doc:`过滤器 <filters>`
 
-Client
+客户端
 ------
 
 :doc:`open </refs/client/item/m_open>`
 
 :doc:`set_where </refs/client/item/m_set_where>`
 
-Server
+服务器端
 ------
 
 :doc:`open </refs/server/item/m_open>`
