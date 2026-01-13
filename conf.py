@@ -57,12 +57,12 @@ html_context = {
     "github_user": "platipusica", # Username
     "github_repo": "jampy-docs-v7-zh-cn", # Repo name
     "github_version": "main", # Version
-    "conf_py_path": "/", # Path in the checkout to the docs root
+    "conf_py_path": "/source/", # Path in the checkout to the docs root
 }
 
 # Add any paths that contain templates here, relative to this directory.
 
-templates_path = ['_templates']
+#templates_path = ['_templates']
 
 
 
@@ -126,7 +126,7 @@ author = u'Andrew Yushev & Dean D. Babic'
 
 # Usually you set "language" from the command line for these cases.
 
-language = "en"
+language = 'zh_CN'
 
 
 
@@ -244,7 +244,7 @@ html_theme_options = {
 
 # Add any paths that contain custom themes here, relative to this directory.
 
-html_theme_path = ['_templates']
+#html_theme_path = ['_templates']
 
 
 
@@ -390,7 +390,7 @@ html_show_sourcelink = False
 
 #   'nl', 'no', 'pt', 'ro', 'ru', 'sv', 'tr'
 
-#html_search_language = 'en'
+html_search_language = 'zh'
 
 
 
