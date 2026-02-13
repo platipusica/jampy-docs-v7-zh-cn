@@ -7,9 +7,9 @@
 ## 这是 jam.py 的分支，旨在继续提供支持和开发，因为 Andrew 已从 jam.py 项目退休。V7 现已全面发布。请在以下链接中找到 v5 master 分支的存档：https://github.com/jam-py-v5/jam-py/
 
 ## LLMS-full.txt 已发布：
-https://jampy-docs-v7.readthedocs.io/en/latest/llms-full.txt 
+https://jampy-docs.readthedocs.io/projects/V7/zh-cn/latest/llms-full.txt 
 和 
-https://jampy-docs-v7.readthedocs.io/en/latest/llms.txt
+https://jampy-docs.readthedocs.io/projects/V7/zh-cn/latest/llms.txt
 
 内置所有功能且事件驱动！什么是 EDA：
 
