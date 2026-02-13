@@ -54,7 +54,7 @@
 创建选项卡和栏后，您可以使用右侧的字段列表和控件来自定义将在每个选项卡和栏上编辑的字段。
 
 表单选项卡
-========
+============
 
 .. image:: /admin/_images/edit_form_form_jampy.png
 	:align: center
