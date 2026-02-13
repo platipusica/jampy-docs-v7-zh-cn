@@ -73,7 +73,7 @@
 	:align: center
 	:alt: fields_editr_interface_jampy.png
 
-* **Mask** （掩码）- 使用此属性指定 :doc:`field_mask </refs/client/field/at_field_mask>`（字段掩码）
+* **Mask** （掩码）- 使用此属性指定 :doc:`field_mask </refs/client/field/at_field_mask>` （字段掩码）
 
 * **TextArea** （文本区域）- 对于文本字段，如果设置了此属性，将在 :doc:`编辑表单对话框 <edit_form_dialog>` 中为这些字段创建 textarea 元素
 
