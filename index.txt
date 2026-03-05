@@ -10,7 +10,7 @@ Jam.py V7 文档
 与 Jam.py V5 最大的区别在于增加了 :doc:`路由 </admin/routing>` 支持和采用了 Bootstrap 5，从而实现对移动设备的现代化支持（详见 :doc:`版本 7 </releases/version_7/index>`）。
 
 此外，用于桌面或移动设备的完整界面都采用无代码方式驱动。
-只需为任何设备选择所需的功能，即可开始使用。
+只需为任意地设备选择所需的功能即可。
 
 .. admonition:: 目标
 
@@ -44,7 +44,7 @@ https://github.com/jam-py-v5/jam-py-v7
 
 以下是文档结构的概览，以帮助您找到特定内容的所在位置：
 
-:doc:`入门指南 <intro/index>` 主题描述了如何安装框架、创建新项目、逐步开发 Web 应用程序并部署它。
+:doc:`入门 <intro/index>` 主题描述了如何安装框架、创建新项目、逐步开发 Web 应用程序并部署它。
 
 :doc:`编程指南 <programming/index>`
 在较高层次上讨论关键主题和概念，并提供有用的背景信息和解释。
@@ -53,9 +53,9 @@ https://github.com/jam-py-v5/jam-py-v7
 
 :doc:`类参考指南 <refs/index>` 包含 Jam.py 类 API 的技术参考。
 
-:doc:`常见问题 <faq/index>` 主题涵盖了最常被问到的问题。
+:doc:`常见问题 <faq/index>` 主题涵盖了最常见的问题。
 
-:doc:`操作指南 <how_to/index>` 包含一些代码示例，对于快速完成常见任务可能很有用。
+:doc:`如何实现操作指南 <how_to/index>` 包含一些代码示例，对于快速完成常见任务可能很有用。
 
 请访问 :doc:`目录 <contents>`，或者查看
 
@@ -63,7 +63,7 @@ https://github.com/jam-py-v5/jam-py-v7
 
 .. _`Jam.py 应用程序设计技巧`: https://jampy-application-design-tips.readthedocs.io/
 
-要将本文档下载为单个 PDF 文件，请访问：
+要将本文档的单个 PDF 文件，请访问：
 
 
 https://jampy-docs-v7.readthedocs.io/_/downloads/zh-cn/latest/pdf/
@@ -71,7 +71,7 @@ https://jampy-docs-v7.readthedocs.io/_/downloads/zh-cn/latest/pdf/
 视频教程
 ===============
 
-如果您是 Jam.py 的新手，我们强烈建议您观看这些视频教程。这些视频针对 Jam.py V5，与 V7 相比，用户界面的变化极小。
+如果您是 Jam.py 的新手，我们强烈建议您观看这些视频教程。这些视频针对 Jam.py V5 录制的，但与 V7 相比，用户界面的变化极小。
 
 建议以 1080p 分辨率观看这些视频。
 

@@ -36,9 +36,9 @@ Python 3：
 
 这是安装 Jam.py 的推荐方式。
 
-1. 安装 pip_。最简单的方法是使用 `standalone pip installer`_。如果您的
-   系统已经安装了 ``pip``，但版本过旧，则可能需要更新它。
-   （如果版本过旧，在安装时会发现问题。）
+1. 安装 pip_。最简单的方法是使用 `独立的pip安装程序`_。如果您的
+   系统已经安装了 ``pip``，但版本过旧，则需要更新它。
+   （如果版本过旧，你会发现无法安装。）
 
 2. 如果您使用的是 Linux、Mac OS X 或其他类 Unix 系统，请在
    shell 提示符下输入命令：
@@ -60,7 +60,7 @@ Python 3：
 
 
 .. _pip: http://www.pip-installer.org/
-.. _standalone pip installer: http://www.pip-installer.org/en/latest/installing.html#install-pip
+.. _独立的pip安装程序: http://www.pip-installer.org/en/latest/installing.html#install-pip
 
 
 
@@ -68,7 +68,7 @@ Python 3：
 手动安装官方发行版
 ---------------------------------------
 
-1. 下载软件包归档文件。
+1. 下载归档文件软件包。
 
 2. 创建一个新目录，并将归档文件解压到该目录中。
 

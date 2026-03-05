@@ -10,14 +10,14 @@
 
     $ jam-project.py
 
-对于 Windows 用户，``jam-project.py`` 命令位于 ``Scripts`` 文件夹中，即该目录的上层文件夹：
+对于 Windows 用户，``jam-project.py`` 命令位于 ``Scripts`` 文件夹中，即该目录的上层文件夹是：
 
 .. code-block:: console
 
-    ...\> ..\project-name\Scripts\jam-project.py
+    ...\> ..\your_python_folder\Scripts\jam-project.py
 
 
-目录中将创建以下文件和文件夹：::
+在目录中将创建以下文件和文件夹：::
 
     /
         css/
@@ -55,7 +55,7 @@
     
         $ ./server.py 8081
         
-    默认端口是 8080。如果你指定了其他端口，在后续步骤中需要在浏览器中使用该端口。
+    默认端口是 8080。如果你指定了其他端口，则在后续步骤中需要在浏览器中指明该端口。
 
 
 你将在命令行上看到类似输出：::
@@ -90,10 +90,10 @@
 
 接下来是新项目对话框。请填写：
 
-* **Caption** - 将向用户显示的项目名称。
-* **Name** - 项目（任务）的名称，将在代码（Python 或 JS）中用于访问任务对象。这应是一个简短且有效的 Python 标识符。在项目数据库中创建表时，此名称也用作前缀。
-* **DB type** - 选择数据库类型。如果数据库不是 Sqlite，必须提前创建，并在相应的表单字段中输入其属性。
-  查看数据库设置示例，请访问 :doc:`此链接 </admin/project/database>`。
+* **标题** - 将向用户显示的项目名称。
+* **名称** - 项目（任务）的名称，将在代码（Python 或 JS）中用于访问任务对象。这应是一个简短且 **有效的 Python 标识符** 。在项目数据库中创建表时，此名称也用作前缀。
+* **数据类型** - 选择数据库类型。如果数据库不是 Sqlite，必须提前创建，并在相应的表单字段中输入其属性。
+  查看数据库设置示例，请访问 :doc:`此链接 </admin/project/database>` 。
 
 .. image:: _images/project_params_jampy.png
 	:align: center
@@ -105,14 +105,14 @@
 数据库设置示例
 ===========================
 
-.. admonition:: 改编自 `Jam.py Design Tips`_
+.. admonition:: 改编自 `Jam.py 设计技巧`_
 
     Jam.py 支持多种不同的数据库服务器。例如 PostgreSQL_、MariaDB_、MySQL_、MSSQL_、Oracle_、Firebird_、IBM_、SQLite_、Databricks_ 以及使用 SQLCipher_ 的 SQLite。
 
     如果你正在开发一个小型项目或不打算在生产环境中部署的内容，SQLite 通常是最佳选择，因为它不需要运行单独的服务器。然而，SQLite 与其他数据库有许多不同之处，因此如果你正在开发一个重要的项目，建议使用与生产环境计划相同的数据库进行开发。
 
 
-    除了数据库后端，我们还需要确保安装了 Python 数据库绑定。
+    除了配置数据库后端，我们还需要确保安装了对应的 Python 数据库绑定（操作数据库的驱动包）。
 
     * 如果使用 PostgreSQL，需要 ``psycopg2`` 或 ``psycopg2-binary`` 包。
     * 如果使用 MySQL 或 MariaDB，Python 2.x 需要 ``MySQLdb``。对于 Python 3.x，需要 ``mysql-connector-python`` 和 ``mysqlclient`` 包，以及数据库客户端开发文件。
@@ -125,7 +125,7 @@
     * 要生成报告，必须安装 **LibreOffice**。
 
 
-.. _Jam.py Design Tips: https://jampy-application-design-tips.readthedocs.io/
+.. _Jam.py 设计技巧: https://jampy-application-design-tips.readthedocs.io/
 .. _PostgreSQL: https://www.postgresql.org/
 .. _MariaDB: https://mariadb.org/
 .. _MySQL: https://www.mysql.com/
