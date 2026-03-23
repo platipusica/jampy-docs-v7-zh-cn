@@ -2,8 +2,7 @@
 数据集
 =======
 
-Jam.py 框架使用的数据集概念非常接近
-`Embarcadero Delphi`_ 的数据集。
+Jam.py 框架使用的数据集概念非常接近 `Embarcadero Delphi`_ 的数据集。
 
 .. _Embarcadero Delphi: https://en.wikipedia.org/wiki/Delphi_(programming_language)
 
