@@ -1,28 +1,24 @@
 ==================================================
-How do I write functions which have a global scope
+如何编写具有全局作用域的函数 ？
 ==================================================
 
-Each function defined in the server or client module of an item becomes an 
-attribute of the item.
+在实体元素的服务端或客户端模块中定义的每个函数，都会成为该元素的一个属性。
 
-Thus, using the 
-:doc:`task tree </programming/task_tree>`,
-you can access any function declared in the client or server module in any 
-project module.
+因此，借助 :doc:`任务树 </programming/task_tree>` ，
+你可以在项目的任意模块中，访问在客户端或服务端模块内声明的任意函数。
 
-For example, if we have a function ``some_func`` declared in the Customers client 
-module, we can execute it in any module of the project. 
-Note that the task is a global variable on the client.
+例如，若我们在 **客户(Customers)*** 的客户端模块中声明了一个函数 ``some_func`` ，
+就可以在项目的任意模块中调用它。需要注意的是， **task** 在客户端中是一个全局变量。
 
 .. code-block:: js
 
   task.customers.some_func()
 
-On the server, the task is not global, but an item that triggered / called it is 
-passed to each event handler and function called by the 
-:doc:`server </refs/client/abstr_item/m_server>`
-method. Therefore, if the ``some_func`` function is declared in the Customers 
-server module, it can be executed in a function or event handler as follows:
+
+在服务端中， **task** 不是全局变量，但触发/调用它的实体项会被传入至每个由 
+:doc:`服务端(server) </refs/client/abstr_item/m_server>` 方法调用的事件处理程序和函数中。
+因此，如果 ``some_func`` 函数是在 Customers 的服务端模块中声明的，
+在函数或事件处理程序中就可以按如下方式调用：
 
 .. code-block:: js
 
@@ -30,8 +26,7 @@ server module, it can be executed in a function or event handler as follows:
     item.task.customers.some_func()
 
 
-Note that event handlers are just functions and can also be called from other 
-modules.
+需要注意，事件处理程序本质就是函数，同样也可以由其他模块调用。
 
 
   

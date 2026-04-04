@@ -1,17 +1,16 @@
 =============================
-How to add a button to a form
+如何给表单添加按钮
 =============================
 
-The simplest way to add a button to an edit / view from is to use
+为编辑/视图表单添加按钮的最简单方法是使用对应的 
 :doc:`add_edit_button </refs/client/item/m_add_edit_button>` /
-:doc:`add_view_button </refs/client/item/m_add_view_button>`
-correspondingly. You can call this functions in the
+:doc:`add_view_button </refs/client/item/m_add_view_button>` 方法。
+你可以在 
 :doc:`on_edit_form_created </refs/client/item/on_edit_form_created>` /
-:doc:`on_view_form_created </refs/client/item/on_view_form_created>`
-event handlers.
+:doc:`on_view_form_created </refs/client/item/on_view_form_created>` 
+事件处理程序中调用这些添加按钮的方法。
 
-For example the Customers item uses this code in its client module to add 
-buttons to a view form:
+例如，客户(Customers) 实体项使用这些代码，在客户端模块为一个视图表单添加了按钮：
 
 .. code-block:: js
 
@@ -26,11 +25,7 @@ buttons to a view form:
       }
   }  
 
-In this code the item's
-:doc:`lookup_field </refs/client/item/at_lookup_field>` 
-attribute is checked and if it is defined (the view form is not created to select a 
-value for a lookup field) the two buttons are created and for them JQuery click 
-events are assigned to ``send_email`` and ``print`` functions declared in that 
-module.
-
+在代码中，检查了实体的 :doc:`lookup_field </refs/client/item/at_lookup_field>` 属性是否存在，
+然后，（视图表单不是为了为查找字段选择一个值而被创建时）定义了两个按钮，
+并为它们的 JQuery 点击事件分配了模块中的 ``send_email`` 和 ``print`` 函数。
 

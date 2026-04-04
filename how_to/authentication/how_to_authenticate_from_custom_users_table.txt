@@ -1,50 +1,33 @@
 ===========================================
-How to authenticate from custom users table
+如何通过自定义用户表进行认证
 ===========================================
 
-By default, all user information is stored in a table in the admin.sqlite 
-database. This table has a fixed structure that cannot be changed.
+默认情况下，所有用户信息都存储在 admin.sqlite 数据库的一个表中。该表结构是固定的，无法更改。
 
-In this section, we describe how to authenticate a user using data from the 
-custom users table.
+本节介绍如何使用自定义用户表中的数据进行用户认证。
 
-First, we create an item group **Authentication** select it and add an item 
-**Users** that has the following fields:
+首先，创建一个分组 **Authentication** ，选中它并添加一个名为 **Users** 的数据项，包含如下字段：
 
 .. image:: /how_to/_images/users_fields_jampy.png
 	:align: center
 	:alt: users_fields_jampy.png
 
 
-We won't store in the table the user password and use this field in the interface.
-We will store the password salted hash in the password_hash field.
+我们不会在表中直接存储用户密码，而是在界面中使用该字段。实际存储的是加盐后的密码哈希值，保存在 password_hash 字段中。
 
-We also created the 
-:doc:`lookup list </admin/lookup_lists>`
-"Roles" that we used in the "Roles" field definition.
+我们还创建了名为 “Roles” 的 :doc:`lookup list </admin/lookup_lists>` ，并在 “Roles” 字段定义中使用。
 
-We added to it the same roles (ids and names) as in the table
-:doc:`Roles </admin/roles>`
-We 'll have to sycronize this roles in the future.
+我们为其添加了与 :doc:`Roles </admin/roles>` 表中相同的角色（id 和名称）。后续需要保持这些角色的同步。
 
 .. image:: /how_to/_images/roles_lookup_list_jampy.png
 	:align: center
 	:alt: roles_lookup_list_jampy.png
 
-In the 
-:doc:`Roles </admin/roles>`
-it is necessary to allow view the **Users** item only people that will be 
-responsible for it
+在 :doc:`Roles </admin/roles>` 中，需要设置只有负责该项的用户才能查看 **Users** 数据项。
 
-We removed password_hash field from field lists in the
-:doc:`View Form Dialog </admin/items/view_form_dialog>`
-and
-:doc:`Edit Form Dialog </admin/items/edit_form_dialog>`
+我们在 :doc:`View Form Dialog </admin/items/view_form_dialog>` 和 :doc:`Edit Form Dialog </admin/items/edit_form_dialog>` 的字段列表中移除了 password_hash 字段。
 
-In the User server module we define the following
-:doc:`on_apply </refs/server/item/on_apply>`
-event handler:
-
+在用户服务器模块中，定义如下 :doc:`on_apply </refs/server/item/on_apply>` 事件处理程序：
 
 .. code-block:: py
 
@@ -62,13 +45,9 @@ event handler:
               d.password.value = None
               d.post();
 
-In this event handler we check if there is a users with the same login and
-raise the exception if such user exists, otherwise we generate hash using the
-:doc:`generate_password_hash </refs/server/task/m_generate_password_hash>`
-method of the task and set the password value to None.
+在该事件处理程序中，我们检查是否有相同登录名的用户，如果有则抛出异常，否则用 task 的 :doc:`generate_password_hash </refs/server/task/m_generate_password_hash>` 方法生成哈希，并将密码字段设为 None。
 
-In the client module we defined the following on_field_get_text event handler.
-It displays '**********' string insted of the password.
+在客户端模块中，定义如下 on_field_get_text 事件处理程序。它会将密码显示为 '**********'：
 
 .. code-block:: js
 
@@ -81,9 +60,7 @@ It displays '**********' string insted of the password.
       }
   }
 
-Finally, we define the 
-:doc:`on_login </refs/server/task/on_login>`
-event handler in the task server module:
+最后，在任务服务器模块中定义 :doc:`on_login </refs/server/task/on_login>` 事件处理程序：
 
 .. code-block:: py
 
@@ -100,11 +77,5 @@ event handler in the task server module:
                   'role_name': users.role.display_text
               }
 
-Now we must add an admin to **Users** that has rights to work with users.
-After that we can set Safe mode in the project
-:doc:`Parameters </admin/project/parameters>` 
-
-
-
-
-
+现在需要在 **Users** 中添加一个有权限管理用户的管理员。
+之后即可在项目 :doc:`参数 </admin/project/parameters>` 中设置安全模式（Safe mode）。

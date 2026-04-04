@@ -1,11 +1,10 @@
 ========================================
-How to save edit form without closing it 
+如何在不关闭编辑表单的情况下保存数据
 ========================================
 
-You can do it by adding a button that will save the record without closing the
-edit form.
+你可以通过添加一个按钮来实现保存记录但不关闭编辑表单的功能。
 
-Below is examples for synchronous and asynchronous cases.
+下面时同步和异步场景下的示例：
 
 .. code-block:: js
 
@@ -37,7 +36,7 @@ Below is examples for synchronous and asynchronous cases.
                   if (error) {
                       item.alert_error(error);
                   }
-                  item.edit();                
+                  item.edit();
                   item.enable_edit_form();
               });
           }

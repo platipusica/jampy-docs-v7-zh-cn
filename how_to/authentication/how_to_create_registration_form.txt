@@ -1,22 +1,21 @@
 ===============================
-How to create registration form
+如何创建用户注册表单
 ===============================
 
-This part is relevant for Jam.py V5. For V7, please visit:
+本部分内容适用于 Jam.py V5。如需 V7 相关内容，请访问：
 
 https://groups.google.com/g/jam-py/c/DwALkbBsFcw/m/MujcOlgYAAAJ
 
-or download example from here:
+或在此下载示例：
 
 https://drive.google.com/file/d/1Gty1bC2I3srFo9XeQ0dXdAdnYeJbwoeB/view?usp=drive_link
 
 
-In this topic we'll assume that you have created a :doc:`users </how_to/authentication/how_to_authenticate_from_custom_users_table>` item from the 
-previous topic.
+本主题假设你已根据前一节创建了 :doc:`users </how_to/authentication/how_to_authenticate_from_custom_users_table>` 数据项。
 
-Now we create a *register.html* file. 
+现在我们创建一个 *register.html* 文件。
 
-It contains a registration form:
+它包含一个注册表单：
 
 .. code-block:: html
 
@@ -58,7 +57,7 @@ It contains a registration form:
       </div>
   </form>
 
-and a javascript code:
+以及一段 JavaScript 代码：
 
 .. code-block:: js
 
@@ -122,15 +121,11 @@ and a javascript code:
       })
   })
 
-When the user clicks on the **OK** button, the javascript will send to the 
-server the ajax post request with url "ext/register" and parameters 
-"name, login, password".
+当用户点击 **确定** 按钮时，JavaScript 会向服务器发送 url 为 "ext/register" 的 ajax post 请求，参数为 "name, login, password" 。
 
-When server receives the request starting with 'ext/' it triggers the 
-:doc:`on_ext_request </refs/server/task/on_ext_request>`
-event.
+当服务器收到以 'ext/' 开头的请求时，会触发 :doc:`on_ext_request </refs/server/task/on_ext_request>` 事件。
 
-The task server module has the following ``on_ext_request`` event handler:
+任务服务器模块包含如下 ``on_ext_request`` 事件处理程序：
 
 .. code-block:: py
 
@@ -151,11 +146,10 @@ The task server module has the following ``on_ext_request`` event handler:
           users.post()
           users.apply()
 
-It checks if there is 'register' in url and then looks if there is no user 
-with the login and then register the user.
+它会检查 url 是否包含 'register'，然后判断是否有相同登录名的用户，如果没有则注册新用户。
 
 
-See also
+参见
 ========
 
 :doc:`on_ext_request </refs/server/task/on_ext_request>`

@@ -1,6 +1,5 @@
-=======================================
-Can I use Jam.py with existing database
-=======================================
+=================================================
+我可以让 Jam.py 使用现有的数据库吗“
+=================================================
 
-Please read this:
-:doc:`Integration with existing database </admin/integration_with_existing_database>`
+请参见 :doc:`整合已有数据库 </admin/integration_with_existing_database>`

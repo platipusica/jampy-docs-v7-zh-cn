@@ -1,12 +1,12 @@
 ===================================================
-How to change style and attributes of form elements
+如何更改表单中元素的样式和属性
 ===================================================
 
-You can access any DOM element on forms using jQuery.
+使用 jQuery ，能够访问表单上的任意 DOM元素。
 
-In the following example, in the ``on_edit_form_created`` event handler defined 
-the item client module we find the **OK** button, hide it, and change the 
-text of the **Cancel** button to “Close” in the edit form:
+在下面的示例中，在实体的客户端模块的 ``on_edit_form_created`` 事件处理程序中，
+我们找到 **确定(OK)** 按钮，将其隐藏，
+并将编辑表单中 **取消(Cancel)** 按钮的文本更改为 “关闭(Close)” ：
 
 .. code-block:: js
 
@@ -15,31 +15,26 @@ text of the **Cancel** button to “Close” in the edit form:
       item.edit_form.find("#cancel-btn").text('Close');
   }
 
-When an application creates input controls, it adds a class with a 
-name that is the 
-:doc:`field_name </refs/client/field/at_field_name>`
-attribute of the corresponding field to each input.
+当应用程序创建输入控件(input)时，它会向每个输入控件(input)添加一个类(class)，
+该类的名称是相应字段的 :doc:`field_name </refs/client/field/at_field_name>` 属性值。
 
-Thus, using the jQuery `selectors <https://www.w3schools.com/jquERY/jquery_ref_selectors.asp>`_,
-we can find the input of the customer field as follows (we select the input with 
-the “customer” class in the edit form):
+因此，使用 jQuery `选择器 <https://www.w3schools.com/jquERY/jquery_ref_selectors.asp>`_ ，
+我们就能向下面那样找到 customer 字段对应的输入控件(input)
+（我们使用 “customer” 样式类选择在编辑表单里的输入控件元素）：
 
 .. code-block:: js
 
   item.edit_form.find("input.customer")
 
-Having found the element of the form you can use JQuery methods to change it.
+找到表单的元素后，就能使用 jQuery 方法对其更改。
 
-As the field inputs are created by 
-:doc:`create_inputs </refs/client/item/m_create_inputs>`
-after the 
-:doc:`on_edit_form_created </refs/client/item/on_edit_form_created>`
-event have been triggered (see the ``on_edit_form_created`` event handler in the
-task client module) you must write 
-:doc:`on_edit_form_shown </refs/client/item/on_edit_form_shown>`
-event handler to change inputs.
+由于字段的输入框是在 :doc:`on_edit_form_created </refs/client/item/on_edit_form_created>`
+事件触发后，由 :doc:`create_inputs </refs/client/item/m_create_inputs>`方法自动创建的
+（可参考任务客户端模块中的 ``on_edit_form_created`` 事件处理器），
+因此你必须编写 :doc:`on_edit_form_shown </refs/client/item/on_edit_form_shown>` 
+事件处理器来修改输入框样式和属性。
 
-For example this code
+示例代码
 
 .. code-block:: js
 
@@ -51,35 +46,30 @@ For example this code
     item.edit_form.find('input.composer').prop('type', 'password');
   }
   
-will change form inputs this way:
+将像下面一样修改表单的输入框:
 
 .. image:: _images/form_elements_style_jampy.png
 	:align: center
 	:alt: form_elements_style_jampy.png
 
   
-Please, note that if you need to change the width of input with prepend or
-append buttons (inputs of date, datetime and lookup fields) set the width of 
-the input parent:
+请注意：若你需要修改带有前置按钮或后置按钮的输入框（日期、日期时间、查询字段的输入框）的宽度，
+请直接设置该输入框父元素的宽度：
 
 .. code-block:: js
 
   item.edit_form.find('input.album').parent().width('50%');
 
-Another way to change the style of DOM elements is to use CSS. When the task 
-node is selected in the Application Builder, the "project css" button is located 
-on the right pane. Click on it to open the *project.css* file, which is located 
-in the project folder. You can use it to input CSS that defines the style of 
-the DOM elements of the project.
+更改 DOM 元素样式的另一种方法是使用 CSS。在应用程序构建器中选择任务节点后，
+“项目css ”按钮将出现在右侧窗格中。单击它，打开位于项目文件夹中的 *project.css* 文件。
+您可以使用在它里面输入定义项目中 DOM 元素样式的 CSS 。
 
-Each item form created in the project has css classes that enable developer to
-identify the form.
+项目中创建的每个实体的表单都有 css 类，使开发人员能够识别定位表单。
 
-Each form has a class identifying it's type: 'view-form', 'edit-form', 
-'filter-form' or 'param-form'.
+每个表单都有一个类来标识它的类型：“view-form”、“edit-form”、“filter-form” 或 “param-form” 。
 
-For example, the following code will remove the images in the buttons at the 
-bottom of the form:
+例如，以下代码将删除表单底部按钮中的图像：
+
 
 .. code-block:: css
 
@@ -87,7 +77,7 @@ bottom of the form:
       display: none;
   }  
 
-More edit form examples:
+更多编辑表单的例子：
 
 .. code-block:: css
 
@@ -100,12 +90,12 @@ More edit form examples:
       color: red;
   }  
 
-Also each form has a class with a name that is the
-:doc:`item_name </refs/client/abstr_item/at_item_name>`
-attribute of the item.
+
+同样，每个表单有个样式类，其名称是对应实体的 :doc:`item_name </refs/client/abstr_item/at_item_name>` 属性值。
 
 The following code will remove images in the buttons only in the **Invoices**
 view form:
+下面的代码将删除 **发票(Invoices)** 表单里的按钮里的图像
 
 .. code-block:: css
 
@@ -113,15 +103,10 @@ view form:
       display: none;
   }  
 
-You can change the way tables are displayed. The tables that are created by the
-:doc:`create_table </refs/client/item/m_create_table>`
-method have a css class "dbtable" and a class with a name that is the 
-:doc:`item_name </refs/client/abstr_item/at_item_name>`
-attribute of the item. Each column of the table also has a class with a 
-name that is the 
-:doc:`field_name </refs/client/field/at_field_name>`
-attribute of the corresponding field.
-
+你可以更改表格的显示方式。
+由 :doc:`create_table </refs/client/item/m_create_table>` 方法创建的表格，
+有一个 "dbtable" 样式和一个名为实体的 :doc:`item_name </refs/client/abstr_item/at_item_name>` 属性值的样式。
+表格的每列也有一个样式，其名称是对应字段的 :doc:`field_name </refs/client/field/at_field_name>` 属性值。
 The example, the following code will display cells of the **Invoices** table
 **Customer** column bold:
 
@@ -131,11 +116,11 @@ The example, the following code will display cells of the **Invoices** table
       font-weight: bold;
   }
 
-One more way to change the way the field column is displayed is to write the
-:doc:`on_field_get_html </refs/client/item/on_field_get_html>`
-event handler.
 
-For example:
+另一种改变字段列显示方式的方法是
+编写 :doc:`on_field_get_html </refs/client/item/on_field_get_html>` 事件处理程序。
+
+例如：
 
 .. code-block:: js
 
@@ -146,7 +131,3 @@ For example:
           }
       }
   }
-
-
-
-

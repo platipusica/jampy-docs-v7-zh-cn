@@ -1,14 +1,12 @@
 ===============================
-How to prohibit changing record
+如何禁止更改记录
 ===============================
 
-Let's assume that we have an item with a boolean field "posted", and if the 
-value of the field is true, we must prohibit changing or deleting the record.
+假设我们有一个含有 boolean 字段 “posted” 的数据表，
+如果该字段的值是 *真(true)* ，就必须禁止或删除记录
 
-We can do this by writing the
-:doc:`on_after_scroll </refs/client/item/on_after_scroll>` 
-event handler and using 
-:doc:`permissions </refs/client/item/at_permissions>` property:
+我们可以通过编写 :doc:`on_after_scroll </refs/client/item/on_after_scroll>` 事件处理程序，
+同时结合使用 :doc:`permissions </refs/client/item/at_permissions>` 的属性来实现。
 
 .. code-block:: js
 
@@ -22,12 +20,11 @@ event handler and using
       }
   }
   
-In this event handler we check the value of the "posted" field and set the 
-:doc:`permissions </refs/client/item/at_permissions>` property attributes to true.
+在上面的事件处理程序里，我们检查 “posted” 字段的值，
+然后设置 :doc:`permissions </refs/client/item/at_permissions>` 的属性来实现。
 
-We can also write the 
-:doc:`on_apply </refs/server/item/on_apply>`
-event handler in the server module of the item:
+我们也可以在服务端的模块中编写 :doc:`on_apply </refs/server/item/on_apply>` 
+事件处理程序来实现同样的目的：
 
 .. code-block:: py
 

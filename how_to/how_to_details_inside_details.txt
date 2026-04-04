@@ -1,14 +1,14 @@
 ===============================================
-Is it supported to have details inside details?
+支持在明细表中嵌套明细表吗？
 ===============================================
 
-Yes, you can have details inside details.
+支持，你可以在明细表中再嵌套明细表。
 
-Suppose we have three objects - "Polls", "Questions" and "Answers." "Answers" 
-is a detail of "Questions". We will make "Questions" a detail of "Polls".
+假设我们有三个对象 —— “Polls”（投票）、“Questions”（问题）和 “Answers”（答案）。
+“Answers” 是 “Questions” 的明细表，我们将 “Questions” 作为 “Polls” 的明细表。
 
-One way to do this is to add an integer field "poll" to the "Questions" and 
-the following code to the "Poll" client module:
+一种实现方式是在 “Questions” 表中添加一个整型字段 “poll” ，
+并在 “Poll” 的客户端模块中添加如下代码：
 
 
 .. code-block:: js

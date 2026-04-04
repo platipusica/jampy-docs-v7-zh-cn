@@ -1,15 +1,12 @@
 ===========================
-How to validate field value
+如何验证字段的值
 ===========================
 
-Write the
-:doc:`on_field_validate </refs/client/item/on_field_validate>`
-event handler to validate field value.
+编写 :doc:`on_field_validate </refs/client/item/on_field_validate>`
+事件处理程序来验证字段的值。
 
-For example, The event will triggered when the 
-:doc:`post </refs/client/item/m_post>`
-method is called, that saves the record in memory or 
-when the user leaves the input used to edit the unitprice field value.
+例如，当调用 :doc:`post </refs/client/item/m_post>` 方法将保存记录保存时，
+会触发事件；当用户离开用于编辑单价字段值的输入框时，也会触发事件。
 
 .. code-block:: js
 
@@ -19,10 +16,10 @@ when the user leaves the input used to edit the unitprice field value.
       }
   }
 
-As an example, below is the code that doesn't use the
-:doc:`on_field_validate </refs/client/item/on_field_validate>` 
-method and checks the value of the unitprice field and prevents the user 
-from leaving the input when the value is less than or equal to zero:
+
+举个例子，以下是不使用 
+:doc:`on_field_validate </refs/client/item/on_field_validate>` 方法的代码，
+它们检查单价字段的值，防止用户输入小于或等于零的值：
 
 .. code-block:: js
 
@@ -51,29 +48,26 @@ from leaving the input when the value is less than or equal to zero:
       }
   }
 
-In the on_edit_form_shown event handler, we iterate through all the fields using the each_field method and find the input data for each field, if it exists.
+在 on_edit_form_shown 事件处理程序中，使用 each_field 方法来迭代访问所有字段，
+并找到每个字段对应的输入数据（如果存在）。
 
-In the 
-:doc:`on_edit_form_shown </refs/client/item/on_edit_form_shown>` 
-event handler we iterate through all the fields using the
-:doc:`each_field </refs/client/item/m_each_field>` 
-method and find the input for each field, if it exists. Each input has a class 
-with the name of the field (:doc:`field_name </refs/client/field/at_field_name>`).
+在 :doc:`on_edit_form_shown </refs/client/item/on_edit_form_shown>` 事件处理程序中，
+使用 :doc:`each_field </refs/client/item/m_each_field>` 方法来迭代访问所有字段，
+并找到每个字段对应的输入框（如果存在）。每个输入框都有一个包含字段名称的类
+（ :doc:`field_name </refs/client/field/at_field_name>` ）。
 
-Then we assign a jQuery blur event to it, in which we call the ``check_field_value`` 
-function, and, if it returns text string, we warn the user and focus the input. 
-Before calling the function, we check whether the "Cancel" button was pressed.
+然后，我们为它分配一个 jQuery blur 事件，在该事件中我们调用 ``check_field_value`` 函数，
+如果它返回保护错误信息的文本字符串，我们会警告用户并并将焦点定位到输入框。 
+在调用函数之前，我们检查是否按下了 “取消” 按钮。
 
-We declared the 
-:doc:`on_edit_form_shown </refs/client/item/on_edit_form_shown>` 
-event handler in the item's module, so it will work in this module only.
+我在实体的模块中定义的 :doc:`on_edit_form_shown </refs/client/item/on_edit_form_shown>` 
+事件处理程序，所以只在定义它的模块中有效。
 
-We can declare the following event handler in the task client module so we can 
-write ``check_field_value`` function in any module we need to enable this field 
-validation. The 
-:doc:`on_edit_form_shown </refs/client/task/on_edit_form_shown>` of the task
-is called first for every item when edit form is shown. See 
-:doc:`Form events </programming/interface/form_events>`.
+我们可以在任务客户端模块中声明以下事件处理程序，
+以便在我们需要启用此字段验证的任何模块中编写 ``check_field_value`` 函数。
+当编辑表单显示后，会首先为每个实体调用任务的
+ :doc:`on_edit_form_shown </refs/client/task/on_edit_form_shown>` 事件处理程序。
+ 参考 :doc:`表单事件 </programming/interface/form_events>` 。
 
 .. code-block:: js
 
@@ -95,5 +89,5 @@ is called first for every item when edit form is shown. See
       }
   }
 
-In this event handler we check if the item has the ``check_field_value`` attribute. 
-Each function declared in a module becomes an attribute of the item. 
+在这个事件处理程序中，我们检查实体是否有 ``check_field_value`` 属性。
+在模块中声明的每个函数，都会成为其所属实体的一个属性。

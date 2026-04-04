@@ -1,18 +1,13 @@
 ====================================================================
-How to save changes to two tables in same transaction on the server 
+如何在服务器端的同一个事务中保存两个表的变更
 ====================================================================
 
-Below are two examples. 
+下面是两个示例。
 
-In the first example each 
-:doc:`apply </refs/server/item/m_apply>`
-method gets its own connection from connection pool and commits it after saving
-changes to the database.
+在第一个示例中，每次调用 :doc:`apply </refs/server/item/m_apply>` 方法时，
+都会从连接池获取自己的连接，并将用户保存的更改提交到数据库。
 
-In the second example the connection is received from connection pool and passed 
-to each 
-:doc:`apply </refs/server/item/m_apply>`
-method so changes are committed at the end.
+在第二个示例中，先从连接池获取一个连接，并将其传递给每个 :doc:`apply </refs/server/item/m_apply>` 方法，这样所有更改会在最后一起提交到数据库。
 
 .. code-block:: py
 
