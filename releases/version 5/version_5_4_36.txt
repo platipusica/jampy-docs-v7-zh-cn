@@ -1,18 +1,17 @@
 ==============
-Version 5.4.36
+版本 5.4.36
 ==============
 
-Library:
+库:
 
-* tables reworked, they now support virtual scrolling.   
+* 表格经过重新设计，现在支持虚拟滚动
 
-* some bugs fixed
+* 修复了一些错误
 
-Application Builder:
+应用程序构建器:
 
-* Search added for items. 
+* 为实体添加了查询
 
-Demo application:
+演示应用程序:
 
-* User registration implemented  
-
+* 已实现用户注册

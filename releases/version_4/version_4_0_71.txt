@@ -1,15 +1,15 @@
 ==============
-Version 4.0.71
+版本 4.0.71
 ==============
 
-Jam library:
+Jam 库:
 
-* Tables are now responsive
-* Fixed header columns and table columns mismatch
-* Several themes added
+* 现在表格已自动响应
+* 修复了标题列和表列不匹配的问题
+* 添加了几个主题
 
-Demo application:
+演示应用程序:
 
-* Dashboard added
-* Theme selections added
-* Resize function from Task client module removed
+* 已添加 Dashboard
+* 已添加主题选择功能
+* 已删除任务客户端模块中的调整大小功能

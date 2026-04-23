@@ -9,10 +9,10 @@
 	:alt: lang_dialog_jampy.png
 
 语言区域设置
-===============
+=======================
 
-使用语言区域设置来配置字段值的显示方式。请参阅
-:doc:`display_text </refs/client/field/at_display_text>`
+使用语言区域设置来配置字段值的显示方式。请参阅 
+:doc:`display_text </refs/client/field/at_display_text>` 
 
 .. image:: _images/lang_locale_jampy.png
 	:align: center

@@ -25,13 +25,13 @@
 .. note::
 
   请勿更改以下符号 **%、%(item)s、%(field)s、%(filters)s**
-  
+
   例如
-  
+
   **英文**：
-  
+
   Can't delete the field %(field)s. It's used in field definitions:%(fields)s
-  
+
   **哈萨克语翻译**：
-  
+
   Нельзя удалить поле %(field)s. Используется в определении полей:%(fields)s

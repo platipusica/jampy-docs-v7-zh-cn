@@ -1,33 +1,27 @@
 ==============
-Version 5.4.60
+版本 5.4.60
 ==============
 
-Library:
+库：
 
-* Synchronization of parameters and reloading of the task tree when metadata changes 
-  for web applications running on parallel processes reworked. 
+* 重做了并行进程中运行的 Web 应用程序在元数据更改时的参数同步和任务树重新加载。
 
-* Import of metadata reworked. See 
+* 重做了元数据导入。请参阅
   :doc:`Export/import metadata </admin/project/metadata_file>`
 
-* Created the ability to import metadata from the migration folder when the server 
-  is restarted. See
+* 创建了在服务器重启时从迁移文件夹导入元数据的能力。请参阅
   :doc:`How to migrate development to production </how_to/how_to_migrate_development_to_production>`
 
-* Migration to another database is available now. See
+* 现在可以迁移到另一个数据库。请参阅
   :doc:`How to migrate to another database </how_to/how_to_migrate_to_another_database>`
 
-* virtual_table is now a read-only property on the client
-  :doc:`virtual_table </refs/client/item/at_virtual_table>`
-  and server
-  :doc:`virtual_table </refs/server/item/at_virtual_table>`.
-  For an item which virtual_table property is true, calling the open method creates 
-  an empty data set, and calling the apply method does nothing.
+* 现在客户端 :doc:`virtual_table </refs/client/item/at_virtual_table>`
+  和服务器 :doc:`virtual_table </refs/server/item/at_virtual_table>` 上，
+  virtual_table 是只读属性。
+  对于 virtual_table 属性为 true 的实体项，调用 open 方法创建空数据集，调用 apply 方法不执行任何操作。
   
-* When importing a table the virtual_table attribute id read only now.
+* 现在，导入表时，virtual_table 属性是只读的。
 
-* title_line_count option is added to the 
-  :doc:`table_options </refs/client/item/at_table_options>`
-  specifies the number of lines of text displayed in a title row, if it is 0, 
-  the height of the row is determined by the contents of the title cells 
-  It can be set in Application Builder.
+* 为 :doc:`table_options </refs/client/item/at_table_options>` 
+  添加了 title_line_count 选项，指定标题行中显示的文本行数，
+  如果为 0，则行高由标题单元格的内容决定。 它可以在应用程序构建器中设置。

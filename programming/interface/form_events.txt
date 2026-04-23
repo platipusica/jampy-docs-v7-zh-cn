@@ -17,35 +17,30 @@
 
 * ``on_view_form_keyup`` - 当表单发生 keyup 事件时触发此事件
 
-对于其他表单类型——edit（编辑）、filter（过滤）和 param（参数），将 'view' 替换为表单类型，
-例如，编辑表单的 ``on_edit_form_created``。
+对于其他表单类型 —— edit（编辑）、filter（过滤）和 param（参数），
+将 “view” 替换为表单类型，例如，编辑表单的 ``on_edit_form_created``。
 
 我们将首先解释如何使用 ``on_view_form_created`` 事件。
 
 当用户点击菜单项时，应用程序执行
-相应任务树项目的 :doc:`view </refs/client/item/m_view>`
+相应任务树实体的 :doc:`view </refs/client/item/m_view>`
 方法，该方法使用其 HTML 表单模板创建表单，并首先触发任务的
 :doc:`on_view_form_created </refs/client/task/on_view_form_created>` 事件。
 
-当您创建一个新项目时，任务客户端模块已包含
-代码，其中包括
+当您创建一个新项目时，任务客户端模块已包含一些代码，其中包括
 :doc:`on_view_form_created </refs/client/task/on_view_form_created>`
-事件处理程序。每次创建查看表单时都会执行此事件处理程序，
-并定义查看表单的默认行为。
+事件处理程序。每次创建查看表单时都会执行此事件处理程序，并定义查看表单的默认行为。
 
 您可以打开任务客户端模块查看此事件处理程序。
-如果您需要更改项目中所有查看表单的默认行为，
-应在此处进行更改。
+如果您需要更改项目中所有查看表单的默认行为，应在此处进行更改。
 
 下面我们描述其主要执行步骤：
 
-* 初始化
-  :doc:`view_form </refs/client/item/at_view_form>`
-  和
-  :doc:`table_options </refs/client/item/at_table_options>`
-  ，这些属性在创建查看表单和表格时被某些方法使用。
+* 初始化 :doc:`view_form </refs/client/item/at_view_form>`
+  和 :doc:`table_options </refs/client/item/at_table_options>` ，
+  这些属性在创建查看表单和表格时被某些方法使用。
 
-* 根据用户权限，将默认按钮的 JQuery 事件处理程序分配给项目的方法。
+* 根据用户权限，将默认按钮的 JQuery 事件处理程序分配给实体的方法。
   在下面的示例中，初始化了删除按钮：
 
   .. code-block:: js
@@ -60,9 +55,9 @@
         item.view_form.find("#delete-btn").prop("disabled", true);
     }
 
-* 执行项目的
+* 执行实体组的
   :doc:`on_view_form_created </refs/client/group/on_view_form_created>`
-  事件处理程序，以及项目的
+  事件处理程序，以及实体的
   :doc:`on_view_form_created </refs/client/item/on_view_form_created>`
   事件处理程序（如果已定义）：
 
@@ -76,26 +71,20 @@
         item.on_view_form_created(item);
     }
 
-* 创建一个表格来显示项目数据，并为明细表创建表格（如果已通过调用 ``create_view_tables`` 方法指定）
+* 创建一个表格来显示实体数据，并为明细表创建表格（如果已通过调用 ``create_view_tables`` 方法指定）
 
-* 执行
-  :doc:`open </refs/client/item/m_open>`
-  方法，从服务器获取项目数据集。
+* 执行 :doc:`open </refs/client/item/m_open>` 方法，从服务器获取实体数据集。
   
-* 最后返回 true，以防止调用所有者组和项目的 ``on_view_form_created`` 事件处理程序，因为它们已被调用（参见下面的 ``_process_event`` 方法）。
+* 最后返回 true，以防止调用所有者组和实体的 ``on_view_form_created`` 事件处理程序，因为它们已被调用（参见下面的 ``_process_event`` 方法）。
   
-在我们初始化按钮之后、创建表格之前，我们调用了
-项目本身的 ``on_view_form_created`` 事件处理程序。
+在我们初始化按钮之后、创建表格之前，我们调用了实体本身的 ``on_view_form_created`` 事件处理程序。
 
-例如，在演示应用程序的 tracks（曲目）项目的客户端模块中，
-定义了以下
-:doc:`on_view_form_created </refs/client/item/on_view_form_created>`
-事件处理程序。在其中，我们
-更改了
-:doc:`table_options </refs/client/item/at_table_options>`
-的 height（高度）属性，创建了
-invoice_table（发票表格）的副本，设置其属性，并调用其
-:doc:`create_table </refs/client/item/m_create_table>`
+例如，在演示应用程序的 tracks（曲目）实体的客户端模块中，定义了以下 
+:doc:`on_view_form_created </refs/client/item/on_view_form_created>` 
+事件处理程序。
+在其中，我们更改了 :doc:`table_options </refs/client/item/at_table_options>` 
+的 “高度(height)” 属性，创建了 “发票表格(invoice_table)” 的副本，设置其属性，
+并调用其 :doc:`create_table </refs/client/item/m_create_table>` 
 方法来创建一个表格以显示其数据。
 
 .. code-block:: js
@@ -112,28 +101,21 @@ invoice_table（发票表格）的副本，设置其属性，并调用其
   }
 
 
-该模块还有一个
-:doc:`on_after_scroll </refs/client/item/on_after_scroll>`
-事件处理程序，当
-用户移动到另一首曲目时将执行此处理程序，并获取该曲目的销售数据。
+该模块还有一个 :doc:`on_after_scroll </refs/client/item/on_after_scroll>`
+事件处理程序，当用户移动到另一首曲目时将执行此处理程序，并获取该曲目的销售数据。
 
 这个示例解释了表单事件的使用原理。
 
-事件的触发顺序取决于事件的类型。
+事件的触发顺序取决于事件的类型。事件生成的顺序也取决于事件的类型。
 
 关闭查询事件
 ==================
 
-当用户尝试关闭表单时，首先会为项目触发 on_close_query 事件
-（如果已定义）。
+当用户尝试关闭表单时，首先会为实体触发 on_close_query 事件（如果已定义）。
 
-如果事件处理程序返回 true，应用程序将关闭表单，
-否则，如果事件处理程序返回 false，应用程序将保持表单打开，
-否则，会以相同方式为项目组和任务触发 on_close_query 事件（如果已定义）。
+如果事件处理程序返回 true，应用程序将关闭窗体；如果事件处理程序返回 false，应用程序将保持窗体打开；否则，将以相同方式触发实体组的 on_close_query 事件（若已定义），再触发任务的 on_close_query 事件（若已定义）。
 
-例如，默认情况下，任务客户端模块中有一个
-:doc:`on_edit_form_close_query </refs/client/item/on_edit_form_close_query>`
-事件处理程序：
+例如，默认情况下，任务客户端模块中有一个 :doc:`on_edit_form_close_query </refs/client/item/on_edit_form_close_query>` 事件处理程序：
 
 .. code-block:: js
 
@@ -158,10 +140,9 @@ invoice_table（发票表格）的副本，设置其属性，并调用其
       return result;
   }
 
-此代码检查记录是否已被修改，然后打开
-"是 否 取消" 对话框。
+此代码检查记录是否已被修改，然后打开 “是/否/取消” 对话框。
 
-如果我们想在不显示此对话框的情况下关闭表单，可以在项目的客户端模块中定义以下
+如果我们想在不使用此对话框的情况下关闭表单，可以在实体的客户端模块中定义以下
 事件处理程序：
 
 .. code-block:: js
@@ -174,13 +155,9 @@ invoice_table（发票表格）的副本，设置其属性，并调用其
 Keydown、Keyup 事件
 =====================
 
-这些事件的触发方式与关闭查询事件相同，从项目开始，
-但如果事件处理程序返回 true，则不会执行组和任务的
-事件处理程序。
+这些事件的触发方式与关闭查询事件相同，均从实体开始；但如果事件处理程序返回 true，则不会执行组和任务的事件处理程序。
 
-例如，默认情况下，任务客户端模块中有一个
-:doc:`on_edit_form_keyup </refs/client/item/on_edit_form_keyup>`
-事件处理程序：
+例如，默认情况下，任务客户端模块中有一个 :doc:`on_edit_form_keyup </refs/client/item/on_edit_form_keyup>` 事件处理程序：
 
 .. code-block:: js
 
@@ -193,8 +170,7 @@ Keydown、Keyup 事件
 
 此代码在用户按下 Ctrl+Enter 时将记录的更改保存到数据库表。
 
-假设我们希望在用户按下 Enter 时保存更改。那么我们在项目客户端模块中编写
-以下事件处理程序：
+假设我们希望在用户按下 Enter 时保存更改。那么我们在实体客户端模块中编写以下事件处理程序：
 
 .. code-block:: js
 
@@ -211,9 +187,7 @@ Keydown、Keyup 事件
 所有其他事件
 ================
 
-对于其他事件，首先调用任务的事件处理程序，如果它没有
-返回 true，则执行组的事件处理程序（如果它没有
-返回 true），然后调用项目的事件处理程序。
+对于其他事件，首先调用任务的事件处理程序；如果任务的事件处理程序没有返回 true，则执行组的事件处理程序；如果组的事件处理程序没有返回 true，再调用实体的事件处理程序。
 
 此机制由 *jam.js* 模块中 Item 类的 ``_process_event`` 方法实现。
 

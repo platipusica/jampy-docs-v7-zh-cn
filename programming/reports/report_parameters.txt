@@ -1,57 +1,55 @@
 =================
-报告参数
+报表参数
 =================
 
-您可以指定报告的参数。例如，演示项目的
-**Customer purchases** （客户购买）报告有三个参数。
+您可以指定报表的参数。例如，演示项目的 **客户购买(Customer purchases)** 报表有三个参数。
 
 .. image:: /programming/_images/parameters_jampy.png
 	:align: center
-	:alt: 报告参数
+	:alt: 报表参数
 
-要添加或更改报告参数，请点击应用程序构建器左侧面板中的 **Report params** （报告参数）按钮。
-将显示一个表单，列出已有的参数。然后点击表单中的 New（新建）或 Edit（编辑）按钮以添加或更改参数。
+要添加或更改报表参数，请在应用程序构建器左侧面板中点击 **报表参数(Report params)** 按钮。
+将显示一个表单，列出已有的参数。然后点击表单中的 **新建(New)** 或 **编辑(Edit)** 按钮以添加或更改参数。
 
 .. image:: /programming/_images/report_param_jampy.png
 	:align: center
-	:alt: 报告参数
+	:alt: 报表参数
 
 可以指定以下内容：
 
 * **Caption** （标题）- 向用户显示的参数名称
 
-* **Name** （名称）- 参数名称，将在编程代码中用于访问参数对象。
+* **Name** （名称）- 参数名称，将在编程代码中用于访问参数对象
   
 * **Type** （类型）- 参数的数据类型
 
-* **Lookup item** （查找项目）- 用于选择参数值的项目
+* **Lookup item** （查找项）- 用于选择参数值的实体项
 
-* **Lookup field** （查找字段）- 查找项目中的字段
+* **Lookup field** （查找字段）- 查找项中的字段
 
-* **Typeahead** （预输入）- 为查找字段启用自动补全/预输入功能。
+* **Typeahead** （预输入）- 为查找字段启用自动补全/预输入功能
 
-* **Multiple selection** （多选）- 启用多选功能。
+* **Multiple selection** （多选）- 启用多选功能
 
-* **Select all enabled** （启用全选）- 启用全选功能。
+* **Select all enabled** （启用全选）- 启用全选功。
 
-* **Lookup value list** （查找值列表）- 查找值列表选择。
+* **Lookup value list** （查找值列表）- 选择查找值列表
 
-* **Required** （必填）- 如果勾选此复选框且设置了 **Visible** （可见）属性，
-  客户端应用程序将在打印报告前要求用户指定参数值
+* **Required** （必填）- 如果勾选此复选框且设置了 **可见(Visible)** 属性，
+  客户端应用程序将在打印报表前要求用户指定参数值。
 
-* **Alignment** （对齐方式）- 指定参数值在输入元素中的对齐方式
+* **Alignment** （对齐方式）- 指定参数值在输入元素中的对齐方式。
 
-* **Placeholder** （占位符）- 使用此属性指定字段输入将显示的占位符。
+* **Placeholder** （占位符）- 使用此属性指定字段输入控件中将显示的占位符。
 
-* **Help** （帮助）- 如果指定了任何文本/HTML 消息，将在输入框右侧显示一个问号，
-  当用户将鼠标指针移到该标记上时，将弹出一个窗口显示此消息。
+* **Help** （帮助）- 如果指定了任何 **text/HTML 消息** ，将在输入框右侧显示一个问号，
+当用户将鼠标指针移到该标记上时，将弹出一个窗口显示此消息。
 
-* **Visible** （可见）- 客户端应用程序在打印报告前创建一个用于指定参数的表单。
-  如果勾选此复选框，此参数的输入元素将出现在表单中
+* **Visible** （可见）- 客户端应用程序在打印报表前创建一个用于指定参数的表单。
+  如果勾选此复选框，此参数的输入元素将出现在表单中。
 
-可以创建查找参数。例如，**Customer purchases** （客户购买）
-报告有一个 **Customer** （客户）参数，可以从 **Customers** （客户）
-目录中选择：
+可以创建查找参数。例如， **客户购买(Customer purchases)** 
+报表有一个 **客户(Customer)** 参数，可以从 **客户(Customers)** 目录中选择：
 
 .. image:: /programming/_images/lookup_param_jampy.png
 	:align: center
@@ -59,11 +57,11 @@
 
 在这种情况下，我们应该指定：
 
-* **Lookup item** （查找项目）- 用于选择参数值的项目
+* **Lookup item** （查找项）- 用于选择参数值的实体
 
-* **Lookup field** （查找字段）- 查找项目中的字段
+* **Lookup field** （查找字段）- 查找项中的字段
 
-设置 **Customer purchases** （客户购买）报告参数的表单如下所示：
+设置 **客户购买(Customer purchases)** 报表参数的表单如下所示：
 
 .. image:: /programming/_images/customer_purchases_params_jampy.png
 	:align: center

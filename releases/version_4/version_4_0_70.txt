@@ -1,38 +1,33 @@
 ==============
-Version 4.0.70
+版本 4.0.70
 ==============
 
-Jam.py library:
+Jam.py 库：
 
-* Bug, related to last column disappearance when table content is larger than its container, fixed.
+* 修复了当表格内容大于其容器时，最后一列消失的相关错误。
 
-* Bug, related to table footer, fixed.
+* 修复了与表格页脚相关的错误。
  
-* :doc:`lookup_type </refs/client/field/at_lookup_type>` 
-  property of 
-  :doc:`Field class </refs/client/field_api>` 
-  added
+* 添加了 :doc:`Field class </refs/client/field_api>` 的 :doc:`lookup_type </refs/client/field/at_lookup_type>` 属性
     
-* Exception is now raised when developer forgets to add a value attribute to a field,
-  when specifing a value for programmable cell.
+* 现在，在为可编程单元格指定值时，当开发者忘记为字段添加值属性时，会引发异常。
 
-* Bug, related to date and datetime fields in when clause for SQlite database, fixed.
+* 修复了 SQLite 数据库中 when 子句中日期和日期时间字段的相关错误。
 
-* Administrator now shows project version / jam.py version information.
+* 现在管理员页面显示项目版本 / jam.py 版本信息。
 
-Demo application:
+演示应用程序：
 
-* Filter text bug in demo application fixed.
+* 修复了演示应用程序中的过滤文本错误。
 
-* Selection of search field for catalogs in demo applcation is added.
+* 已在演示应用程序中添加目录搜索字段的选择功能。
 
-* Multiple record selection in invoices journal in demo application is added 
-  (used when delete button is clicked)
+* 添加了演示应用程序中发票日志中的多记录选择（在点击删除按钮时使用）
 
-* Menu in demo application is changed.
+* 演示应用程序中的菜单已更改。
 
-* blue-theme.css file added
+* 添加了 blue-theme.css 文件
 
-Twitter account created: https://twitter.com/jampy_framework
+创建了 Twitter 账户：https://twitter.com/jampy_framework
 
-Jam.py Users Mailing List created: https://groups.google.com/forum/#!forum/jam-py
+创建了 Jam.py 用户邮件列表：https://groups.google.com/forum/#!forum/jam-py

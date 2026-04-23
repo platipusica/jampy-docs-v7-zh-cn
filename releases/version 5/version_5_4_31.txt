@@ -1,16 +1,16 @@
 ==============
-Version 5.4.31
+版本 5.4.31
 ==============
 
-* Bug when reading index.html file fixed. Index.html must have a unicode encoding.
+* 修复了读取 index.html 文件时的错误。index.html 必须使用 Unicode 编码。
 
-* German translation updated.
+* 更新了德语翻译。
 
-* Bug when Dashbord are opened fixed in Demo.
+* 修复了演示中打开仪表板时的错误。
 
-* Users item added to demo.
+* 向演示中添加了 Users 实体项。
 
-* on_login event handler in task server module that uses Users item to login 
-  is written (commented) and changing of password implemented. 
-  Uncomment on_login to see how it works. 
-  Description is here https://groups.google.com/forum/#!topic/jam-py/Obkv5d3yT8A
+* 任务服务器模块中的 on_login 事件处理程序已编写（已注释），
+  该处理程序使用 Users 实体项进行登录，并实现了密码修改功能。
+  取消注释 on_login 以查看其工作方式。
+  说明见 https://groups.google.com/forum/#!topic/jam-py/Obkv5d3yT8A

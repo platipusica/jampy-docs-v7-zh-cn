@@ -1,28 +1,23 @@
 =============
-Version 5.1.1
+版本 5.1.1
 =============
 
-Library:
+库:
 
-* History of changes made by users can now be stored. 
-  See :doc:`Saving the history of changes made by users </admin/saving_history>`
-  
-* Local filtering of dataset records is reworked and published.
-  See 
-  :doc:`Filtered </refs/client/item/at_filtered>`,
+* 现在可以存储用户所做的更改的历史记录。
+  参见 :doc:`保存用户所做更改的历史记录 </admin/saving_history>`
+
+* 数据集记录的本地过滤已重新设计并发布。
+  参见 :doc:`Filtered </refs/client/item/at_filtered>` ,
   :doc:`on_filter_record </refs/client/item/on_filter_record>`
-  
-* :doc:`clone </refs/client/item/m_clone>` method is published
- 
-* Application is now throws an exception when an attempt is made to get or set
-  a value to a field when the dataset is empty.
-  
-Application Builder:
 
-* **Delete reports after** attribute is added to 
+* 发布 :doc:`clone </refs/client/item/m_clone>` 方法
+
+* 当数据集为空时，尝试获取或设置字段值时，应用程序现在会抛出异常，。
+
+应用程序构建器:
+
+* **Delete reports after** 属性已添加到 
   :doc:`Project parameters </admin/project/parameters>`
 
-* Some changes to interface are made.
- 
-  
-  
+* 对界面进行了一些更改。

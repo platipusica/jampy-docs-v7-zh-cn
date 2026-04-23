@@ -1,13 +1,13 @@
 ==============
-Version 5.4.23
+版本 5.4.23
 ==============
 
-Library:
+库:
 
-* :doc:`refresh_record </refs/client/item/m_refresh_record>` bugs fixed
+* :doc:`refresh_record </refs/client/item/m_refresh_record>` 的相关错误已修复
 
-* Image and file fields can be lookup fields now
+* 现在，图像和文件字段可以作为查找字段
 
-Application builder:
+应用程序构建器:
 
-* creating new group bug fixed
+* 修复了创建新组有关的错误

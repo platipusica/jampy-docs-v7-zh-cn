@@ -1,26 +1,24 @@
 ==============
-Version 5.4.22
+版本 5.4.22
 ==============
 
-Library:
+库:
 
-* :doc:`upload </refs/client/task/m_upload>` method reworked
+* :doc:`upload </refs/client/task/m_upload>` 方法已重新设计
 
-* Image and file field types added - 
-  :doc:`Tutorial. Part 2. File and image fields </intro/tutorial02/index>`
+* 添加图像和文件字段类型 - 
+  :doc:`教程 第二部分 文件和图像字段 </intro/tutorial02/index>`
   
-* **Buttons on top** attribute added to the Form tab of the
-  :doc:`View Form Dialog </admin/items/view_form_dialog>` 
+* 为 :doc:`视图表单对话框 </admin/items/view_form_dialog>` 表单选项卡添加了 **Buttons on top** 属性  
 
-* :doc:`refresh_record </refs/client/item/m_refresh_record>` method reworked, it
-  can refresh details of the item
+* :doc:`refresh_record </refs/client/item/m_refresh_record>` 方法已重新设计, 它可以刷新数据项的明细表
 
-* on_field_get_html event added
+* on_field_get_html 事件已添加
 
-Demo application:
+演示应用程序n:
 
-* Invoices: on_field_get_html handler added
+* 发货单(Invoices): on_field_get_html 处理程序已添加
 
-* Customer: image field "Photo" added
+* 用户(Customer): 图像字段 "Photo" 已添加
 
-* Tracks: file field "File" added
+* 唱片(Tracks): 文件字段 "File" 已添加

@@ -1,11 +1,13 @@
-==========
-Jam.py FAQ
-==========
+========================
+Jam.py 常见问题
+========================
 
 .. toctree::
     :maxdepth: 1
 
+    faq_foreign_keys
     faq_catalogs_vs_journals
+    faq_foreign_keys    
     faq_howto_upgrade_existing_project
     faq_using_other_libraries
     faq_print_ods_pdf

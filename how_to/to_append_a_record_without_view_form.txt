@@ -1,11 +1,9 @@
 ======================================================================
-How to append a record using an edit form without opening a view form?
+如何在不打开视图表单的情况下使用编辑表单追加记录？
 ======================================================================
 
-You must first call the 
-:doc:`open </refs/client/item/m_open>`
-method of the item to initiate its dataset. For example, if you want to add a 
-new record to invoices in the Demo application, you can do so as follows:
+首先，你必须调用实体的 :doc:`open </refs/client/item/m_open>` 方法来初始化实体使用数据集。
+例如，按照下面的做法，你可以向 *演示应用程序* 中的 invoices 添加一条新记录。
 
 .. code-block:: js
 
@@ -13,15 +11,12 @@ new record to invoices in the Demo application, you can do so as follows:
   invoices.open({ open_empty: true });
   invoices.append_record();
 
-In this code, we create a copy of the item using the 
-:doc:`copy </refs/client/item/m_copy>`
-method so that this operation does not affect the Invoices view form if it is 
-open in a tab.
 
-You can also change the record, but before you do this, you must get it from 
-the server. Below is the code that modifies the record with id 411. 
-We check that the record exists using the rec_count property, 
-otherwise we display a warning.
+在这段代码中，我们使用实体的 :doc:`copy </refs/client/item/m_copy>` 方法创建了它的一个副本，
+因此，即使已在一个选项卡中打开了 Invoices 的视图表单，这里的操作也不会影响到它 。
+
+您也可以更改记录，但在执行此操作之前，您必须从服务器获取它。下面是修改 id 为 411 的记录的代码。
+我们使用 rec_count 属性检查记录是否存在，若不存在则显示警告信息。
 
 .. code-block:: js
 
@@ -34,9 +29,9 @@ otherwise we display a warning.
       invoices.alert_error('Invoices: record not found.');
   }
 
-In the example above the open method is not executed synchronously.
+在上面的示例中，open 方法不是异步执行的。
 
-The code below does it asynchronously:
+下面的代码是异步执行的：
 
 .. code-block:: js
 
@@ -50,14 +45,11 @@ The code below does it asynchronously:
       }
   });
 
-Invoices has the Modeless attribute set in the Edit form dialog, so the 
-the edit form with be opened in a tab. You can change it by setting
-modeless attribute of
-:doc:`edit_options </refs/client/item/at_edit_options>`
-to make the edit form modal:
+发票（Invoices）的编辑表单对话框已设置无模式（Modeless）属性，因此编辑表单会在标签页中打开。
+你可以通过设置 :doc:`edit_options </refs/client/item/at_edit_options>`
+的无模式属性来修改它，使编辑表单变为模态对话框（模态窗口）：
 
 .. code-block:: js
 
   var invoices = task.invoices.copy();
   invoices.edit_options.modeless = false;
-

@@ -1,29 +1,27 @@
-======================
-How to link two tables
-======================
+=============================
+如何关联两个数据表
+=============================
 
-The below procedure was valid for Jam.py V5, for the scenario when the two 
-database tables were not directly linked by a Master/Detail relationship within 
-the Builder (see :doc:`Tutorial. Part 3. Detail </intro/tutorial03/index>`).
+以下步骤适用于 Jam.py V5 版本，适用于两个数据库表未在构建器中通过 
+**主/从（Master/Detail）关系** 直接关联的场景。
+（参见 :doc:`Tutorial. Part 3. Detail </intro/tutorial03/index>` ）
 
-In Jam.py V7, the database table Tracks is directly linked to the detail table
-invoicetable, hence the below procedure is not needed. 
-If the tables were not directly linked within the Builder, we could still use 
-the procedure with Jam.py V7.
+在 Jam.py V7 版本中，演示应用程序的 *唱片(Tracks)* 数据库表已与 *销售记录(invoice)* 明细表直接关联，
+因此无需执行以下步骤。
 
-We'll explain how to link two items on example of the tracks and invoicetable items
-from the demo application. We'll link the record of tracks with the corresponding 
-list of sold tracks from invoicetable that contains all sold tracks from invoices.
+若数据表未在构建器中直接关联，在 Jam.py V7 中仍可使用以下步骤。
 
-The default behavior of 
-:doc:`view_form </refs/client/item/at_view_form>`
-is defined in the 
-:doc:`on_view_form_created </refs/client/task/on_view_form_created>`
-event handler declared in the task client module.
+我们将以演示应用中的 *唱片(Tracks)* 和 *销售记录(invoice)* 实体项为例，说明如何关联两个实体。
+我们会将 *唱片(Tracks)* 表中的记录，与  *销售记录(invoice)*  表中对应的已售出唱片列表关联
+（*销售(invoice)* 表存储了所有已售出的唱片）。
 
-We will change it in the
-:doc:`on_view_form_created </refs/client/item/on_view_form_created>`
-event handler in the tracks client module
+:doc:`view_form </refs/client/item/at_view_form>` 的默认行为，
+在任务的客户端模块中声明的 
+:doc:`on_view_form_created </refs/client/task/on_view_form_created>` 事件处理程序内定义。
+
+我们将在唱片的客户端模块的 
+:doc:`on_view_form_created </refs/client/item/on_view_form_created>` 
+事件处理程序里修默认行为：
 
 .. code-block:: py
 
@@ -37,18 +35,18 @@ event handler in the tracks client module
     });
   }
 
-Then we reduce height of the table that displays tracks data by 200 pixels
+
+然后，我们将显示唱片数据的表格的高度减少 200 像素。
 
 .. code-block:: py
 
   item.table_options.height -= 200;
   
-create a 
-:doc:`copy </refs/client/item/m_copy>`
-of invoice_table, set its 
-:doc:`paginate </refs/client/item/at_paginate>` attribute to false and call the 
-:doc:`create_table </refs/client/item/m_create_table>`
-method to create a table that will display the sold tracks
+
+使用 :doc:`copy </refs/client/item/m_copy>` 方法创建 invoice_table 的一个副本，
+再将副本的 :doc:`paginate </refs/client/item/at_paginate>` 属性设置为 false，
+调用并副本的 :doc:`create_table </refs/client/item/m_create_table>` 方法来创建一个表格，
+用来显示已售出的唱片。
 
 .. code-block:: py
 
@@ -59,12 +57,10 @@ method to create a table that will display the sold tracks
       summary_fields: ['date', 'total'],
   });
 
-For this table we set the height to 200 pixels and define to summary fields.
+我们为表格设置了 200 像素的高度，并定义了汇总的字段。
 
-This table will always be empty if we won't define the following 
-:doc:`on_after_scroll </refs/client/item/on_after_scroll>`
-event handler:
-
+如果我们不定义下面的 :doc:`on_after_scroll </refs/client/item/on_after_scroll>` 
+事件处理程序，这个表将总是空的：
 
 .. code-block:: py
 
@@ -81,12 +77,10 @@ event handler:
       }
   }
 
-The 
-:doc:`on_after_scroll </refs/client/item/on_after_scroll>`
-event is triggered whenever the current record is changed.
-So when the track is changed we call
-:doc:`open </refs/client/item/m_open>`
-method, pre-setting the filter and order 
+只要当前记录发生更改，就会触发 
+:doc:`on_after_scroll </refs/client/item/on_after_scroll>` 事件。
+所以当唱片数据改变时，我们调用 
+:doc:`open </refs/client/item/m_open>` 方法，预先设置过滤器和排序依据：
 
 .. code-block:: js
 
@@ -94,22 +88,18 @@ method, pre-setting the filter and order
   item.invoice_table.set_order_by(['-invoice_date']);
   item.invoice_table.open(true);
 
-This method sends a request to the server, that generates sql query, executes it
-and returns a dataset that contains sold records of this track ordered in 
-descending order of invoice_date field.
+此方法向服务器发送请求，服务器生成 sql 查询，执行该查询并返回一个数据集，
+该数据集包含按 invoice_date 字段降序排列的此唱片的已售出记录。
 
-If the tracks dataset is empty we clear the sold records dataset by calling the
-:doc:`close </refs/client/item/m_close>`
-method.
+如果唱片数据集是空的，将通过调用 :doc:`close </refs/client/item/m_close>` 方法
+来清除已销售记录的数据集。
 
-Because controls in Jam.py are data-aware every change of sold records dataset 
-will be displayed in the table that we created in the 
-:doc:`on_view_form_created </refs/client/item/on_view_form_created>`
-event handler.
+由于 Jam.py 中的控件都是数据感知型的，已售唱片数据集的每一次变更，
+都会自动显示在我们在 :doc:`on_view_form_created </refs/client/item/on_view_form_created>`
+事件处理程序中创建的表格中。
 
-Now every time the track has changed the application send request to the server
-to renew the sold tracks. This is not effective and sometimes can lead to 
-delays. To avoid this we use the JavaScript setTimeout function:
+现在，每当唱片记录发生变化时，应用程序都会向服务器发送请求以刷新已售唱片列表。
+这种方式效率不高，有时还会导致延迟。为了解决这个问题，我们使用 JavaScript 的 setTimeout 函数：
 
 .. code-block:: js
 
@@ -134,17 +124,11 @@ delays. To avoid this we use the JavaScript setTimeout function:
       }
   }
 
-This function guarantees that the data will be updated no more than
-once every 100 milliseconds.
+该函数保证了数据的更新频率不会一次超过 100 毫秒。
 
-Since the invoicetable is a 
-:doc:`detail </programming/data/details>` it has the **invoice**  field that 
-stores a reference to invoice that has this record, we can show the user an 
-invoice that contains the current sold record.
-To do so we pass to the 
-:doc:`create_table </refs/client/item/m_create_table>`
-method the function that will be executed
-when user double click the record:
+由于 invoice_table 是一个 :doc:`明细表 </programming/data/details>`，它包含 **invoice** 字段，该字段存储了与当前记录相关的发票引用，因此我们可以向用户展示包含当前已售唱片记录的发票。
+为此，我们在调用 :doc:`create_table </refs/client/item/m_create_table>` 方法时，
+传入一个函数，当用户双击表格中的记录时会执行该函数：
 
 .. code-block:: js
 
@@ -156,7 +140,7 @@ when user double click the record:
       }
   });
 
-and define the function as follows:
+传入的函数的定义如下：
 
 .. code-block:: js
 
@@ -173,33 +157,20 @@ and define the function as follows:
       });
   }
   
-In this function we create a copy of the invoices journal and find the invoice.
-When the open method is executed we will show the invoice by calling its
-:doc:`edit_record </refs/client/item/m_edit_record>`
-method. But before calling it we set its attributes so that it will be modal and
-the user won't be able to modify it. 
 
-Besides we dynamically assign 
-:doc:`on_after_open </refs/client/item/on_after_open>`
-event handler to the invoice_table detail of the invoice we get.
-In this event handler we will find the current record in the sold records by 
-calling the
-:doc:`locate </refs/client/item/m_locate>`
-method.
+在这个函数里，我们创建了发票台账（invoices journal）的一个副本，并查找指定 id 的发票。当执行 open 方法时，我们将通过调用它的 :doc:`edit_record </refs/client/item/m_edit_record>` 方法来显示发票内容。
+但是，在调用前，我们对其属性进行设置，这样它将以模态形式显示，而且用户也崩对其修改。
 
-Finally we will check the 
-:doc:`lookup_field </refs/client/item/at_lookup_field>`
-attribute of tracks. This attribute is true if the item was created to select 
-a value for the lookup field when a user clicks on the button to the right of
-lookup field input. We will make so that the sold tracks are not shown when the 
-user selects the value for the lookup field. 
+此外，我们还会动态地为获取到的发票的 invoice_table 明细分配 :doc:`on_after_open </refs/client/item/on_after_open>` 事件处理程序。
+在该事件处理程序中，我们通过调用 :doc:`locate </refs/client/item/m_locate>` 方法，
+在已售唱片记录中定位到当前记录。
 
-In addition, we add an alert informing the user about the possibility of seeing 
-the invoice.
+最后，我们还会检查 tracks 的 :doc:`lookup_field </refs/client/item/at_lookup_field>` 属性。当该属性为 true 时，表示该项是为选择查找字段的值而创建的（即用户点击查找字段输入框右侧按钮时创建）。
+我们会确保当用户为查找字段选择值时，不显示已售唱片的记录。
 
-Finally the code of the 
-:doc:`on_view_form_created </refs/client/item/on_view_form_created>`
-will be as follows:
+此外，我们添加了一个提醒，告知用户可以到发票。
+
+最终， :doc:`on_view_form_created </refs/client/item/on_view_form_created>` 的代码如下所示：
 
 .. code-block:: js
 

@@ -1,6 +1,6 @@
 ===============
-Version 5.5.4
+版本 5.5.4
 ===============
 
-* The version bump up to indicate a fork from jam.py to jam.py-v5.
-  The reason for a fork is Andrew retiring from this project.
+* 版本号已提升，用以标识从 jam.py 分支为 jam.py-v5。
+  分叉的原因是 Andrew 退出了这个项目。

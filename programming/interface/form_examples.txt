@@ -2,19 +2,15 @@
 表单示例
 =============
 
-目前，框架使用 `Bootstrap 5`_，它具有一个简单易用的网格
-系统，使用 12 列，允许您创建任何类型的布局。
-它是响应式的，并包含许多组件，如下拉菜单、
-下拉按钮、按钮组、导航、导航栏、选项卡、面包屑、徽章、
-进度条等。
+目前，框架使用 `Bootstrap 5`_，它具有一个简单易用的网格系统，这个网格系统最多使用 12 列，允许您创建任何类型的布局。
+它是响应式的，并包含许多组件，如下拉菜单、下拉按钮、按钮组、导航、导航栏、选项卡、面包屑、徽章、进度条等。
 
 .. _`Bootstrap 5`: https://getbootstrap.com/docs/5.0/
 
 默认编辑表单模板
 --------------------------
 
-如果项目及其所有者没有
-自己的编辑表单模板，则使用此模板创建编辑表单。
+如果实体及其所有者没有自己的编辑表单模板，则使用此模板创建编辑表单。
 
 .. code-block:: html
 
@@ -32,20 +28,9 @@
         </div>
     </div>
 
-下面的事件位于任务客户端模块中，当任何项目的
-编辑表单刚刚创建时会触发该事件。
+下面的事件位于任务客户端模块中，当任何实体的编辑表单刚刚创建时会触发该事件。
 
-它使用
-:doc:`create_inputs </refs/client/item/m_create_inputs>`
-方法在 class 为 "edit-body" 的 div 中创建输入控件。但在此之前，它
-检查项目的客户端模块中是否定义了 ``init_inputs`` 函数，该函数
-可用于指定方法的 options 参数。
-
-它使用
-:doc:`create_inputs </refs/client/item/m_create_inputs>`
-方法在 class 为 "edit-body" 的 div 中创建输入控件。
-但在此之前，它检查项目中是否定义了 init_inputs 函数，
-该函数可用于指定方法的选项。
+它使用 :doc:`create_inputs </refs/client/item/m_create_inputs>` 方法在 class 为 "edit-body" 的 div 中创建输入控件。但在此之前，它检查实体的客户端模块中是否定义了 ``init_inputs`` 函数，该函数可用于指定方法的 options 参数。
 
 然后，它为 OK 和 Cancel 按钮分配 jQuery 事件。
 
@@ -70,7 +55,7 @@
         });
     }
 
-**Albums** （专辑）目录的编辑表单如下所示：
+**专辑(Albums)** 目录的编辑表单如下所示：
 
 .. image:: /programming/_images/default_edit_form_template_jampy.png
 	:align: center
@@ -78,12 +63,9 @@
 
 .. note::
     
-    如果没有具有相应 id 的按钮，
-    上述代码不会生成异常。
+    如果没有具有相应 id 的按钮，上述代码不会生成异常。
 
-    如果您想在项目的客户端模块的相应事件中，
-    覆盖任务客户端模块中声明的按钮的 JQuery 事件，
-    可以使用 jQuery 的 ``off`` 方法：
+    如果您想在实体的客户端模块的相应事件中，覆盖任务客户端模块中声明的按钮的 JQuery 事件，可以使用 jQuery 的 ``off`` 方法：
 
     .. code-block:: js
     
@@ -91,13 +73,12 @@
             .off('click.task')
             .on('click', function() { some_other_function(item) });    
 
-    如果表单中没有相应的容器，``create_inputs``
-    方法不会执行任何操作。
+    如果表单中没有相应的容器， ``create_inputs`` 方法不会执行任何操作。
 
 带选项卡的编辑表单模板
 ----------------------------
 
-此示例使用 Bootstrap 3 的选项卡。由于 Bootstrap 5 不使用 href，需要进行更新：
+此示例使用 Bootstrap 3 的选项卡。由于 Bootstrap 5 不使用 href，需要对示例代码进行更新：
 
 .. code-block:: html
 
@@ -127,8 +108,7 @@
         </div>
     </div>
 
-以下事件处理程序声明在 **Customers** （客户）项目的客户端模块中。
-它为与选项卡对应的窗格创建输入控件：
+以下事件处理程序声明在 **客户(Customers)** 实体的客户端模块中。它为与选项卡对应的窗格创建输入控件：它会为面板创建对应的输入控件，这些面板分别对应各个选项卡：
 
 .. code-block:: js
 
@@ -156,7 +136,7 @@
 ------------------------------------
 
 
-此示例使用 Bootstrap 网格系统：
+此示例使用 Bootstrap 的网格系统：
 
 
 .. code-block:: html
@@ -220,7 +200,7 @@
 
 
 
-每个部分周围都有标题，例如“Track Info”（曲目信息）/“Technical Info”（技术信息）：
+每个部分周围都有标题，例如 “曲目信息(Track Info)”/ “技术信息(Technical Info)”：
 
 .. code-block:: html
 
@@ -263,10 +243,8 @@
 
 在这个例子中，有一个 class 为 "form-header" 的 div。
 
-id 为 "form-title" 的元素在任务的
-:doc:`on_view_form_created </refs/client/task/on_view_form_created>`
-方法中用于显示项目的标题，并为其分配一个 JQuery
-onclick 事件来执行 view 方法以重新创建查看表单。
+id 为 "form-title" 的元素在任务的 
+:doc:`on_view_form_created </refs/client/task/on_view_form_created>` 方法中用于显示实体的标题，并为其分配一个 JQuery onclick 事件来执行 view 方法以重新创建查看表单。
 
 id 为 "selected-div" 和 "search-form" 的元素在目录组的
 :doc:`on_view_form_created </refs/client/group/on_view_form_created>` 中用于
@@ -274,9 +252,8 @@ id 为 "selected-div" 和 "search-form" 的元素在目录组的
 
 class 为 "view-table" 的 div 在任务的
 :doc:`on_view_form_created </refs/client/task/on_view_form_created>`
-事件处理程序中用于通过
-:doc:`create_table </refs/client/item/m_create_table>` 
-方法创建一个表格来显示项目数据：
+事件处理程序中用于通过 :doc:`create_table </refs/client/item/m_create_table>` 
+方法创建一个表格来显示实体数据：
 
 .. code-block:: js
 
@@ -290,11 +267,8 @@ class 为 "view-table" 的 div 在任务的
 
 id 为 "report-btn" 的 div 在任务的
 :doc:`on_view_form_created </refs/client/task/on_view_form_created>`
-事件处理程序中用于用项目
-:doc:`Reports Dialog </admin/items/reports_dialog>`
+事件处理程序中用于用实体 :doc:`Reports Dialog </admin/items/reports_dialog>`
 中定义的报告填充下拉按钮菜单项（如果它们存在）。
-
-
 
 .. code-block:: html
 
@@ -348,9 +322,7 @@ id 为 "report-btn" 的 div 在任务的
 按钮在顶部的查看表单模板
 ------------------------------------------
 
-在此示例中，移除了表单页脚 div，并将按钮放置在
-表单标题 div 中。创建了 **Actions** （操作）下拉按钮。代码与
-上一个示例相同。
+在此示例中，移除了表单页脚 div，并将按钮放置在表单标题 div 中。创建了 **操作(Actions)** 下拉按钮。代码与上一个示例相同。
 
 
 .. code-block:: html
@@ -392,13 +364,10 @@ id 为 "report-btn" 的 div 在任务的
 带明细表的查看表单模板
 ------------------------------
 
-在此示例中，移除了 class 为 "view-table" 的 div，并在
-**Invoices** （发票）日志的客户端模块中声明的
+在此示例中，移除了 class 为 "view-table" 的 div，
+并在 **发票(Invoices)** 日志的客户端模块中声明的 
 :doc:`on_view_form_created </refs/client/item/on_view_form_created>`
-事件处理程序中为
-主表和明细表项目创建了两个 div："view-master" 和 "view-detail" 表格：
-
-
+事件处理程序中为主表和明细表实体创建了两个 div："view-master" 和 "view-detail" 表格：
 
 .. code-block:: js
 

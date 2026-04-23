@@ -2,55 +2,49 @@
 修改数据集
 ==================
 
-当应用程序打开一个项目数据集时，数据集自动进入
-*浏览* 状态。浏览状态允许您查看数据集中的记录，但您
-不能编辑记录或插入新记录。您主要使用 *浏览* 状态来
-在数据集中从一条记录滚动到另一条记录。
+当应用程序打开一个实体数据集时，数据集自动进入*浏览* 状态。
+浏览状态允许您查看数据集中的记录，但您不能编辑记录或插入新记录。
+在数据集中，您主要使用 *浏览* 状态来从一条记录滚动到另一条记录。
 
-有关在记录之间滚动的更多信息，请参阅
-:doc:`浏览数据集 <navigating_datasets>`。
+有关在记录之间滚动的更多信息，请参阅 :doc:`浏览数据集 <navigating_datasets>` 。
 
-从 *浏览* 状态可以设置为所有其他数据集状态。例如，调用
-*insert* 或 *append* 方法会将其状态从 *浏览* 更改为 *插入*。
+可以将数据集从 *浏览* 状态设置为其他状态。例如，调用 *insert* 或 *append* 方法会将其状态从 *浏览* 更改为 *插入*。
 
-有两种方法可以将数据集返回到 *浏览* 状态。``Cancel`` （取消）结束当前的
-编辑、插入操作，并将数据集返回到 *浏览* 状态。``Post`` （提交）将更改
-写入数据集，如果成功，也会将数据集返回到 *浏览* 状态。如果
-这些操作失败，则当前状态保持不变。
+有两种方法可以将数据集返回到 *浏览* 状态。 
+``取消(Cancel)`` 结束当前的编辑、插入操作，并将数据集返回到 *浏览* 状态。 
+``提交(Post)`` 将更改写入数据集，如果成功，也会将数据集返回到 *浏览* 状态。
+如果提交操作失败，则当前状态保持不变。
 
-要检查项目数据集状态，请使用 ``item_state`` 属性或 ``is_new``
-``is_edited`` 或 ``is_changing`` 方法：
+要检查实体数据集状态，请使用 ``item_state`` 属性或 ``is_new`` 、 ``is_edited`` 或 ``is_changing`` 方法：
 
 .. csv-table:: 
    :header: 客户端, 服务器端, 描述
    :widths: 10, 10, 80
 
-   :doc:`item_state </refs/client/item/at_item_state>`, :doc:`item_state </refs/server/item/at_item_state>`, "指示项目数据集的当前操作状态。"
-   :doc:`is_new </refs/client/item/m_is_new>`, :doc:`is_new </refs/server/item/m_is_new>`, "如果项目数据集处于 *插入* 状态，则返回 true。"
-   :doc:`is_edited </refs/client/item/m_is_editing>`, :doc:`is_edited </refs/server/item/m_is_editing>`, "如果项目数据集处于 *编辑* 状态，则返回 true。"
-   :doc:`is_changing </refs/client/item/m_is_changing>`, :doc:`is_changing </refs/server/item/m_is_changing>`, "如果项目数据集处于 *插入* 或 *编辑* 状态，则返回 true。"   
+   :doc:`item_state </refs/client/item/at_item_state>`, :doc:`item_state </refs/server/item/at_item_state>`, "表示实体数据集的当前操作状态。"
+   :doc:`is_new </refs/client/item/m_is_new>`, :doc:`is_new </refs/server/item/m_is_new>`, "如果实体数据集处于 *插入* 状态，则返回 true。"
+   :doc:`is_edited </refs/client/item/m_is_editing>`, :doc:`is_edited </refs/server/item/m_is_editing>`, "如果实体数据集处于 *编辑* 状态，则返回 true。"
+   :doc:`is_changing </refs/client/item/m_is_changing>`, :doc:`is_changing </refs/server/item/m_is_changing>`, "如果实体数据集处于 *插入* 或 *编辑* 状态，则返回 true。"   
 
-您可以使用以下项目方法在数据集中插入、更新和删除数据：
+您可以使用以下实体对象的方法在数据集中插入、更新和删除数据：
 
 .. csv-table:: 
    :header: 客户端, 服务器端, 描述
    :widths: 20, 20, 100
    
-   :doc:`edit </refs/client/item/m_edit>`, :doc:`edit </refs/server/item/m_edit>`, "将项目数据集置于编辑状态。"
+   :doc:`edit </refs/client/item/m_edit>`, :doc:`edit </refs/server/item/m_edit>`, "将实体数据集置于编辑状态。"
    :doc:`append </refs/client/item/m_append>`, :doc:`append </refs/server/item/m_append>`, "将一条记录追加到数据集的末尾，并将数据集置于 *插入* 状态。"
    :doc:`insert </refs/client/item/m_insert>`, :doc:`insert </refs/server/item/m_insert>`, "在数据集的开始处插入一条记录，并将数据集置于 *插入* 状态。"
    :doc:`post </refs/client/item/m_post>`, :doc:`post </refs/server/item/m_post>`, "保存新的或更改过的记录，并将数据集置于 *浏览* 状态。"   
    :doc:`cancel </refs/client/item/m_cancel>`, :doc:`cancel </refs/server/item/m_cancel>`, "取消当前操作，并将数据集置于 *浏览* 状态。"
    :doc:`delete </refs/client/item/m_delete>`, :doc:`delete </refs/server/item/m_delete>`, "删除当前记录，并将数据集置于 *浏览* 状态。"         
 
-对数据集所做的所有更改都存储在内存中，项目记录的更改
-记录到更改日志中。因此，在完成所有更改后，可以通过调用
-``apply`` 方法将它们存储到关联的数据库表中。``apply``
-方法生成并执行 SQL 查询，将更改保存到数据库。
+对数据集所做的所有更改都存储在内存中，实体记录的更改记录到更改日志中。
+因此，在完成所有更改后，可以通过调用 ``apply`` 方法将它们存储到关联的数据库表中。 ``apply`` 方法生成并执行 SQL 查询，将更改保存到数据库。
 
 .. csv-table:: 
    :header: 客户端, 服务器端, 描述
    :widths: 20, 20, 100
    
-   :doc:`log_changes </refs/client/item/at_log_changes>`, :doc:`log_changes </refs/server/item/at_log_changes>`, "指示是否记录数据更改。"
-   :doc:`apply </refs/client/item/m_apply>`, :doc:`apply </refs/server/item/m_apply>`, "将项目数据集中所有更新、插入和删除的记录发送到服务器，以写入数据库。"
+   :doc:`log_changes </refs/client/item/at_log_changes>`, :doc:`log_changes </refs/server/item/at_log_changes>`, "表示是否记录数据更改。"
+   :doc:`apply </refs/client/item/m_apply>`, :doc:`apply </refs/server/item/m_apply>`, "将实体数据集中所有更新、插入和删除的记录发送到服务器，以写入数据库。"

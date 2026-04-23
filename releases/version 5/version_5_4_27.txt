@@ -1,39 +1,35 @@
 ==============
-Version 5.4.27
+版本 5.4.27
 ==============
 
-Library:
+库:
 
-* Capturing image from camera options is now available. See 
-  **Capturing image from camera** in the 
-  :doc:`Field Editor Dialog </admin/items/field_editor_dialog>`
+* 现在可以使用从相机捕获图像的选项。请参见 
+  :doc:`自读编辑器对话框 </admin/items/field_editor_dialog>` 中的
+  **Capturing image from camera**
 
-* Bug in Chrome 7 with report parameters order is fixed.
+* 修复了 Chrome 7 中报表参数顺序的错误。
   
-* **Buttons on top** attribute added to the Form tab of the
-  :doc:`Edit Form Dialog </admin/items/edit_form_dialog>`
-  Works for new projects, for existing project copy
-  the div with class 'default-top-edit' form a new project
-  index.html to your index.html
+* **Buttons on top** 属性已添加到
+  :doc:`编辑表单对话框 </admin/items/edit_form_dialog>` 的表单选项卡
+  适用于新项目，对于现有项目，从新项目的 index.html 复制带有 'default-top-edit' 类的 div 到您的 index.html
   
-* :doc:`read_only </refs/client/item/at_read_only>` reworked
+* :doc:`read_only </refs/client/item/at_read_only>` 已重新设计
 
-* :doc:`on_login </refs/server/task/on_login>` event params changed, previous
-  params supported with warning in the logs
+* :doc:`on_login </refs/server/task/on_login>` 事件参数已更改，以前的参数在日志中支持警告
 
-* There can be multiple details in view form
+* 视图表单中可以有多个详细表
 
-* Details order can be changed now
+* 详详细表顺序现在可以更改
 
-* Esprima-python library is used now for parsing javascript on the server
+* 现在使用 Esprima-python 库在服务器上解析 javascript
 
-* German translation added
+* 添加了德语翻译
 
-* Various minor bugs fixed
+* 修复了各种小错误
 
-* Readme file changed
+* Readme 文件已更改
 
-Demo application:
+演示应用程序:
 
-* Tracks catalog view form displays sold tracks.
-
+* 唱片目录视图表单显示已售出的唱片。

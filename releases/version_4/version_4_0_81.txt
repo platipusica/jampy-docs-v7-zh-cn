@@ -1,27 +1,28 @@
 ==============
-Version 4.0.81
+版本 4.0.81
 ==============
 
 Jam.py:
 
-* Displaying of wells in modeless forms is corrected
-* Async parameter for the client apply method added
-* Bug of clone method when expanded attribute is false fixed
-* Bug retated to lookup_value, lookup_text and display_text properties of fields and params with lookup_lists fixed
-* Bug, when users were able to print reports when 'Can view' was disabled for their role, fixed
-* Open, set_where, set_fields, set_order_by methods on the server can have the same parameters as corresponding.
-  methods on the client
-* Edit_record, apply changes, cancel_edit methods on the client modified so that user can open documents for viewing
-  when can_edit method returns false
-* When converting reports the soffice is passed norestore parameters
-* Starting '/' signs are removed from css and js links in index.html file
-* 
+* 修正了无模式窗体中字段的显示问题
+* 为客户端应用方法添加了异步参数
+* 修复了当展开的属性为 false 时克隆方法出现的缺陷
+* 修复了与字段及参数的 lookup_value 、lookup_text 和 display_text 属性相关的漏洞
+* 修复了用户角色被禁用 “可查看(Can view)” 权限时，仍可打印报告的问题
+* 服务器端的 open、set_where、set_fields、set_order_by 方法，
+  可使用与客户端对应方法相同的参数
+* 修改了客户端的 edit_record、apply changes、cancel_edit 方法，
+  使其在 can_edit 方法返回 false 时，用户仍能打开文档查看
+* 转换报表时，不向系统传递还原参数
+* 移除了 index.html 文件中 CSS 和 JS 链接开头的 “/” 符号
 
-Administrator:
 
-* Validation of field names is corrected
+管理员:
 
-Demo application:
+* 更正了字段名称的验证
 
-* Select button added to the Invoices edit form to add selected tracks to the invoice.
-* Visible items whose set_view method returns false are not added to the dynamic menu
+
+演示应用程序:
+
+* 选择添加到发票编辑表单中的按钮，将所选曲目添加到发票中
+* set_view 方法返回 false 的可见项不会添加到动态菜单中

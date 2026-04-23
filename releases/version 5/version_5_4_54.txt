@@ -1,14 +1,14 @@
 ==============
-Version 5.4.54
+版本 5.4.54
 ==============
 
-Library:
+库:
 
-* MSSQL bug when selecting tables for import fixed
+* 修复了选择数据表导入数据时，MSSQL 出现的L错误
 
-* delta old_value property code modified (not documented yet)
+* 修改了 delta old_value 属性代码（尚无文档记录）
 
-Documentation:
+文档:
 
-* :doc:`Authentication </how_to/authentication/index>` section added to 
-  :doc:`How to </how_to/index>`
+* 将 :doc:`Authentication </how_to/authentication/index>` 添加到了  
+  :doc:`How to </how_to/index>` 中

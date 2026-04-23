@@ -1,10 +1,10 @@
 =========
-Version 4
+版本 4
 =========
 
 In Version 4 the server side was reworked. Web.py library was replaced with 
 werkzeug. Session support was added.
-
+在版本 4 中，服务器端进行了重新设计。Web.py 库被替换为 werkzeug 。已添加会话支持。
 .. toctree::
    :maxdepth: 1
 

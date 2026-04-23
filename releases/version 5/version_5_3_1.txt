@@ -1,55 +1,44 @@
 =============
-Version 5.3.1
+版本 5.3.1
 =============
 
-Library:
+库:
 
-* A set of client methods of the task for working with tabs developed 
+* 开发了一套任务的客户端方法，用于处理标签页 
   
   * :doc:`init_tabs </refs/client/task/m_init_tabs>`
   * :doc:`add_tab </refs/client/task/m_add_tab>`
   * :doc:`close_tab </refs/client/task/m_close_tab>`
   
-* Forms are reworked. Each form now have a div with modal-header class declared
-  in the index.html file. The elements for search input and filter text are
-  removed from the form templates and placed in the form header.
+* 表单已重新设计。每个表单现在都有一个在 index.html 文件中声明的带有 modal-header 类的 div。搜索输入和过滤文本的元素已从表单模板中移除，并放置在表单头部。
   
-* The 
-  :doc:`view </refs/client/item/m_view>`, 
+* :doc:`view </refs/client/item/m_view>`, 
   :doc:`append_record </refs/client/item/m_append_record>`,
-  :doc:`insert_record </refs/client/item/m_insert_record>` and
+  :doc:`insert_record </refs/client/item/m_insert_record>` 和
   :doc:`edit_record </refs/client/item/m_edit_record>`
-  methods are reworked. If a container parameter is passed to these methods
-  and the :doc:`init_tabs </refs/client/task/m_init_tabs>` method is called
-  for the container, the tabs are created that contains the forms.
+  方法已重新设计。如果向这些方法传递了容器参数，并且为容器调用了 :doc:`init_tabs </refs/client/task/m_init_tabs>` 方法，则会创建包含表单的标签页。
   
-  For existing projects add the line 
+  对于现有项目，在任务客户端模块的 on_page_loaded 事件处理程序开头添加行 
   
   .. code-block:: js
   
     task.init_tabs($("#content"));
     
-  at the beginning on the on_page_loaded event handler of the task client module
-  to forms be displayed in tabs and add a $("#content") container parameter to
-  append_record, insert_record and edit_record methods.
+  以便表单在标签页中显示，并为 append_record、insert_record 和 edit_record 方法添加 $("#content") 容器参数。
   
-  You can add a line
+  如果您不想更改表单的 html 模板，可以添加行
   
   .. code-block:: js
   
     task.add_form_borders = false;
     
-  if you don't want to change html templates of the forms. Otherwise remove 
-  elements for search input and filter text (in the div with form-header class, 
-  remove it) from the form templates and add the div with modal-header class 
-  to templates.
+  否则，从表单模板中移除搜索输入和过滤文本的元素（在带有 form-header 类的 div 中，移除它），并将带有 modal-header 类的 div 添加到模板。
 
-Demo:
+演示:
 
-* Demo was rewritten to display forms in tabs and modeless edit forms
+* 演示已重写，以在标签页和无模式编辑表单中显示表单
 
-Documentation:
+文档:
 
-* :doc:`on_ext_request </refs/server/task/on_ext_request>` example corrected for
-  Python 3
+* :doc:`on_ext_request </refs/server/task/on_ext_request>` 示例已针对 Python 3 进行更正
 

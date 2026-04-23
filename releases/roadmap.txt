@@ -1,67 +1,52 @@
 ==============
-Jam.py roadmap
+Jam.py 路线图
 ==============
 
-We plan to add the following features to Jam.py:
+我们计划为 Jam.py 添加以下功能：
 
-* Support for actions that can be represented as buttons panels, navbars, pop-up 
-  menus and simplifying support for keyboard events, internalization and 
-  mobile devices.
-* Language support stage 2: internalization, support for multiple languages in 
-  the project.
-* Support for Bootstrap 4.  
-* Support for mobile devices.  
-* Development of report wizards, simplifying report creation
-* Rework of import/export utility: visual interface, control over merging of changes.
-* DBTree component revision and creation of documentation
+* 支持可以表示为按钮面板、导航栏、弹出菜单的操作，并简化对键盘事件、国际化以及移动设备的支持。
 
-Andrew leaving Jam.py
+* 语言支持阶段 2：国际化，支持项目中的多种语言。
+
+* 支持 Bootstrap 4。
+
+* 支持移动设备。
+
+* 开发报表向导，简化报表创建
+
+* 重新设计导入/导出工具：可视化界面，控制更改的合并。
+
+* DBTree 组件修订和文档创建
+
+Andrew 离开 Jam.py
 =====================
 
-The notes from a current Jam.py maintainer D. Babic: 
+当前 Jam.py 维护者 D. Babic 的笔记： 
 
-Q: Since Andrew decided to leave this project due to the health reasons, the question is how will the roadmap reflect on the project?
+Q: 由于 Andrew 因健康原因决定离开这个项目，问题是路线图将如何影响项目？
 
-A: This is a good question. Andrew invested a lot of time and effort in Jam.py, and it has been great. My huge thanks for that. I would say the Jam.py v5 is very stable, production ready, and there will be minimal effort in the core code maintenance. The v7 on the other hand already reflected some of the above roadmap points, mainly BS4 and mobile devices. Which was a fantastic effort again by Andrew. The idea of report wizards was great, basically to eliminate the LibreOffice Calc dependency. The question here is how many users actually utilize the true power of reports? Not quite sure how many. Hence, for now, the LibreOffice will stay as is.
+A: 这是一个好问题。Andrew 在 Jam.py 上投入了很多时间和精力，这很棒。我非常感谢他。我会说 Jam.py v5 非常稳定、生产就绪，并且核心代码维护将需要最小的努力。另一方面，v7 已经反映了上述一些路线图要点，主要是在 BS4 和移动设备上。这又是 Andrew 的出色努力。报表向导的想法很棒，基本上是为了消除 LibreOffice Calc 依赖。这里的问题是，有多少用户真正利用了报表的真正力量？不太确定有多少。因此，目前 LibreOffice 将保持原样。
 
-Q: Would there be new Jam.py v5 releases at all?
+Q: 是否会有新的 Jam.py v5 版本发布？
 
-A: I'm not sure if Andrew will engage in the new v5 releases. The pull requests will be accommodated as per demand. However, the Jam.py
-will be released as a fork, which means the merge will be synced to the fork and then the new version will be built automatically by GitHub Actions as jam.py-v5
+A: 我不确定 Andrew 是否会参与新的 v5 版本发布。拉取请求将根据需求进行处理。然而，Jam.py 将作为分支发布，这意味着合并将同步到分支，然后新版本将由 GitHub Actions 自动构建为 jam.py-v5
 
-Q: Why forking as jam.py-v5?
+Q: 为什么分支为 jam.py-v5？
 
-A: Because of the GitHub Organisation. We need project maintainers, who can manage GitHub Actions and PyPi. Current 
-Jam.py github page is owned by Andrew, which does not support this I'm afraid. Hence, new releases will exist on PyPi
-as jam.py-v5. Similar to this is a v7 fork as jam.py-v7, also available on PyPi.
+A: 因为 GitHub 组织。我们需要项目维护者，他们可以管理 GitHub Actions 和 PyPi。当前的 Jam.py github 页面由 Andrew 拥有，恐怕不支持这一点。因此，新版本将在 PyPi 上作为 jam.py-v5 存在。类似地，v7 分支作为 jam.py-v7，也可在 PyPi 上获得。
 
-Q: So the v7 is also available?
+Q: 那么 v7 也可用吗？
 
-A: Yes it is. It is production ready, as from version 7.0.50, due to almost finished Docs. If Andrew will be able to do some tweaks during the 
-year 2024 or latter, even better. We will see.
+A: 是的。从版本 7.0.50 开始，由于几乎已完成的文档，它可以用户生产环境。如果 Andrew 能够在 2024 年或以后进行一些调整，那就更好了。我们拭目以待。
 
-Q: Are the v7 Docs ready?
+Q: v7 文档准备好了吗？
 
-A: We also decided to move Docs from the PyPi distribution, due to work in progress. We believe that the users very 
-rarely built the Docs themselves, hence it would be better to point the users to any online documents repository,
-which is again built by the GitHub Actions. At the moment when v7 Docs are ready, we will publish them by Actions as well.
+A: 我们还决定将文档从 PyPi 分发中移除，因为工作正在进行中。我们相信用户很少自己构建文档，因此最好将用户指向任何在线文档存储库，这同样由 GitHub Actions 构建。当 v7 文档准备好时，我们也将通过 Actions 发布它们。
 
-Q: What is the Jam.py future?
+Q: Jam.py 的未来是什么？
 
-A: I see a very bright future with Jam.py! Ultimately, we would love to see Jam.py built as Windows App Store application by the GitHub Actions.
-This would enable a huge exposure to the Windows users and bring even brighter future. 
+A: 我看到 Jam.py 有非常光明的未来！最终，我们希望看到 Jam.py 通过 GitHub Actions 构建为 Windows App Store 应用程序。这将为 Windows 用户带来巨大的曝光，并带来更光明的未来。 
 
-Thanks for reading.
+感谢阅读！
 
-Jun 2025.
-
-
-
-
-
-
-
-
-
-
-
+2025 年 6 月

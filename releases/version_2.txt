@@ -1,6 +1,5 @@
 =========
-Version 2
+版本 2
 =========
 
-In version 2, support for developing database applications with a web interface 
-was added.
+在版本 2 中，添加了对使用 web 界面开发数据库应用程序的支持。

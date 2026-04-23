@@ -1,19 +1,19 @@
-==============================================
-How to do with Nginx with Gunicorn or uvicorn?
-==============================================
+==================================================================
+Nginx 配合 Gunicorn 或 uvicorn 的使用，如何实现？
+==================================================================
 
-Green Unicorn (gunicorn) is an HTTP/WSGI server designed to serve fast clients 
-or sleepy applications. That is to say; behind a buffering front-end server 
-such as nginx or lighttpd.
+Green Unicorn (gunicorn) 是一个 HTTP/WSGI 服务器，
+设计用于为快速客户端或响应较慢的应用程序提供服务。
+也就是说，它通常在缓冲前端服务器（如 nginx 或 lighttpd）后面运行。
 
-By default, ``gunicorn`` will listen on 127.0.0.1. Navigate to jam App folder, or 
-use (ie in scripts, cron job, etc)
+默认情况下， ``gunicorn`` 会监听 127.0.0.1。
+切换 jam 应用文件夹，或使用（例如，在脚本、cron 作业中）如下代码 ：
 
 .. code-block:: console
 
   python /usr/bin/gunicorn --chdir /path/to/jam/App wsgi 
     
-or from /path/to/jam/App:
+或从 /path/to/jam/App 目录运行:
 
 .. code-block:: console
 
@@ -25,7 +25,7 @@ or from /path/to/jam/App:
   .
   .  
   
-To start jam.py on all interfaces and port 8081:
+要在所有接口和端口 8081 上启动 jam.python :
 
 .. code-block:: console
 
@@ -37,11 +37,12 @@ To start jam.py on all interfaces and port 8081:
   .
   .
   
-Spin up 5 workers if u like with --workers=5
 
-For ``uvicorn``, we need to modify the wsgi.py file and also install ``asgiref``. 
+如果需要，可以使用 --workers=5 启动 5 个工作进程。
 
-Lets call it asgi.py with below content:
+对于 ``uvicorn`` ，我们需要修改 wsgi.py 文件并安装 ``asgiref`` 。
+
+我们将其命名为 asgi.py 文件，内容如下 :
 
 .. code-block:: py
     
@@ -50,7 +51,7 @@ Lets call it asgi.py with below content:
     application = WsgiToAsgi(create_application(__file__))
 
 
-To start jam.py on ``localhost`` and port 8000:
+要在 ``localhost`` 和端口 8000 上启动 jam.py :
 
 .. code-block:: console
 
@@ -63,9 +64,9 @@ To start jam.py on ``localhost`` and port 8000:
 
 
 
-Nginx: 
+Nginx 配置: 
 
-comment out default location in /etc/nginx/sites-enabled/default (Linux Mint):
+在 /etc/nginx/sites-enabled/default (Linux Mint) 中注释掉默认的 location 部分：:
 
 .. code-block:: nginx
 
@@ -76,7 +77,7 @@ comment out default location in /etc/nginx/sites-enabled/default (Linux Mint):
   #	}
 
 
-and add:
+并添加 :
 
 .. code-block:: nginx
 
@@ -93,8 +94,8 @@ and add:
   
     }
     
-add in /etc/nginx/nginx.conf 127.0.0.1:8081 if this is your ``Gunicorn`` or ``uvicorn``
-server address and port:
+在 /etc/nginx/nginx.conf 中添加 127.0.0.1:8081，如果这是你的  ``Gunicorn`` 或 ``uvicorn``
+服务器地址和端口:
 
 .. code-block:: nginx
 
@@ -103,7 +104,8 @@ server address and port:
   server 127.0.0.1:8081;
   }
         
-This also enables to have different App servers on different ports
+
+这也使得在不同端口上运行不同的应用服务器成为可能 ：
 
 .. code-block:: console
   
@@ -114,15 +116,14 @@ This also enables to have different App servers on different ports
                         |  `--> App. Server II.  127.0.0.1:8082
                          `----> App. Server III. 127.0.0.1:8083
                          
-Restart ``nginx`` and viola!
+重启 ``nginx`` 即可!
 
-Congratulations! We can now test ``Nginx`` with Jam.py.
+恭喜! 我们现在可以测试 ``Nginx`` 与 Jam.py 的配合使用了。
 
-Now, ``certificates``:
+现在，关于 ``certificates``:
 
-in /etc/nginx/sites-enabled/jam
-we can have something like this to pass everything from http to https to 8001 
-port (or any other as per above):
+在 /etc/nginx/sites-enabled/jam 中，我们可以添加如下配置，
+将所有 HTTP 请求重定向到 HTTPS 并转发到 8001 端口（或根据上述设置的任何其他端口）：
 
 .. code-block:: nginx
 
@@ -173,8 +174,9 @@ port (or any other as per above):
   		add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
   }
 
-That's it!
+就是这样！
 
-Congratulations! We can now test ``Nginx`` with ``Jam.py`` on https port!
+恭喜！我们现在可以在 HTTPS 端口上测试 Nginx 与 Jam.py 的配合使用了！
 
-*This was initialy published by Dražen Babić on* https://github.com/jam-py/jam-py/issues/67
+
+*本文最初由 Dražen Babić 发布于* https://github.com/jam-py/jam-py/issues/67

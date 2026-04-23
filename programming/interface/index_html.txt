@@ -1,10 +1,9 @@
-==========
+===============
 Index.html
-==========
+===============
 
-当用户在 Web 浏览器中打开 Jam.py 应用程序时，浏览器首先加载
-*index.html* 文件。该文件位于项目的根目录中，
-可通过点击 :doc:`Task </admin/task>` 树上的 ``index.html [F10]`` 来访问/修改。
+当用户在 Web 浏览器中打开 Jam.py 应用程序时，浏览器首先加载 *index.html* 文件。
+该文件位于项目的根目录中，可通过点击 :doc:`任务(Task) </admin/task>` 树上的 ``index.html [F10]`` 来访问/修改。
 
 .. image:: /admin/_images/index_html_jampy.png
 	:align: center
@@ -28,10 +27,7 @@ Index.html
 
     <script src="static/js/Chart.min.js"></script>
 
-关于表单模板，请参阅
-:doc:`表单 <forms>` 
-和
-:doc:`表单模板 <form_templates>` 以获取详细信息。
+关于表单模板，请参阅 :doc:`表单 <forms>` 和 :doc:`表单模板 <form_templates>` 以获取详细信息。
 
 在文件末尾，有以下脚本：
 
@@ -43,14 +39,7 @@ Index.html
       });
     </script>
 
-在此脚本中，调用了在加载 *jam.js* 文件时创建的任务的
-:doc:`load </refs/client/task/m_load>`
-方法，该方法从服务器加载有关
-:doc:`任务树 </programming/task_tree>` 
-的信息，并根据此信息构建其树、加载模块、
-为其项目分配事件处理程序，并触发
-:doc:`on_page_loaded </refs/client/task/on_page_loaded>`
-事件。请参阅
-:doc:`初始化应用程序 <initializing_application>`
+在此脚本中，调用了在加载 *jam.js* 文件时创建的任务的 :doc:`load </refs/client/task/m_load>` 方法，该方法从服务器加载有关 
+:doc:`任务树 </programming/task_tree>` 的信息，并根据此信息构建项目的对象树、加载模块、为其实体分配事件处理程序，并触发 :doc:`on_page_loaded </refs/client/task/on_page_loaded>` 事件。请参阅 :doc:`初始化应用程序 <initializing_application>`
 
 

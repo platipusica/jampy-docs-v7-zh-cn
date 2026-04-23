@@ -1,13 +1,13 @@
 ==============
-Version 5.4.24
+版本 5.4.24
 ==============
 
-Library:
+库:
 
-* Language support reworked
+* 语言支持已重新设计
 
-* Images of image fields of Application builder items are stored in static/builder 
-  folder now to be able to export/import them to/from metadata file
+* 存储在 static/builder 文件夹下的应用程序构建器实体项的图像字段的图片可以导入到元数据文件，也可以导出为元数据文件。
+
   
-* MSSQL ALTER TABLE bug fixed  
+* MSSQL ALTER TABLE 错误已修复 
 

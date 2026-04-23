@@ -1,61 +1,55 @@
 ==============
-Version 5.4.11
+版本 5.4.11
 ==============
 
-Library:
+库:
 
-* Metadata import/export and copy_database method of the server task reworked 
-  for compatibility with different databases, when a project moved to a 
-  database of different type
+* 元数据导入/导出和服务器任务的 copy_database 方法已重新设计，当项目移动到不同类型的数据库时，以兼容不同数据库
   
-* :doc:`on_detail_changed </refs/client/item/on_detail_changed>` event and
-  :doc:`calc_summary </refs/client/item/m_calc_summary>` method added
+* :doc:`on_detail_changed </refs/client/item/on_detail_changed>` 事件和
+  :doc:`calc_summary </refs/client/item/m_calc_summary>` 方法已添加
 
-* :doc:`alert </refs/client/abstr_item/m_alert>`, alert_info and alert_success methods added
+* :doc:`alert </refs/client/abstr_item/m_alert>`, alert_info 和 alert_success 方法已添加
 
-* python 3 bugs of MYSQL, Postgres, Oracle database support fixed
+* 修复了 python 3 对 MYSQL、Postgres、Oracle 数据库支持的错误
 
-* some bugs fixed related to SQL queries generation
+* 修复了一些与 SQL 查询生成相关的错误
 
-* on_login event bugs fixed
+* 修复了 on_login 事件的错误
 
-* :doc:`field_mask </refs/client/field/at_field_mask>` 
-  attribute for fields on client added
+* 为客户端字段添加了 :doc:`field_mask </refs/client/field/at_field_mask>` 
+  属性
 
-* date inputs use masks now
+* 日期输入现在使用掩码
 
-* create_menu method of the client task added. 
+* 添加了客户端任务的 create_menu 方法。
 
-* As much code as possible are moved from default code (and demo project) to 
-  the library
+* 尽可能多的代码已从默认代码（和演示项目）移动到库中
 
-* Bugs related to non-ascii characters in the project path fixed
+* 修复了项目路径中非 ASCII 字符相关的错误
 
-Application builder:
+应用程序构建器:
 
-* keyboard shortcuts bugs fixed
+* 修复了键盘快捷键的错误
 
-* roles bugs fixed
+* 修复了角色的错误
 
-* rights can be set for details 
+* 可以为详细信息设置权限
 
-* mask attribute added to Fields Dialog
+* 掩码属性已添加到字段对话框
 
-* Summary fields attribute added in the View Form Dialog for details
+* 摘要字段属性已添加到视图表单对话框中的详细信息
 
-* Default search field, Detail height attributes added in the View Form Dialog
+* 默认搜索字段、详细信息高度属性已添加到视图表单对话框
 
-* Detail height attribute added in the Edit Form Dialog
+* 详细信息高度属性已添加到编辑表单对话框
 
-* some minor bugs fixed 
+* 修复了一些小错误
 
 .. note::
 
-    To use masks in existing projects the following line must be added to 
-    index.html after package update:
-    
+    要在现有项目中使用掩码，包更新后必须在 index.html 中，
+    在 <script src="jam/js/jam.js"></script> 之前添加以下行：
+
     <script src="jam/js/jquery.maskedinput.js"></script>    
-    
-    before 
-    
-    <script src="jam/js/jam.js"></script>
+

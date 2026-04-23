@@ -10,44 +10,41 @@
 :doc:`服务器端参考 </refs/server/abstractitem_api>`
 )，并具有以下共同属性：
 
-* ``ID`` - 项目中在框架内唯一的 ID
-	
-* ``owner`` - 项目的直接父级和所有者
-	
-* ``task`` - 任务树的根节点
-	
-* ``items`` - 子项目列表
-	
-* ``item_type`` - 项目类型
-      
-* ``item_name`` - 项目的名称，将在编程代码中用于访问该项目
+* ``ID`` - 标识项目在框架内唯一的 ID
 
-* ``item_caption`` - 向用户显示的项目名称 树的根节点是任务项目。
+* ``所有者(owner)`` - 项目的直接父级和所有者
 
-任务包含组项目。组有三种类型，它们的 ``item_type`` 属性具有以下值：
+* ``任务(task)`` - 任务树的根节点
 
-* "journals" - 这些组包含 ``item_type`` 为"item"的项目，这些项目可以有关联的数据库表。
- 
-* "catalogs" - 这类组也包含可以有关联数据库表的项目，但它们可用于为其他项目创建明细表（参见
-  :doc:`明细表 <data/details>`
-  ）。
+* ``子项目(items)`` - 子项目列表
 
-* "reports" - 这些组包含报告 - ``item_type`` 为"report"的项目，
-  用于创建报告。
+* ``类型(item_type)`` - 项目类型
 
-组的数量没有限制。我们建议为组使用逻辑名称，因为该名称用于下拉菜单。
+* ``名称(item_name)`` - 项目的名称，将在编程代码中用于访问该项目
 
-可以有关联数据库表的项目可以拥有明细表，用于存储属于主表记录的记录。
+* ``标题(item_caption)`` - 向用户显示的描述项目的标题 
 
-例如，
-:doc:`演示项目 </intro/demo_project>`
-的任务树为：::
+树的根节点是任务项目。
+
+任务包含多个分组（group items）。分组共有三种类型，其 ``item_type`` 属性对应以下取值（取值由分组决定，无法手动修改）：
+
+* “日志类(journals)” - 这些组包含 ``item_type`` 为 “item” 的项目，这些项目可以有关联的数据库表。
+
+* “目录类(catalogs)” - 这类组也包含可以有关联数据库表的项目，但它们可用于为其他项目创建明细表（参见 :doc:`明细表 <data/details>` ）。
+
+* “报表类(reports)” - 这些组包含报告 - ``item_type`` 为 “report” 的项目，用于创建报告。
+
+组的数量没有限制。建议为组命名时使用具备业务逻辑含义的名称，因为该名称会用于下拉菜单。
+
+有关联数据库表的项目可以拥有明细表，这类明细信息用于存储引用主表记录的子记录。
+
+例如， :doc:`演示项目 </intro/demo_project>` 的任务树为：::
 
     /demo/
         catalogs/
            customers 
            tracks/
-                invoice_table           
+                invoice_table
            albums
            artists
            genres
@@ -66,19 +63,18 @@
         system
         
 
-任务树的根节点是一个 ``item_name`` 为 **demo** 的任务。它有
-五个组：**catalogs**、**journals**、**details**、**reports**、**analytics** 
-和 **system**。
-**catalogs** 和 **journals** 组的 ``item_type`` 为"items"。它们所拥有的项目
-是对应数据库表的包装器。有一个明细表项目，其 ``item_name`` 为 **invoice_table**，
+任务树的根节点是一个 ``项目名称(item_name)`` 为 **demo** 的任务。它有
+五个组： **catalogs** 、 **journals** 、 **details** 、 **reports** 、 **analytics** 和 **system** 。
+**catalogs** 和 **journals** 组的 ``item_type`` 为 “items” 。它们所拥有的项目
+是对应数据库表的包装器。有一个明细表项目，其 ``项目名称(item_name)`` 为 **invoice_table**，
 它也有自己的数据库表，而 **reports** 组中有三个报告。
 
 **invoices** 日志拥有 **invoice_table** 明细表，用于保存客户发票中的曲目列表。
-因此，有三个同名的"invoice_table"项目：Details Group 中的明细表、
+因此，有三个同名的 “invoice_table” 项目：Details Group 中的明细表、
 Journal/Invoices 的明细表以及 Catalogs/Tracks 的明细表。
 
 每个项目都是其所有者的属性，所有项目、表和报告也都是
-任务的属性（它们都有唯一的 ``item_name``）。
+任务的属性（它们都有唯一的 ``项目名称(item_name)`` ）。
 
 在客户端，任务是一个全局对象。要访问它，只需在代码中的任何位置输入 ``task``。
 
@@ -105,22 +101,18 @@ Journal/Invoices 的明细表以及 Catalogs/Tracks 的明细表。
       customers = item.task.customers.copy()
 
 
-项目的层次结构是框架 DRY 
-（不要重复自己）原则的基础之一。
+项目的层次结构是该框架 DRY （don't repeat yourself，不要重复自己）原则的核心基础之一。
 
-例如，项目的一些方法在执行时，会依次为任务、组和项目生成事件。
+例如，项（item）的部分方法在执行时，会按顺序为任务（task）、分组（group）和项（item）生成事件。
 
-这样，我们就可以在任务的事件处理程序中为所有项目定义基本行为，
-这些行为可以在组的事件处理程序中扩展，最后，
-如有必要，可以在项目本身的事件处理程序中具体指定。更多
-详细信息，请参阅
-:doc:`表单事件 <interface/form_events>`
+借助这种机制，我们可在任务的事件处理器中为所有项定义基础行为；该基础行为可在分组的事件处理器中进行扩展；最终，若有需要，还可在项自身的事件处理器中对其进行定制化调整。
+更多详细信息，请参阅 :doc:`表单事件 <interface/form_events>`
 
 视频
 =====
 
-`Task tree`_ 视频教程使用
+`任务树(Task tree)`_ 视频教程使用
 :doc:`演示项目 </intro/demo_project>`
 演示了任务树。
 
-.. _`Task tree`: https://youtu.be/hsSKqEh6vL4
+.. _`任务树(Task tree)`: https://youtu.be/hsSKqEh6vL4

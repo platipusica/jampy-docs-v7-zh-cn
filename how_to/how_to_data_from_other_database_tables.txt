@@ -1,26 +1,23 @@
 =====================================================
-How can I use data from some other database(s) tables
+如何使用其他数据库中表的数据
 =====================================================
 
+你可以使用其他数据库中表的数据。
 
-You can use data from other database tables.
+首先，你需要指定表名和字段信息。
+可以按照以下方式操作：
 
-First you must specify table name and fields information.
-You can do it the following way:
+* 在任务树中选择项目节点，点击 **Database** 按钮。
 
-* Select project node in the task tree and click **Database** button.
+* 设置数据库为手动模式，并填写数据库连接的属性。
 
-* Set DB manual mode and specify the database connection attributes.
-
-* Import tables information as described in the
-  :doc:`Integration with existing database </admin/integration_with_existing_database>`
+* 按照 :doc:`集成现有数据库 </admin/integration_with_existing_database>` 的说明导入表信息。
   
-* Select project node in the task tree, click **Database** button and restore previous values.
+* 在任务树中再次选择项目节点，点击 **Database** 按钮，恢复之前的设置。
 
-Then in the ``Server module`` of the new items, add code to read and write 
-the data to the database tables.
+然后，在新数据项的 ``Server module`` 中添加代码，实现对数据库中表的数据读写。
 
-Below is the code for MySQL database (auto incremented primary field):
+下面是 MySQL 数据库（自增主键字段）的代码示例：
 
 .. code-block:: py
 
@@ -47,8 +44,7 @@ Below is the code for MySQL database (auto incremented primary field):
           connection.close()
       return result
 
-If database use generators to get primary field values you must specify them
-for new records (Firebird):
+如果数据库使用生成器（generators）获取主键值（如 Firebird），则必须为新记录指定主键：
 
 .. code-block:: py
 
@@ -92,8 +88,7 @@ for new records (Firebird):
           connection.close()
       return result
 
-You can use the task ``on_open`` and ``on_apply`` events. Below is the code
-from task client module:
+你也可以在任务的 ``on_open`` 和 ``on_apply`` 事件中处理。下面是任务客户端模块的代码示例：
 
 .. code-block:: py
 
@@ -124,7 +119,7 @@ from task client module:
         return result
 
 
-Example for MSSQL:
+MSSQL 示例：
 
 .. code-block:: py
 
@@ -152,13 +147,10 @@ Example for MSSQL:
           return result
 
 .. note::
-  Do not set History attribute to True for this tables. If you do so you'll get
-  the exception. History table must be one for all databases that you use in 
-  the project.
-  You can try to create the history table in the other database and write the
-  ``on_open`` and ``on_apply`` event handlers for it.
+  不要为这些表设置 History 属性为 True，否则会报错。历史表在项目中所有数据库只能有一个。
+  你可以尝试在其他数据库中创建历史表，并为其编写 ``on_open`` 和 ``on_apply`` 事件处理程序。
 
 .. note::
-  The above procedures were not tested with Jam.py V7.
+  上述方法未在 Jam.py V7 下测试。
   
-  The simple solution is to use the database synonyms.
+  更简单的方案是使用数据库同义词（synonyms）。

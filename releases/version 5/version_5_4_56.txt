@@ -1,31 +1,29 @@
 ==============
-Version 5.4.56
+版本 5.4.56
 ==============
 
-Library:
+库:
 
-* :doc:`Record locking </admin/record_locking>` is avaliable
+* :doc:`Record locking </admin/record_locking>` 已可用
 
-* task creation in wsgi.py modified to avoid 'project have not been created yet'
-  message
-  
-* report parameters display_text bug fixed  
+* 修改了 wsgi.py 中的任务创建，以避免出现 “project have not been created yet” 信息
 
-* ``show_hints`` and ``hint_fields`` attributes can be added to 
-  the :doc:`table_options </refs/client/item/at_table_options>` or options 
-  parameter of the :doc:`create_table </refs/client/item/m_create_table>` method.
-  
-* :doc:`refresh_record </refs/client/item/m_refresh_record>` method restore 
-  positions of detail records 
-  
+* 修复了报表参数 display_text 的错误
 
-Documentation:
+* ``show_hints`` 和 ``hint_fields`` 属性现在可以添加到
+  :doc:`table_options </refs/client/item/at_table_options>` 或
+  :doc:`create_table </refs/client/item/m_create_table>` 方法的 options 参数中。
 
-*  :doc:`Form events </programming/interface/form_events>` rewriten
+* :doc:`refresh_record </refs/client/item/m_refresh_record>` 方法恢复明细记录的位置
+
+
+文档:
+
+*  :doc:`Form events </programming/interface/form_events>` 已重写
  
-* Some topics from :doc:`Jam.py FAQ </faq/index>` are moved to
+* 一些主题已从 :doc:`Jam.py FAQ </faq/index>` 移动到
   :doc:`How to </how_to/index>`
 
-Demo application
+演示应用程序
 
-* on_apply event handler in Invoices server module modified
+* 修改了 Invoices 服务器模块中的 on_apply 事件处理程序

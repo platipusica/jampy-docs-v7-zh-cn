@@ -1,22 +1,17 @@
 ==========================================
-How change field value of selected records
+如何批量修改选中记录的字段值
 ==========================================
 
-In this example, we will show how to change the “Media Type” field of the “Tracks” 
-catalog to the same value for the selected records.
-
+本例将演示如何将 “曲目(Tracks)” 主数据中选中记录的 “Media Type”（媒体类型）字段批量设置为相同的值。
 
 .. image:: _images/set_media_type_jampy.png
 	:align: center
 	:alt: set_media_type_jampy.png
 
-First we set the multiselect attribute of the
-:doc:`table_options </refs/client/item/at_table_options>`
-to true to display the check box in the leftmost column of the
-"Tracks" table for the user to select the records and
-create the **Set media type** button in the 
-:doc:`on_view_form_created </refs/client/item/on_view_form_created>`
-event handler in the client module of "Tracks".
+首先，需要将 :doc:`table_options </refs/client/item/at_table_options>` 的 multiselect 属性设置为 true，
+这样在 “Tracks” 表格的最左侧会显示复选框，用户可以选择多条记录。
+然后在 “Tracks” 客户端模块的 :doc:`on_view_form_created </refs/client/item/on_view_form_created>` 事件处理程序中，
+创建一个 **设置媒体类型(Set media type)** 按钮。
 
 .. code-block:: js
 
@@ -27,40 +22,26 @@ event handler in the client module of "Tracks".
     });   
   }
 
-When this button is pressed, the ``set_media_type`` function defined in the 
-module is executed.
+当点击该按钮时，会执行模块中定义的 ``set_media_type`` 函数。
 
-In this function we create a copy of the "Tracks" item. We pass to the 
-:doc:`copy </refs/client/item/m_copy>`
-method the handlers option equal to false. It means that all the settings 
-to the item made in the Form Dialogs in the Application Builder and all the 
-functions and events defined in the client module of the item will be 
-unavailable to the copy.
+在该函数中，我们创建了 “Tracks” 实体项的一个副本。
+调用 :doc:`copy </refs/client/item/m_copy>` 方法时，
+传入的 handlers 选项值为 false，表示副本不会继承应用构建器中表单对话框的设置，
+以及该实体项客户端模块中定义的所有函数和事件。
 
-Then we analyze the 
-:doc:`selections </refs/client/item/at_selections>`
-attribute that is the array of the values of primary key field of the records,
-selected by the user. 
+接着分析 :doc:`selections </refs/client/item/at_selections>` 属性，
+该属性是一个数组，包含用户选中记录的主键字段值。
 
-After it we initialize the dataset of the copy by calling the 
-:doc:`open </refs/client/item/m_open>`
-method with open_empty option. We also set the fields options 
-so that the dataset will have only one field media_type. 
-We set the required attribute of that field to true.
+然后，通过调用 :doc:`open </refs/client/item/m_open>` 方法并传入 open_empty 选项，
+初始化副本的数据集。我们还设置 fields 选项，使数据集只包含 media_type 字段，
+并将该字段的 required 属性设为 true。
 
-And finally, before calling the
-:doc:`append_record </refs/client/item/m_append_record>`
-method, we dynamically assign the 
-:doc:`on_edit_form_created </refs/client/item/on_edit_form_created>`
-event handler to change the on click event of the **OK** button,
-that was defined in the client module of the task.
+最后，在调用 :doc:`append_record </refs/client/item/m_append_record>` 方法前，
+动态分配 :doc:`on_edit_form_created </refs/client/item/on_edit_form_created>` 事件处理程序，
+以修改 **确定(OK)** 按钮的点击事件（该事件原本定义在任务的客户端模块中）。
 
-In the new on click event handler we, first, call the 
-:doc:`post </refs/client/item/m_post>`
-method to check that the media type value is set, if exception
-is raised we call 
-:doc:`edit </refs/client/item/m_edit>`
-method to allow the user to set it.
+在新的点击事件处理程序中，首先调用 :doc:`post </refs/client/item/m_post>` 方法，
+检查媒体类型值是否已设置。如果抛出异常，则调用 :doc:`edit </refs/client/item/m_edit>` 方法，允许用户对其进行重新设置。
 
 .. code-block:: js
 
@@ -110,15 +91,9 @@ method to allow the user to set it.
       }
   }
 
-When the user clicks the **OK** button, the item's 
-:doc:`server </refs/client/abstr_item/m_server>`
-method executes the ``set_media_type`` function on the server, which changes the 
-field value of the selected records.
+当用户点击 **确定(OK)** 按钮时，实体项的 :doc:`server </refs/client/abstr_item/m_server>` 方法会在服务器端执行 ``set_media_type`` 函数，从而批量修改选中记录的字段值。
 
-After changing the records on the server we, on the client, unselect the records, 
-refresh the data of the page, cancel editing by calling the
-:doc:`cancel_edit </refs/client/item/m_cancel_edit>`
-method and inform the user of the results.
+服务器端修改完成后，在客户端会取消选中状态，刷新页面数据，调用 :doc:`cancel_edit </refs/client/item/m_cancel_edit>` 方法取消编辑状态，并提示用户操作的结果。
 
 .. code-block:: py
   

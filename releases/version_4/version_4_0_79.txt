@@ -1,17 +1,19 @@
 ==============
-Version 4.0.79
+版本 4.0.79
 ==============
 
 Jam.py:
 
-* Tables columns resizing reworked 
-* Mysql - bug with datetime fields in where clause fixed
-* :doc:`on_ext_request </refs/server/task/on_ext_request>` event published
+* 重新启用表格的列大小调整功能
+* Mysql - 修复了 where 子句中日期时间字段的错误
+* 发布 :doc:`on_ext_request </refs/server/task/on_ext_request>` 事件
 
-Demo application:
 
-* For Customers lookup modal view form Send and Print buttons are hidden now
+演示应用程序:
 
-Documentation:
+* 对于客户查找模式视图表单，隐藏了 “发送” 和 “打印” 按钮
 
-* Faq - new topics added
+
+文档:
+
+* 常见问题 - 添加了新主题

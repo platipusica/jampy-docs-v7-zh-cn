@@ -1,37 +1,36 @@
 ===============
-Version 7.0.7x
+版本 7.0.7x
 ===============
 
 
-In version 7.0.70, first version with Monaco editor released.
+版本 7.0.70 ，第一个带有 Monaco 编辑器的版本。
 
-In version 7.0.71, the Modal Form closing bug fixed.
+版本 7.0.71 ，修复了模态表单关闭的错误。
 
-In version 7.0.72, below Monaco editor shortcuts were added:
-
-
-
-.. admonition:: Monaco Shortcuts
-
-    ``CTRL+ALT+SHIFT+W`` shortcut to close the editor.
-
-    ``CTRL+ALT+←/→`` shortcut to move from/to editors.
-
-With Apple keyboard:
-
-.. admonition:: Monaco Shortcuts
-
-    ``control+Option+Shift+W`` shortcut to close the editor.
-
-    ``Cmd(⌘)+Option+←/→`` shortcut to move from/to editors.
-
-.. admonition:: Monaco Shortcuts
-
-     In some implementations of the Monaco Editor, you can find the Command Palette in the editor's context (right-click) menu.
+版本 7.0.72 ，添加了以下 Monaco 编辑器快捷键：
 
 
-In version 7.0.81, Traceback on new project fixed. Demo "view_first: true" changed to "view_first: false".
+.. admonition:: Monaco 快捷键
 
-In version 7.0.82, Databricks support was added.
+    ``CTRL+ALT+SHIFT+W`` 关闭编辑器
 
-In version 7.0.86, Monaco Tab closing bug was fixed.
+    ``CTRL+ALT+←/→`` 在编辑器之间移动
+
+使用 Apple 键盘：
+
+.. admonition:: Monaco 快捷键
+
+    ``control+Option+Shift+W`` 关闭编辑器。
+
+    ``Cmd(⌘)+Option+←/→`` 在编辑器之间移动。
+
+.. admonition:: Monaco 快捷键
+
+    在某些 Monaco 编辑器的实现中，您可以在编辑器的上下文（右键单击）菜单中找到命令面板。
+
+
+在版本 7.0.81 中，修复了新项目的回溯。演示 "view_first: true" 更改为 "view_first: false"。
+
+在版本 7.0.82 中，添加了 Databricks 支持。
+
+在版本 7.0.86 中，修复了 Monaco 选项卡关闭的错误。

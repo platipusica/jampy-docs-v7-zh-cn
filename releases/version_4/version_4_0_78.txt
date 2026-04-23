@@ -1,22 +1,20 @@
 ==============
-Version 4.0.78
+版本 4.0.78
 ==============
 
 Jam.py:
 
-* Import functionality for SQLITE databases is available now
-* Creation of foreign field indexes for SQLITE databases are removed
-* Popovers for fields with help attribute reworked
+* SQLITE 数据库的导入功能现在可用
+* 删除了为 SQLITE 数据库创建外部字段索引的操作
+* 对带有帮助属性的字段进行了重新设计
 
-Admin:
 
-* Bugs related to tabs are fixed
+管理员:
 
-Demo:
+* 修复了选项卡的相关缺陷
 
-* For Customers item email sending functionlally is added. It demonstrates the use
-  of 
-  :doc:`server </refs/client/abstr_item/m_server>` 
-  method to execute script defined in the server module from client module, 
-  how to use fields of item with virtual_table to create a form for input of 
-  data.
+
+演示应用程序:
+
+* 为客户添加了邮件发送功能。
+  它演示了如何使用 :doc:`server </refs/client/abstr_item/m_server>` 方法从客户端模块执行服务器模块中定义的脚本，以及如何通过带有虚拟表（virtual_table）的数据项的字段来创建数据输入表单。

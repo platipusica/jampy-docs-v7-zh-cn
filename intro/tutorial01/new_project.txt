@@ -2,7 +2,7 @@
 新建项目
 ===========
 
-我们假设 jam.py 已经安装。如果尚未安装，请参阅
+我们假设已经安装好 jam.py 。如果尚未安装，请参阅
 :doc:`安装指南 </intro/install>`
 了解如何安装。
 
@@ -19,20 +19,20 @@
 
     $ ./server.py
 
-现在，要完成项目的创建，请打开 Web 浏览器并访问
+现在，要完成项目的创建，请打开 Web 浏览器并访问以下地址以打开应用程序构建器。
 
 .. code-block:: console
 
     127.0.0.1:8080/builder.html
 
-以打开应用程序构建器。您应该会看到语言选择对话框。
+您应该会看到语言选择对话框。
 
 .. image:: /intro/_images/lang_jampy.png
 	:scale: 50%
 	:align: center
 	:alt: 选择语言对话框
 
-使用浏览按钮选择 **English**，然后点击 **OK** 按钮。
+使用浏览按钮选择(或查找) **Chinese zh-CN** ，然后点击 **确定(OK)** 按钮。
 项目参数对话框将出现。
 
 .. image:: /intro/_images/project_params_jampy.png

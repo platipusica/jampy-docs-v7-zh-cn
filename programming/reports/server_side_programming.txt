@@ -1,17 +1,14 @@
 ==============================
-服务器端报告编程
+服务器端报表编程
 ==============================
 
-当服务器收到客户端生成报告的请求时，它首先
-创建报告的副本，然后该副本调用
-:doc:`generate </refs/server/report/m_generate>` 
-方法。
+当服务器收到客户端生成报表的请求时，它首先创建报表的副本，然后该副本调用 
+:doc:`generate </refs/server/report/m_generate>` 方法。
 
-此方法会触发
-:doc:`on_before_generate </refs/server/report/on_before_generate>` 
-事件。在此事件处理程序中，开发人员应编写生成报告内容的代码。
+此方法会触发 :doc:`on_before_generate </refs/server/report/on_before_generate>` 
+事件。在此事件处理程序中，开发人员应编写生成报表内容的代码。
 
-例如，演示应用程序的 **invoice** （发票）报告的事件处理程序如下：
+例如，演示应用程序的 **发票(invoice)** 报表的事件处理程序如下：
 
 
 .. code-block:: py
@@ -46,15 +43,14 @@
         report.print_band('summary', locals())
 
     
-首先，我们使用
-:doc:`copy </refs/server/item/m_copy>`
-方法创建 invoices（发票）日志的副本。
+首先，我们使用 :doc:`copy </refs/server/item/m_copy>`
+方法创建 **发票(invoices)** 日志的副本。
 
 .. code-block:: py
 
     invoices = report.task.invoices.copy()
 
-我们创建副本是因为多个用户可以在并行线程中同时生成相同的报告。
+我们创建副本是因为多个用户可以在并行线程中同时生成相同的报表。
 
 然后，我们调用副本的 set_where 方法：
 
@@ -62,28 +58,25 @@
 
     invoices.set_where(id=report.id.value)
 
-其中 report.id.value 是报告的 id 参数，我们在客户端的
+其中 report.id.value 是报表的 id 参数，我们在客户端的
 :doc:`on_before_print_report </refs/client/report/on_before_print_report>`
-事件处理程序中设置了其值，该值等于 **invoice** （发票）日志当前 **id** 字段的值。
+事件处理程序中设置了其值，该值等于当前 **发票(invoice)** 日志的 **id** 字段的值。
 
-然后，使用
-:doc:`open </refs/server/item/m_open>`
-方法，我们在服务器上获取记录。之后，使用
-:doc:`print_band </refs/server/report/m_print_band>`
-方法打印标题栏：
+然后，使用 :doc:`open </refs/server/item/m_open>` 方法，我们在服务器上获取记录。
+之后，使用 :doc:`print_band </refs/server/report/m_print_band>` 方法打印标题栏：
 
 .. code-block:: py
 
     report.print_band('title', locals())
 
 但在此之前，我们为四个局部变量赋值：customer（客户）、address（地址）、
-city（城市）和 date（日期），这些变量对应报告模板中标题栏的可编程单元格。
+city（城市）和 date（日期），这些变量对应报表模板中标题栏的可编程单元格。
 
 然后，以相同的方式生成明细栏和汇总栏。
 
-报告生成后，如果客户端设置的报告
+报表生成后，如果客户端设置的报表
 :doc:`extension </refs/client/report/at_extension>`
-属性值不等于 'pdf'，服务器会使用 **LibreOffice** 转换 ods 文件。
+属性值不等于 'pdf'，服务器会使用 **LibreOffice** 将其转换 ods 文件。
 
-报告生成后，它将存储在 static 目录的 report 文件夹中，服务器会向客户端发送报告文件的 url。
+报表生成后，它将存储在 static 目录的 report 文件夹中，服务器会向客户端发送报表文件的 url。
 

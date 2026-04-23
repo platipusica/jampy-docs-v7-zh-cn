@@ -7,18 +7,17 @@
 	:align: center
 	:alt: 数据库对话框
 
-在此对话框中显示项目数据库参数。当它们被更改并点击 OK（确定）按钮时，
+在此对话框中显示项目的数据库参数。当它们被更改并点击 OK（确定）按钮时，
 应用程序构建器将检查与数据库的连接，如果连接失败，将显示错误。
 
 .. note::
-   当任何 **Database** （数据库）参数被更改时（除了 **DB manual update** （数据库手动更新）），
-   必须重新启动服务器应用程序才能使更改生效。
+   当任何 **Database** （数据库）参数被更改时（除了 **DB manual update** （数据库手动更新））， 必须重新启动服务器应用程序才能使更改生效。
 
-如果 **DB manual update** （数据库手动更新）复选框未勾选（默认），那么当保存对有关联数据库表的项目所做的更改时，
-该数据库表会自动修改。例如，如果我们在
-:doc:`项目编辑器对话框 </admin/items/item_editor_dialog>`
-中为某个项目添加一个新字段，新字段将被添加到关联的数据库表中。如果勾选此复选框，
-则不会对数据库表进行任何修改。
+如果 **DB manual update** （数据库手动更新）复选框未勾选（默认），
+那么当保存对有关联的数据库表的实体项所做的更改时，该数据库表会自动修改。
+例如，如果我们在 :doc:`实体项编辑器对话框 </admin/items/item_editor_dialog>` 
+中为某个实体添加一个新字段，新字段将被添加到关联的数据库表中。
+如果勾选此复选框，则不会对数据库表进行任何修改。
 
 在更新的版本中，**DB manual update** （数据库手动更新）已重命名为 **DB manual mode** （数据库手动模式）。
 
@@ -30,10 +29,11 @@
 
 .. admonition:: 改编自 `Jam.py Design Tips`_（Jam.py 设计技巧）
 
-    Jam.py 支持许多不同的数据库服务器。例如 PostgreSQL_、MariaDB_、MySQL_、MSSQL_、Oracle_、Firebird_、IBM_、SQLite_ 以及使用 SQLCipher_ 的 SQLite。
+    Jam.py 支持许多不同的数据库服务器。例如 PostgreSQL_ 、MariaDB_ 、MySQL_ 、MSSQL_ 、Oracle_ 、Firebird_ 、IBM_ 、SQLite_ 以及使用 SQLCipher_ 的 SQLite 。
 
    如果您正在开发一个小型项目或不打算在生产环境中部署的项目，
-   SQLite 通常是最佳选择，因为它不需要运行单独的服务器。然而，SQLite 与其他数据库有许多不同之处，
+   SQLite 通常是最佳选择，因为它不需要运行单独的服务器。
+   然而，SQLite 与其他数据库有许多不同之处，
    因此如果您正在开发一个重要的项目，建议使用您计划在生产环境中使用的相同数据库进行开发。
 
    除了数据库后端，我们还需要确保安装了 Python 数据库绑定。
@@ -46,13 +46,13 @@
 
     * 如果使用 Oracle，需要 `cx_Oracle`_ 以及 Python 头文件（开发文件）。
 
-    * 如果使用 SQLCipher_，Linux 需要 ``sqlcipher3-binary`` 包。Windows 有独立的 DLL 可用。
+    * 如果使用 SQLCipher_ ，Linux 需要 ``sqlcipher3-binary`` 包。Windows 有独立的 DLL 可用。
 
-    * 如果使用 IBM_（待补充），需要 ``ibm_db`` 和 ``ibm_db_dbi`` 包。
+    * 如果使用 IBM_ （待补充），需要 ``ibm_db`` 和 ``ibm_db_dbi`` 包。
 
     * 如果使用 Firebird，需要 ``fdb`` 包。
     
-    * 如果使用 Databricks_，需要 ``databricks-sql-connector`` 包。
+    * 如果使用 Databricks_ ，需要 ``databricks-sql-connector`` 包。
 
 .. _Jam.py Design Tips: https://jampy-application-design-tips.readthedocs.io/
 .. _PostgreSQL: https://www.postgresql.org/
@@ -68,7 +68,7 @@
 .. _IBM: https://www.ibm.com/support/pages/downloading-ibm-db2-version-115-linux-unix-and-windows
 .. _Databricks: https://www.databricks.com/blog/how-use-lakebase-transactional-data-layer-databricks-apps
 
-支持在 Windows 上使用 MySQL，请访问 `MySQL deployment on Windows`_（Windows 上的 MySQL 部署）。
+支持在 Windows 上使用 MySQL，请访问 `MySQL deployment on Windows`_ （Windows 上的 MySQL 部署）。
 
 尽管 Jam.py 支持上述所有数据库，但不能保证支持某些特定和/或专有的数据库功能。
 这里我们列出几个经过测试的数据库：
@@ -135,7 +135,7 @@ Databricks
 	:alt: Databricks 设置
 
 .. note::
-   Databricks 工作区和数据库模式名称在 ``Database`` （数据库）字段中键入为 ``workspace.database``。
-   这在截图中显示为右上角的 ``samples.bakehouse``。
-   
+
+   在 ``Database`` （数据库）字段中，将 Databricks 工作区和数据库模式名称键入为“workspace.database”。这在屏幕截图上显示为右上角的 “samples.bakehouse” 。
+
    并非所有 DDL 都受支持。

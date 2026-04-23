@@ -2,50 +2,40 @@
 服务器端编程
 =======================
 
-在大多数情况下，当执行项目的以下方法时，客户端会向服务器发送请求：
+在大多数情况下，当执行实体的以下方法时，客户端会向服务器发送请求：
 
 * :doc:`open </refs/client/item/m_open>`
 * :doc:`apply </refs/client/item/m_apply>`
 * :doc:`print </refs/client/report/m_print>`
 * :doc:`server </refs/client/abstr_item/m_server>`
 
-在这些情况下，客户端向服务器发送项目任务的
-:doc:`ID </refs/client/abstr_item/at_id>`
-、项目的
-:doc:`ID </refs/client/abstr_item/at_id>`
-、请求类型及其参数。
+在这些情况下，客户端向服务器发送实体任务的
+ :doc:`ID </refs/client/abstr_item/at_id>` 、
+实体的 :doc:`ID </refs/client/abstr_item/at_id>` 、请求类型及其参数。
 
 服务器收到请求后，根据传递的 ID，找到服务器上的任务
-（可以是项目任务或应用程序构建器任务）和项目，
-使用传递的参数执行相应方法，并将执行结果
-返回给客户端。服务器方法可以触发事件，这些事件可以
-修改其默认行为。
+（可以是项目任务或应用程序构建器任务）和实体，
+使用传递的参数执行相应方法，并将执行结果返回给客户端。
+服务器方法可以触发事件，这些事件可以修改其默认行为。
 
-任务树中的每个项目都有
-:doc:`environ </refs/server/abstr_item/at_environ>`
-和
-:doc:`session </refs/server/abstr_item/at_session>`
-属性，用于存储当前请求的上下文。
+任务树中的每个实体都有 :doc:`environ </refs/server/abstr_item/at_environ>` 
+和 :doc:`session </refs/server/abstr_item/at_session>` 属性，用于存储当前请求的上下文。
 
 最常见的服务器事件有：
 
 * :doc:`on_created </refs/server/task/on_created>` - 当任务刚刚被服务器应用程序创建时，由任务触发此事件。可用于初始化项目。
 
-* :doc:`on_apply 事件 <on_apply_events>` - 当在 :doc:`客户端 </refs/client/item/m_apply>` 或 :doc:`服务器端 </refs/server/item/m_apply>` 调用项目的 ``apply`` 方法时触发这些事件。
-* :doc:`on_open_events <on_open_events>` - 当在 :doc:`客户端 </refs/client/item/m_open>` 或 :doc:`服务器端 </refs/server/item/m_open>` 调用项目的 ``open`` 方法时触发这些事件。
+* :doc:`on_apply_events <on_apply_events>` - 当在 :doc:`客户端 </refs/client/item/m_apply>` 或 :doc:`服务器端 </refs/server/item/m_apply>` 调用实体的 ``apply`` 方法时触发这些事件。
+* :doc:`on_open_events <on_open_events>` - 当在 :doc:`客户端 </refs/client/item/m_open>` 或 :doc:`服务器端 </refs/server/item/m_open>` 调用实体的 ``open`` 方法时触发这些事件。
 
-* :doc:`on_generate </refs/server/report/on_generate>` - 当在客户端调用报告的 :doc:`print </refs/client/report/m_print>` 方法时触发此事件。
+* :doc:`on_generate </refs/server/report/on_generate>` - 当在客户端调用 **报表(report)** 的 :doc:`print </refs/client/report/m_print>` 方法时触发此事件。
 
 .. note::
-    请注意，服务器上的任务树是不可变的，您不能更改
-    任务树中项目的属性。
+    请注意，服务器上的任务树是不可变的，您不能更改任务树中实体的属性。
 
-    您必须使用
-    :doc:`copy </refs/server/item/m_copy>`
-    方法来创建项目的副本。此副本是创建任务树时项目的
-    精确复制品。它不会添加到
-    :doc:`任务树 </programming/task_tree>`
-    中，并且在不再需要时会被 Python 垃圾回收器销毁。
+    您必须使用  :doc:`copy </refs/server/item/m_copy>` 方法来创建项目的副本。
+    此副本是创建任务树时实体的精确复制品。
+    它不会添加到  :doc:`任务树 </programming/task_tree>` 中，并且在不再需要时会被 Python 垃圾回收器销毁。
 
 .. toctree::
     :maxdepth: 1

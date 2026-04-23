@@ -1,19 +1,17 @@
 ====================================================
-What is the difference between catalogs and journals
+主数据和业务台账的区别
 ====================================================
 
-When a new project is created, its
-:doc:`task tree </programming/task_tree>`
-has the following groups: 
-**Catalogs**, **Journals**, **Details** and **Reports**.
+新建项目时，其 :doc:`任务树 </programming/task_tree>` 包含以下分组： 
+**主数据(Catalogs)** 、 **业务台账(Journals)** 、 **明细(Details)**  和 **报表(Reports)** 。
 
-**Catalogs** and **Journals** belong to the Item Group type and have the same 
-functional purpose. See :doc:`Groups </admin/groups/index>`.
+**主数据(Catalogs)** 与 **业务台账(Journals)** 均属于实体项分组类型，功能用途相同。
+详见 :doc:`分组 </admin/groups/index>` 。
 
-We created them to distinguish between two types of data items:
+我们设置这两类分组，是为了区分两种不同类型的数据实体：
 
-* data items that contain information of catalog type 
-  such as customers, organizations, tracks, etc. - **Catalogs**
+* 包含基础数据的数据实体项。
+  例如，客户(customers)、组织(organizations)、(tracks) 等 —  **主数据(Catalogs)** 
 
-* data items that store information about events 
-  recorded in some documents, such as invoices, purchase orders, etc. - **Journals**
+* 在各类记录中，存储业务事件信息的数据实体项。
+  例如，发票(invoices)、采购订单(purchase orders) 等 —  **业务台账(Journals)** 

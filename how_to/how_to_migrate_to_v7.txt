@@ -1,43 +1,51 @@
 ==================================
-How to migrate v5 project to v7
+如何将 v5 项目迁移到 v7
 ==================================
 
-For any v5 project, backup **index.html** file first and copy **index.html** and
-**template.html** from v7 Jam.py ``Demo`` application into the application folder.
-Or, copy the same files from a new v7 project created with ``jam-project.py``.
+对于任何 v5 项目，首先备份 **index.html** 文件，然后将 v7 Jam.py ``Demo`` 应用程序中的 **index.html** 和 **template.html** 文件复制到你的应用目录下。
+或者，也可以从用 ``jam-project.py`` 创建的新 v7 项目中复制同名文件。
 
 
-Uninstall the v5 Jam.py and install the v7. Or run two virtual Python instances 
-with both Jam.py versions.
+卸载 v5 版本的 Jam.py 并安装 v7 版本。或者可以同时运行两个虚拟 Python 环境，分别安装两个版本的 Jam.py。
 
-Start the application as usual with v7 Jam.py version.
+用 v7 Jam.py 正常启动应用。
 
-Address the following:
+需要注意以下事项：
 
-#. The biggest obstacle to move a Jam.py v5 application is the "Edit Lock" (record locking), enabled on the table(s). The Jam.py v7 is expecting a  `record_version` (INT) field for every table with the Edit Lock.
+#. 迁移 Jam.py v5 应用程序的最大障碍是 “编辑锁(Edit Lock)” 。
+   如果表启用了该功能，Jam.py v7 期望每个启用编辑锁的表都包含一个 `record_version`（INT）字段。
 
-   There are two options when migrating to v7. One is to disable the "Edit Lock" before migration, and the second option is to add the `record_version` field to affected tables before the migration. 
+   迁移到 v7 时有两个选择：一是在迁移前禁用 “编辑锁”，
+   二是在迁移前为相关表添加 `record_version` 字段。
 
-   After the field is added to the database structure, we need to add it to the Application Builder manually, with "DB Manual Mode" turned ON for every table with "Edit Lock" enabled. The "record version" option should be set with `record_version` field.
+   在数据库结构中添加该字段后，需要在应用构建器中手动添加该字段，
+   并为每个启用 “编辑锁” 的表开启 “DB Manual Mode” 。
+   “record version” 选项应设置为 `record_version` 字段。
 
-   Obviously, disabling the "Edit Lock" does not need anything. There is no option on project Parameters to create the "Lock Item".
+   显然，如果禁用 “编辑锁” ，则无需任何其它额外操作。
+   项目参数中也没有创建 “Lock Item” 的选项。
 
-#. The next issue is templates. The Jam.py v7 is expecting the **templates.html** file within the application folder. Due to Bootstrap 5 usage, some minor differences will arise with moving the existing templates from Jam.py v5 **index.html** file to **templates.html** file.
+#. 下一个问题是模板。Jam.py v7 期望应用程序目录下有 **templates.html** 文件。
+   由于使用了 Bootstrap 5，从 Jam.py v5 的 **index.html** 文件迁移现有模板到 **templates.html** 文件时会有一些小的差异。
 
-#. **index.html** also needs changing, due to Boostrap 5 dependencies. Please see below example.
+#. **index.html** 也需要调整，以适配 Bootstrap 5 依赖。请参考下方示例。
 
-#. Foreign Key support is dropped at v7. This means if there are any Foreign Keys created at v5, there will be no option to manage it at v7.
-
-
-#. The Jam.py v7 introduced the calculated field. It is now possible to use the server side functions (SUM, COUNT, MIN, MAX, AVG), for the lookup to a table field in a Master/Detail scenario. The Users might review the server side calculations code and replace it with a calculated fields, if appropriate.
-
-
-#. Jam.py v7 is now utilising the Python dependencies and will automatically install needed libraries with the initial install. This is different to v5, where all dependencies were "locked in" with the Jam.py distribution, enabling a single ``jam`` folder for deployment with the application.
+#. v7 版本不再支持外键（Foreign Key）。
+   这意味着如果 v5 中创建了外键，v7 将无法管理外键。
 
 
-#. For applications with Jam.py version 5.x or below, replace the **Task/Client** module code with **Task/Client** module code from ``Demo`` application or the new v7 project. Than, add a custom code from v5 **Task/Client** module, if there was any. 
+#. Jam.py v7 引入了 **计算字段(calculated field)** 。
+   现在可以在主/明细（Master/Detail）场景下，使用服务器端函数（SUM、COUNT、MIN、MAX、AVG）对表字段进行汇总。
+   用户可以根据需要，将服务器端的计算代码替换为计算字段。
 
-For example, ``Demo`` application **index.html** file contains:
+
+#. Jam.py v7 现在采用 Python 依赖管理，初次安装时会自动安装所需库。
+   这与 v5 不同，v5 所有依赖都 “锁定” 在 Jam.py 分发包中，可以通过单一 ``jam`` 文件夹部署应用。
+
+
+#. 对于 Jam.py 5.x 及以下版本的应用，将 **Task/Client** 模块代码替换为 ``Demo`` 应用或新 v7 项目的 **Task/Client** 模块代码。然后，如果 v5 **Task/Client** 模块有自定义代码，再将其补充进去。
+
+例如，``Demo`` 应用的 **index.html** 文件内容如下：
 
 .. code-block:: html
 
@@ -53,7 +61,7 @@ For example, ``Demo`` application **index.html** file contains:
         <script src="jam/js/jquery.maskedinput.js"></script>    
         <script src="jam/js/jam.js"></script>
 
-Change to:
+需要修改为：
 
 .. code-block:: html
 
@@ -66,5 +74,5 @@ Change to:
         <script src="jam/js/jquery.maskedinput.js"></script>
         <script type="module" src="jam/js/jam.js"></script>
 
-The rest of **index.html** file change should be minimal. 
+**index.html** 文件的其它部分只需做最小的调整。
 

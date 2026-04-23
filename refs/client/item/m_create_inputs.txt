@@ -36,7 +36,7 @@ The ``options`` parameter is an object that may have following attributes:
   Application builder, will be created
 
 * ``col_count`` - the number of columns that will be created for visual controls, 
-  the default value is 1, 
+  the default value is 1 (1,2,3,4,6,12).
   
 
 Before creating controls the application empties the container.

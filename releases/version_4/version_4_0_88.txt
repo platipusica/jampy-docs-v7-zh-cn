@@ -1,13 +1,13 @@
 ==============
-Version 4.0.88
+版本 4.0.88
 ==============
 
-Library:
+库:
 
-* Html templates reworked
-* You can change 12px default font to 14px default font by replace
-  jam.css to jam14.css in index.html
-  
-Demo:
+* Html 模板已重新制作
+* 您可以通过在 index.html 中将 jam.css 替换为 jam14.3ss ，
+  将默认字号由 12px 更改为14px 。
 
-* New examples of using html templates
+演示应用程序:
+
+* 使用 html 模板的新示例

@@ -1,28 +1,22 @@
 ==============
-Version 5.4.15
+版本 5.4.15
 ==============
 
-Library:
+库:
 
-* Support for MS SQL SERVER added
+* 增加对 MS SQL SERVER 的支持
 
-* Jam.py supports deletion and changing of fields, and foreign indexes for SQLITE 
-  database now. As SQLITE doesn't support column changing and deletion and addition
-  of foreign indexes to existing tables, Jam.py creates a new table and copies
-  records into it from old one.
+* Jam.py 现在支持删除和更改字段，以及支持 SQLITE 数据库的外部索引。由于 SQLITE 不支持对现有表进行列更改、删除和添加外部索引，你需要使用 Jam.py 创建一个新表，并将旧表中的记录复制到其中。
+
+* 对于 SQLITE 数据库，Jam.py 现在不支持将元数据导入现有项目（其项目项在数据库中有相应的表）。您可以将元数据导入到新项目中。
   
-* for SQLITE database Jam.py doesn't support import of metadata to an existing project (project items of 
-  which have corresponding tables in database) now. You can import of metadata to 
-  a new project
-  
-* BLOB field type renamed to LONGTEXT and corresponding DB field changed from 
-  Blob (if it was) to Long text type wherever possible
+* BLOB 字段类型重命名为 LONGTEXT，相应的 DB 字段尽可能从 BLOB（如果是）更改为 Long text 类型
 
-Application Builder:
+应用程序构建器:
 
-* History item creation bug fixed
+* 记录用户操作的历史数据项创建错误已修复
 
-* Foreign indexes creation bug fixed
+* 修复了创建外部索引的错误
 
 
 

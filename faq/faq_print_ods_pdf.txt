@@ -1,16 +1,12 @@
 =======================================================
-When printing a report I get an ods file instead of pdf
+打印报告时我得到的是 ods 文件而不是 pdf
 =======================================================
 
-When a report is generated the server application first creates an ods file.
+当生成报告时，服务器应用程序首先创建一个 ods 文件。
 
-If 
-:doc:`extension </refs/client/report/at_extension>`
-attribute of the report is set to 'pdf' or any other format except 'ods', the
-application first creates an ods file and then uses LibreOffice
-in "headless" mode to convert the ods file to that format.
+如果报告的 :doc:`extension </refs/client/report/at_extension>` 属性
+被设置为 'pdf' 或除 'ods' 之外的任何其他格式，应用程序会首先创建一个 ods 文件，
+然后使用 "无头" 模式的 LibreOffice 将 ods 文件转换为该格式。
 
-If LibreOffice is currently running on the server this conversion
-may not happen. You must close LibreOffice on the server for 
-the conversion to take place.
-
+如果 LibreOffice 当前正在服务器上运行，这种转换就可能不会发生。
+您必须关闭服务器上的 LibreOffice 才能进行转换。

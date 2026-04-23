@@ -1,6 +1,5 @@
 =========
-Version 3
+版本 3
 =========
 
-In version 3, support for development of database desktop applications based on 
-the GTK Toolkit was removed.
+在版本 3 中，删除了对基于 GTK Toolkit 的数据库桌面应用程序开发的支持。

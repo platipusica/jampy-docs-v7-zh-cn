@@ -1,32 +1,29 @@
 ==================================
-How to migrate to another database
+如何迁移到另一个数据库
 ==================================
 
-TBA - changed from Jam.py v5.
+TBA - 从 Jam.py v5 起被更改。
 
-You can migrate your data to another database.
+您可以将数据迁移到另一个数据库。
 
-For example, you developed your project with SQLite database and want to move to 
-Postgress.
+例如，您使用 SQLite 数据库开发了项目，现在想要把数据库迁移到 Postgres 。
 
-To do this, follow these steps:
+要执行此操作，请按照以下步骤操作：
 
-#. Create an empty Postgress database
+#. 创建一个空的 Postgres 数据库
 
-#. Create a new project with this database
+#. 使用此数据库创建一个新项目
 
-#. Export the metadata of the SQLite project to a zip file 
-   in the Application Builder by clicking the 
-   :doc:`Export </admin/project/export>` button.
+#. 在应用程序构建器中，通过点击 :doc:`Export </admin/project/export>` 按钮，
+   将 SQLite 项目的元数据导出为一个 zip 文件。
 
-#. Import the metadata to the new project. The web application with create
-   database structures in the Postgress database.
+#. 将元数据导入到新项目中。Web 应用程序将在 Postgres 数据库中创建数据库结构。
   
-#. copy data from SQlite to Postgress database using the 
-   :doc:`copy_database </refs/server/task/m_copy_database>` method of the task:
+#. 使用任务的 :doc:`copy_database </refs/server/task/m_copy_database>` 方法
+   将数据从 SQLite 复制到 Postgres 数据库：
   
-   * within the Project\Task create the following Server Module function (adjust the below database path with correct one):
-  
+   * 在 **项目\任务(Project\Task)** 中创建以下服务器模块函数（调整下面的数据库路径为正确的路径）：
+     
      .. code-block:: py
     
        from jam.db.db_modules import SQLITE
@@ -34,10 +31,9 @@ To do this, follow these steps:
        def copy_db(task):
            task.copy_database(SQLITE, '/home/work/demo/demo.sqlite')
   
-   * then, execute it with the one of the following ways:
+   * 然后，通过以下方式之一执行它：
   
-     * call this function in the 
-       :doc:`on_created </refs/server/task/on_created>` event handler:
+     * 在 :doc:`on_created </refs/server/task/on_created>` 事件处理程序中调用此函数：
 
        .. code-block:: py
       
@@ -49,8 +45,8 @@ To do this, follow these steps:
          def on_created(task):
            copy_db(task)
           
-     * create a button in some form and use the task 
-       :doc:`server </refs/client/abstr_item/m_server>` method to execute it
+     * 在某个表单中创建一个按钮，
+       并使用任务的 :doc:`server </refs/client/abstr_item/m_server>` 方法执行它：
 
        .. code-block:: js
 
@@ -60,17 +56,14 @@ To do this, follow these steps:
            });
          }
 
-     * or run from from debugging console of the browser:
+     * 或从浏览器的调试控制台运行：
     
        .. code-block:: js
 
          task.server('copy_db')
          
-#. Remove the code that was used immediately after this procedure.         
+#. 在此过程完成后立即删除使用的代码。
 
 .. note::
 	
-	You can not migrate to SQLite database if the current database has foreign
-	keys.
-
-    
+  如果当前数据库有外键，则不能迁移到 SQLite 数据库。    

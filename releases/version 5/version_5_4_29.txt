@@ -1,24 +1,23 @@
 ==============
-Version 5.4.29
+版本 5.4.29
 ==============
 
-Library:
+库:
 
-* Jam.py uses JQuery 3 now
+* Jam.py 现在使用 JQuery 3
 
-* :doc:`lock </refs/server/task/m_lock>` method added
+* 添加了 :doc:`lock </refs/server/task/m_lock>` 方法
 
-* :doc:`create_connection_ex </refs/server/task/m_create_connection_ex>` method added
+* 添加了 :doc:`create_connection_ex </refs/server/task/m_create_connection_ex>` 方法
 
-* :doc:`edit_record </refs/client/item/m_edit_record>` method reworked, the edit form 
-  events are triggered after all data are get from the server
+* :doc:`edit_record </refs/client/item/m_edit_record>` 方法已重新设计，编辑表单事件在从服务器获取所有数据后触发
 
-* connection of connection pull is recreated after one houre of inactivity
+* 连接池的连接在不活动一小时后重新创建
 
-* minor bugs fixed
+* 修复了小错误
 
-Documetation:
+文档:
 
-* :doc:`How can I perform calculations in the background </how_to/how_to_calculations_in_the_background>`
+* :doc:`在后台，我如何执行某些计算 </how_to/how_to_calculations_in_the_background>`
 
-* :doc:`How can I use data from other database tables </how_to/how_to_data_from_other_database_tables>`
+* :doc:`如何使用来自其他数据表的数据 </how_to/how_to_data_from_other_database_tables>`

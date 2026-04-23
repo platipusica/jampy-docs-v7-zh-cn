@@ -1,7 +1,7 @@
 ==============
-Version 5.4.61
+版本 5.4.61
 ==============
 
-Application Builder:
+应用程序就构建器:
 
-* Lookup list bug fixed
+* 修复了 Lookup list 的错误

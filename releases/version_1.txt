@@ -1,6 +1,5 @@
 =========
-Version 1
+版本 1
 =========
 
-Version 1 was designed to develop database desktop applications based on the 
-GTK Toolkit. 
+版本 1 旨在基于 GTK 工具包开发数据库桌面应用程序。

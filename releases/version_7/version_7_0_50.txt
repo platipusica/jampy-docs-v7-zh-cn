@@ -1,9 +1,9 @@
 ==============
-Version 7.0.50
+版本 7.0.50
 ==============
 
-New date-picker implemened - https://github.com/stefangabos/Zebra_Datepicker
+新日期选择器已实现 - https://github.com/stefangabos/Zebra_Datepicker
 
-The Docs how use the plugin is TBA.
+使用该插件的文档处于 TBA。
 
-Alternatively, please visit above GitHub page.
+或者，请访问上面的 GitHub 页面。

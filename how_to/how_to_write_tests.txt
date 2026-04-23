@@ -1,25 +1,25 @@
 ===========================
-How to write tests
+如何编写测试
 ===========================
 
-Jam.py is using Mocha/Chai for front-end unit tests and pytest for dataset integration testing.
-The examples are in tests folder.
+Jam.py 使用 Mocha/Chai 进行前端单元测试，使用 pytest 进行数据集集成测试。
+这些例子在 tests 文件夹中。
 
-First, start with forking `Jam.py-v7`_.
+首先，从 `Jam.py-v7`_ 仓库创建自己的仓库副本（forks）；
 
 .. _Jam.py-v7: https://github.com/jam-py-v5/jam-py-v7
 
-Next, clone your fork::
+然后，克隆你的仓库副本： :
 
         ...\> git clone https://github.com/YourGitHubName/jam-py-v7.git
         ...\> cd jam-py-v7/tests/project
 
 
-To add a new test for the front-end, add JavaScript file into project/js folder.
-Let's say we want to test ``user`` table with CRUD, using one field called ``username``.
+要添加一个新的前端测试，请在 project/js 文件夹中添加 JavaScript 文件。
+假如，我们想对 ``user`` 表的一个名为 ``username`` 的字段进行 CRUD 测试。
 
 The project folder has the below structure::
-
+项目的文件夹有如下结构：
 
         ├── admin.sqlite
         ├── css
@@ -39,26 +39,26 @@ The project folder has the below structure::
         ├── test.sqlite
         └── wsgi.py
 
-Start the project as usual::
+像往常一样启动项目： :
 
         ...\> ./server.py
 
-Add table ``Users`` with a field name ``Username`` on builder, ie. visiting:
 
+在构建器里，添加一个  ``Users``  表，它有一个名为  ``Username`` 的字段，如图示： :
 
 .. code-block:: html
 
         127.0.0.1:8080/builder.html
 
-Add to index.html new file:
 
+在 index.html 中添加一个新的 js 文件：
 
 .. code-block:: html
 
         <script src="js/test_users.js"></script>
 
-The index.html might look like below:
 
+index.html 内容应该如下所示：
 
 .. code-block:: html
 
@@ -98,15 +98,16 @@ The index.html might look like below:
         </html>
 
 
-
-Create the file **js/test_users.js** with the tests and visit the application on:
+创建带有测试内容的 **js/test_users.js** 文件，让后访问应用程序：
 
 .. code-block:: html
 
         127.0.0.1:8080/index.html
 
-All unit tests will run and display the results. The database tests.sqlite will be updated with a 
-new user. The ``DELETED`` field within the table will be set to 1 for new row, if the table was
-created with ``Soft delete`` option. If not, the new record will be deleted.
+
+所有单元测试都将运行并显示结果。 数据库 tests.sqlite 将使用新用户进行更新。
+如果该表是使用 “软删除” 选项创建的，表中新行的  ``DELETED`` 字段将被设置为 1 。
+否则，新记录将被删除。
 
 If all good to go, create a Github ``pull`` request with the changes.
+如果一切顺利，创建一个带有更改的 Github ``pull`` 请求。

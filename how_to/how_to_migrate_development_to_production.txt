@@ -1,94 +1,83 @@
 ========================================
-How to migrate development to production
+如何从开发环境迁移到生产环境
 ========================================
 
-Migrating development to production is very simple in Jam.py due to the ability 
-to export and import its metadata. 
+由于 Jam.py 具有导出和导入元数据的能力，
+因此，将已完成的项目从开发环境迁移到生产环境非常简单。
 
-To understand the concept of metadata and the process of exporting and importing 
-metadata, please read the topic 
-:doc:`Export/import metadata </admin/project/metadata_file>`.
-The process of importing metadata depends on the type of project database.
+要了解元数据的概念以及导出和导入元数据的过程，
+请阅读主题 :doc:`Export/import metadata </admin/project/metadata_file>` 。 
+导入元数据的过程取决于项目数据库的类型。
 
-New project migration
+
+迁移到新项目
 =====================
 
-* Create an empty database in the production environment
+* 先在生产环境中创建一个空数据库
 
-* Run *jam-project.py* script to create a new project
+* 运行脚本 *jam-project.py* ，创建一个新项目
 
-* Set up the server. See 
+* 设置服务器。参考 
   
-  * :doc:`Jam.py deployment with Apache and mod_wsgi </intro/deployment>`,
-  * :doc:`How to deploy <deploy/index>`.
+  * :doc:`使用 Apache 和 mod_wsgi 部署 Jam.py </intro/deployment>` 
+  * :doc:`如何部署 <deploy/index>` 
 
-* In the browser start the Application Builder and finish the creation of the 
-  project with an empty database.
+* 在浏览器中启动应用程序构建器，并使用空数据库完成项目的创建。
 
-* open 
-  :doc:`Parameters </admin/project/parameters>` dialogue to set up the project. 
-  Setup the following parameters:
+* 打开 :doc:`Parameters </admin/project/parameters>` 对话框来设置项目。 
+  设置以下参数：
   
-  * **Production** to true
+  * **生产环境(Production)** 设为 true
   
-  * **Safe mode**
+  * **安全模式(Safe mode)**
   
-  * **Debugging** to false
+  * **调试(Debugging)** 设为 false
 
-* Export the metadata of the development project to a zip file 
-  in the Application Builder by clicking the 
-  :doc:`Export </admin/project/export>` button.
+* 在应用程序构建器中，通过点击 :doc:`导出 </admin/project/export>` 按钮，
+  将开发环境中的项目的元数据导出为一个 zip 文件。
   
-* Import the metadata to the new project.
+* 将元数据导入到新项目中
 
 .. note::
 
-    For projects with **SQLite** database you can simply copy the development 
-    project folder to the production environment.
+    对于使用 **SQLite** 数据库的项目，您可以简单地将开发环境下的项目文件夹复制到生产环境中。
 
-Existing project migration
+
+迁移到已有项目
 ==========================
 
-* Export the metadata of the development project to a zip file. 
+* 将开发环境中的项目的元数据导出为一个 zip 文件。
 
-* Import the metadata to the production project.
+* 将元数据导入到生产环境下的项目中。
 
 .. note::
 
-    For **SQLite** database, Jam.py doesn’t support importing of metadata into an 
-    existing project (project with tables in the database). 
-    You can only import metadata into a new project.
+    对于 **SQLite** 数据库，Jam.py 不支持将元数据导入到现有项目（数据库中已有表的项目）中。
+    您只能将元数据导入到新项目中。
 
 
-Importing metadata with the http server process shutdown
+关闭 HTTP 服务器进程时导入元数据
 ========================================================
 
 Stop the http server and copy the metadata zip file to *migration* folder in the 
 project directory. If the folder doesn't exist, create it.
+停止 HTTP 服务器并将元数据 zip 文件复制到项目目录中的 *migration* 文件夹。
+如果该文件夹不存在，请创建它。
 
-Start the http server. The web application, while initializing itself, will
-import the metadata file. You can see the information on how the file was 
-imported in the log file in the *logs* folder of the project directory.
-If the import is successful, the zip file will be deleted.
+启动 HTTP 服务器。Web 应用程序在初始化时会导入元数据文件。
+您可以在项目目录的 *logs* 文件夹中的日志文件中看到文件被导入的信息。 
+如果导入成功，zip 文件将被删除。
 
-Importing metadata without the http server process  shutdown
+
+不关闭 HTTP 服务器进程时导入元数据
 =============================================================
 
-Click the 
-:doc:`Import </admin/project/import>`
-button in the Application Builder.
+点击应用程序构建器中的 :doc:`Import </admin/project/import>` 按钮。
 
 .. note::
 
-   By default the web application in the process that imports the metadata waits 
-   for 5 minutes or until all previous request to the application in 
-   **this process** will be processed before it starts to change the database. 
-   For projects that run on multiple processes you can set the **Import delay** 
-   parameter in the
-   :doc:`Parameters </admin/project/parameters>` 
-   to delay the change the database or
-   use Importing metadata with server shutdown.
-   
+   默认情况下，在导入元数据进程中的 Web 应用程序会等待 5 分钟，
+   或直到 **此进程中** 对应用程序的所有先前请求都被处理完毕，然后才开始更改数据库。
 
-	
-
+   对于在多个进程上运行的项目，您可以在 :doc:`项目参数 </admin/project/parameters>` 中
+   设置 **延迟导入(Import delay)** 参数来延迟数据库更改，或者使用在关闭服务器时导入元数据的方法。

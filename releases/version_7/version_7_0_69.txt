@@ -1,5 +1,5 @@
 ===============
-Version 7.0.69
+版本 7.0.69
 ===============
 
-Boolean summary fixed.
+修复 Boolean 类型的摘要错误

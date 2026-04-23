@@ -2,23 +2,17 @@
 筛选记录
 =================
 
-有三种方法可以定义在调用 ``open`` 方法时，项目
-:doc:`数据集 <dataset>`
-将从数据库表中获取哪些记录：
+在调用 ``open`` 方法时，有三种方法可以定义从数据库表中将获取实体 :doc:`数据集 <dataset>` 的哪些记录：
 
 * 指定 ``open`` 方法的 ``where`` 参数（选项），
 * 在调用 ``open`` 方法之前调用 ``set_where`` 方法，
-* 或者使用
-  :doc:`过滤器 <filters>`。
+* 或者使用  :doc:`过滤器 <filters>`。
 
-当指定了 ``where`` 参数时，即使调用了 ``set_where`` 方法或项目具有已设置值的过滤器，也会始终使用该参数。
+当指定了 ``where`` 参数时，即使调用了 ``set_where`` 方法或实体具有已设置值的过滤器，也始终使用 ``where`` 参数。
 
 当省略 ``where`` 参数时，将使用传递给 ``set_where`` 方法的参数。
 
-例如，在以下代码的 ``Client Module`` （客户端模块）中，在第一次调用 ``open``
-方法时，将使用 ``where`` 选项来筛选记录，
-在第二次调用时，将使用传递给 ``set_where`` 的参数，而只有在第三次
-才会使用 ``invoicedate1`` 过滤器的值：
+例如，在以下代码的 ``客户端模块(Client Module)`` 中，在第一次调用 ``open`` 方法时，将使用 ``where`` 选项来筛选记录；在第二次调用时，将使用传递给 ``set_where`` 的参数，而只有在第三次才会使用 ``invoicedate1`` 过滤器的值：
 
 .. code-block:: js
 
@@ -39,7 +33,7 @@
     
     date = datetime.datetime.now() - datetime.timedelta(days=3*365)
 
-在 ``Server Module`` （服务器模块）中的相同代码如下所示：
+在 ``服务器模块(Server Module)`` 中的相同功能代码如下所示：
 
 .. code-block:: py
 
@@ -81,14 +75,13 @@
    ``ENDWITH``, 'endwith', ``FILTER_ENDWITH``, 使用 ``LIKE`` 和 "%" 符号来查找字段值以搜索字符串结尾的记录
    ``CONTAINS ALL``, 'contains_all', ``FILTER_CONTAINS_ALL``, 使用 ``LIKE`` 和 "%" 符号来查找字段值包含搜索字符串所有单词的记录
   
-``open`` 方法的 ``where`` 参数是一个字典，其键
-是字段名称，后面跟着双下划线和
-过滤器符号。对于 ``EQ`` 过滤器，过滤符号 '__eq' 可以省略。
-例如，``{'id': 100}`` 等价于 ``{'id__eq': 100}``。
+``open`` 方法的 ``where`` 参数是一个字典，其键是字段名称，后面跟着双下划线和
+过滤器符号。
+对于 ``EQ`` 过滤器，过滤符号 '__eq' 可以省略。例如，``{'id': 100}`` 等价于 ``{'id__eq': 100}``。
 
 '__isnull' 过滤符号与布尔值一起使用。
 
-例如，在上面的 ``Server Module`` （服务器模块）代码中：
+例如，在上面的 ``服务器模块(Server Module)`` 代码中：
 
 
 .. code-block:: py

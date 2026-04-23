@@ -1,41 +1,35 @@
 =======================================
-How to deploy project on PythonAnywhere
+如何在 PythonAnywhere 上部署项目
 =======================================
 
-* Use pip to install Jam.py. To do this, open up a new **Bash** console from the **Consoles** Tab and run:
+* 使用 pip 安装 Jam.py。为此，请打开一个新的 **Bash** 命令行并运行：
 
   .. code-block:: console
   
     mkvirtualenv --python=/usr/bin/python3.13 my-virtualenv  # use whichever python version you prefer
     pip install jam.py-v7
 
-
-  The above **mkvirtualenv** command might display:
- 
+  上面的 **mkvirtualenv** 命令可能显示如下：
   .. code-block:: console  
   
       created virtual environment CPython3.10.5.final.0-64 in 8486ms
       creator CPython3Posix(dest=/home/username/.virtualenvs/my-virtualenv, ...
 
 
-  The **dest** path is used for **Virtualenv** section. For every user, this will be different.
+  **dest** 对应的路径将用于 **Virtualenv** 部分，这对于每个用户，各不相同。
   
-* Create a zip archive of your project folder, upload the archive in the **Files** 
-  tab and unzip it.
-  
-  We assume that you are registered as *username* and your project is now located 
-  in the */home/username/project_folder* directory.
+* 将你的项目文件夹压缩为一个 zip 文件，然后在  **文件(Files)** 选项卡将其上传并解压：
 
-* Open the **Web** Tab. Add a new web app. 
-  In the **Code** section specify:
+  假设你有一个 *username* 的用户，你的项目就会位于 */home/username/project_folder* 目录下。
 
-  * Source code: */home/username/project_folder*
+* 打开 **Web** 选项卡，添加一个新的 web 应用程序。在 **代码(Code)** 部分指定：
 
-  * Working directory: */home/username/project_folder*
+  * 源代码(Source code): */home/username/project_folder*
 
-  * WSGI configuration file: */var/www/username_pythonanywhere_com_wsgi.py* file,
-  delete everything and add just the following code:
+  * 工作目录(Working directory): */home/username/project_folder*
 
+  * WSGI 配置文件: 打开 */var/www/username_pythonanywhere_com_wsgi.py* 文件,
+    删除已有内容，并只添加以下代码：
 
   .. code-block:: py
 
@@ -50,22 +44,18 @@ How to deploy project on PythonAnywhere
     application = create_application(path)
 
 
-
-  In the **Static files** section, specify the Jam.py static files location and 
-  the path. For example:
+  在 **静态文件(Static files)** 部分，指定 Jam.py 的静态文件的访问位置和路径，例如：
 
   
       * URL: */static/*
-      * Directiory: */home/username/project_folder/static*
+      * 目录(Directiory): */home/username/project_folder/static*
   
 
-  In the **Virtualenv** section, specify the virtual environment path created
-  with above **mkvirtualenv** command. For example:
+  在 **Virtualenv** 部分，指定使用上面 **mkvirtualenv** 命令创建的虚拟环境路径。例如：
   
       * /home/username/.virtualenvs/my-virtualenv/
 
-  In the **Force HTTPS** section, enable HTTPS.
+  在 **强制 HTTPS(Force HTTPS)** 部分，启用  HTTPS。
 
-
-* Reload the server on **Reload** section.
-* To debug the process, review the logs on **Logs** section.
+* 在 **重启(Reload)** 部分，重启服务器。
+* 要进行调试，请在 **日志(Logs)** 部分查看日志内容。

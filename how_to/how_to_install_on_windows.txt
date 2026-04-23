@@ -1,144 +1,129 @@
 ================================
-How to install Jam.py on Windows
+如何在 Windows 上安装 Jam.py
 ================================
 
 .. admonition:: Adapted from `Django Docs`_
         
-        The below document is adopted from `Django Docs`_.
+        以下文档参考了 `Django Docs`_.
 
-This document will guide you through installing Python 3.x and Jam.py on
-Windows. It also provides instructions for setting up a virtual environment,
-which makes it easier to work on Python projects. This is meant as a beginner's
-guide for users working on Jam.py projects and does not reflect how Jam.py
-should be installed when developing patches for Jam.py itself.
 
-The steps in this guide have been tested with Windows 10. In other
-versions, the steps would be similar. You will need to be familiar with using
-the Windows command prompt.
+本文档将指导您在 Windows 上安装 Python 3.x 和 Jam.py。
+它还提供了设置虚拟环境的说明，这使得处理 Python 项目更加容易。
+这是为从事 Jam.py 项目的用户准备的初学者指南，
+但不反映在开发 Jam.py 本身的补丁时应如何安装 Jam.py。
 
+本指南中的步骤已在 Windows 10 上测试。在其他版本中，步骤会类似。
+您需要熟悉使用 Windows 命令提示符。
 
 .. _Django Docs: https://docs.djangoproject.com/en/5.2/howto/windows/
 
-Install Python
-==============
+安装 Python
+====================
 
-Jam.py is a Python web framework, thus requiring Python to be installed on your
-machine. At the time of writing, Python 3.8 is the latest version.
+Jam.py 是一个 Python Web 框架，因此需要在您的机器上安装 Python。
+在撰写本文时，Python 3.8 是最新版本。
 
-To install Python on your machine go to https://www.python.org/downloads/. The
-website should offer you a download button for the latest Python version.
-Download the executable installer and run it. Check the boxes next to "Install
-launcher for all users (recommended)" then click "Install Now".
+要在您的机器上安装 Python，请访问 https://www.python.org/downloads/。
+该网站应该为您提供最新 Python 版本的下载按钮。下载可执行安装程序并运行它。
+选中 "Install launcher for all users (recommended)" 旁边的复选框，
+然后点击 "Install Now"。
 
-After installation, open the command prompt and check that the Python version
-matches the version you installed by executing::
+安装后，打开命令提示符并通过执行以下命令检查 Python 版本是否与您安装的版本匹配： ::
 
     ...\> python --version
 
 
-About ``pip``
+关于 ``pip``
 =============
 
-`pip`_ is a package manager for Python and is included by default with the
-Python installer. It helps to install and uninstall Python packages
-(such as Jam.py!). For the rest of the installation, we'll use ``pip`` to
-install Python packages from the command line.
+`pip`_ 是 Python 的包管理器，默认已包含在 Python 安装程序中。
+它有助于安装和卸载 Python 包（如 Jam.py！）。
+在后续的安装过程中，我们将使用 ``pip`` 从命令行安装 Python 包。
 
 .. _pip: https://pypi.org/project/pip/
 
 .. _virtualenvironment:
 
-Setting up a virtual environment
+
+设置虚拟环境
 ================================
 
-It is best practice to provide a dedicated environment for each Jam.py project
-you create. There are many options to manage environments and packages within
-the Python ecosystem, some of which are recommended in the `Python
-documentation <https://packaging.python.org/guides/tool-recommendations/>`_.
+为您创建的每个 Jam.py 项目提供专用环境是最佳实践。
+Python 生态系统中有许多管理环境和包的选项，其中一些在 
+`Python documentation <https://packaging.python.org/guides/tool-recommendations/>`_ 
+中被推荐。
 
-To create a virtual environment for your project, open a new command prompt,
-navigate to the folder where you want to create your project and then enter the
-following::
+要为您的项目创建虚拟环境，请打开一个新的命令提示符，将当前目录切换到您要创建项目的文件夹，
+然后输入以下命令： ::
 
     ...\> python -m venv project-name
 
-This will create a folder called 'project-name' if it does not already exist
-and set up the virtual environment. To activate the environment, run::
+这将创建一个名为 'project-name' 的文件夹（如果它尚不存在）并设置虚拟环境内容。
+要激活环境，请运行： ::
 
     ...\> project-name\Scripts\activate.bat
 
-The virtual environment will be activated and you'll see "(project-name)" next
-to the command prompt to designate that. Each time you start a new command
-prompt, you'll need to activate the environment again.
+虚拟环境将被激活，您会在命令提示符旁边看到 "(project-name)" 以示区别正常环境。
+每次启动新的命令提示符时，您都需要再次激活虚拟环境。
 
 
-Install Jam.py
-==============
+安装 Jam.py
+=================
 
-Jam.py can be installed easily using ``pip`` within your virtual environment.
+可以在虚拟环境中使用 ``pip`` 轻松安装 Jam.py 。
 
-In the command prompt, ensure your virtual environment is active, and execute
-the following command::
+在命令提示符中，确保您的虚拟环境已激活，然后执行以下命： ::
 
     ...\> python -m pip install jam.py-v7
 
 
-This will download and install the latest Jam.py release.
+这将下载并安装最新版本的 Jam.py 。
 
-For Python verson => 3.13, please install ``standard-imghdr`` as well::
+对于 Python 3.13 及以上版本，请同时安装： ::
 
     ...\> python -m pip install standard-imghdr
 
 
+安装完成后，您可以通过在命令提示符中执行 ``pip list`` 来验证您的 Jam.py 安装。
 
-After the installation has completed, you can verify your Jam.py installation
-by executing ``pip list`` in the command prompt.
-
-
-We can now proceed with creating a new :doc:`project <../intro/new_project>`.
+现在我们可以继续创建一个  :doc:`新项目 <../intro/new_project>` 。
 
 
-Common pitfalls
+常见误区
 ===============
 
-
-* If you are connecting to the internet behind a proxy, there might be problems
-  in running the command ``py -m pip install Jam.py``. Set the environment
-  variables for proxy configuration in the command prompt as follows::
+* 如果您在代理后面连接到互联网，运行命令 ``py -m pip install Jam.py`` 时可能会出现问题。
+  解决此问题，可以在命令提示符中为代理配置设置环境变量，如下所示： ::
 
     ...\> set http_proxy=http://username:password@proxyserver:proxyport
     ...\> set https_proxy=https://username:password@proxyserver:proxyport
 
 
-* If your Administrator prohibited setting up a virtual environment, it 
-  is still possible to install Jam.py as follows::
+* 如果您的管理员禁止设置虚拟环境，您仍然可以按以下方式安装 Jam.py ： ::
 
     ...\> python -m pip install jam.py-v7
-
-
     
-  This will download and install the latest Jam.py release.
+  这将下载并安装最新版本的 Jam.py 。
 
-  After the installation has completed, you can verify your Jam.py installation
-  by executing ``pip list`` in the command prompt.
+  安装完成后，您可以通过在命令提示符中执行 ``pip list`` 来验证您的 Jam.py 安装。
 
-  However, running ``jam-project.py`` will fail since it is not in the path. Check
-  the installation folder::
+  但是，运行 ``jam-project.py`` 可能会失败，因为它不在当前路径中。
+  
+  
+  检查安装文件夹，请运行： ::
 
     ...\> python -m site --user-site
 
-  The output might be similar to the following::
+  输出可能类似于以下内容： ::
 
     C:\Users\youruser\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\site-packages
 
-
-
-  Replace ``site-packages`` at the end of above line with ``Scripts``::
+  将上面一行末尾的 ``site-packages`` 替换为 ``Scripts`` ： ::
 
     ...\> dir C:\Users\youruser\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\Scripts
 
 
-  The output might be similar to the following::
+  输出内容可能类似于： ::
 
     ...\> Directory of C:\Users\yourser\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\Scripts
 
@@ -149,28 +134,24 @@ Common pitfalls
                        2 Dir(s)  177,027,321,856 bytes free
 
 
-
-  Create the new folder somewhere and run ``jam-project`` from from it::
+  在某处创建新文件夹并从中运行 ``jam-project`` ： ::
 
     ...\> python C:\Users\youruser\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0\LocalCache\local-packages\Python39\Scripts\jam-project.py
 
 
-  Run the new project::
+  运行新项目： ::
 
     ...\> python server.py
 
 
-Installing WLS
+安装 WLS
 ==============
 
-
-Invoking installation::
+调用安装： ::
 
     ...\> wsl --install
 
-
-
-The output might be similar to the following::
+输出可能类似于以下内容： ::
 
         Installing: Virtual Machine Platform
         Virtual Machine Platform has been installed.
@@ -181,4 +162,4 @@ The output might be similar to the following::
         The requested operation is successful. Changes will not be effective until the system is rebooted.
 
 
-Now, we have a development environment with Ubuntu, and we can proceed with Jam.py installation as usual for Linux.
+现在，我们有了一个带有 Ubuntu 的开发环境，我们可以像在 Linux 上一样继续进行 Jam.py 安装。

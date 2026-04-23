@@ -1,5 +1,5 @@
 =======================================
-教程。第二部分：文件和图像字段
+教程 第二部分：文件和图像字段
 =======================================
 
 在本部分中，我们将演示如何在 Jam.py 中处理文件和图像。
@@ -7,34 +7,34 @@
 添加图像字段
 ==================
 
-让我们选择"Customers"（客户）目录，双击它以打开
+让我们选择 “客户(Customers)” 目录，双击它以打开
 :doc:`项目编辑器对话框 </admin/items/item_editor_dialog>`
-并添加一个图像字段"Photo"（照片）：
+并添加一个图像字段 “照片(Photo)” ：
 
 .. image:: /intro/_images/image_field_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: image_field_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: image_field_jampy.png
 
-现在刷新项目页面，点击 Customers（客户）菜单项并打开编辑表单。
+现在刷新项目页面，点击 客户(Customers) 菜单项并打开编辑表单。
 
 .. image:: /intro/_images/image_project1_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: image_project1_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: image_project1_jampy.png
 
-双击编辑表单中的图像，从“打开文件”对话框中选择一张图像。
+双击编辑表单中的图像，从 “打开文件” 对话框中选择一张图像。
 
 .. image:: /intro/_images/select_image_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: select_image_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: select_image_jampy.png
 
 
 .. image:: /intro/_images/image_project2_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: image_project2_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: image_project2_jampy.png
 
 .. note::
 
@@ -42,13 +42,13 @@
 
 让我们在应用程序构建器中打开
 :doc:`字段编辑器对话框 </admin/items/field_editor_dialog>`
-并在 **Interface**（界面）选项卡上将 **View width**（查看宽度）设置为 120，
-将 **Edit width**（编辑宽度）设置为 314。
+并在 **界面(Interface)** 选项卡上将 **查看宽度(View width)** 设置为 120，
+将 **编辑宽度(Edit width)** 设置为 314。
 
 .. image:: /intro/_images/image_field2_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: image_field2_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: image_field2_jampy.png
 
 .. note::
 
@@ -59,16 +59,16 @@
 中，我们将 **Row lines**（行数）设置为 4，并将"Photo"（照片）字段的宽度设置为 120。
 
 .. image:: /intro/_images/image_view_form_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: image_view_form_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: image_view_form_jampy.png
 
 现在在项目页面上我们将看到：
 
 .. image:: /intro/_images/image_edit_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: image_edit_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: image_edit_jampy.png
 
 
 另请参阅
@@ -76,11 +76,11 @@
 
 :doc:`接受字符串 </admin/accept_string>`
 
-	
+
 从摄像头捕获图像
 ===========================
 
-您可以从摄像头捕获图像。为此，请勾选 **Capture from camera**（从摄像头捕获）复选框。
+您可以从摄像头捕获图像。为此，请勾选 **从摄像头捕获(Capture from camera)** 复选框。
 在这种情况下，当图像未设置时，将显示摄像头视频流而不是图像占位符。
 
 双击视频以捕获图像。要清除图像，请按住 Ctrl 键并双击图像，之后将显示视频流。
@@ -92,61 +92,59 @@
 添加文件字段
 =================
 
-现在，我们向"Contacts"（联系人）日志添加一个用于存储附件的字段。
+现在，我们向 “联系人(Contacts)” 日志添加一个用于存储附件的字段。
 
 .. image:: /intro/_images/file_field_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: file_field_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: file_field_jampy.png
 
 该字段在编辑表单中将如下显示：
 
 .. image:: /intro/_images/appendix_edit_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: appendix_edit_jampy.png
-	
+    :scale: 50%
+    :align: center
+    :alt: appendix_edit_jampy.png
+    
 字段输入框右侧有三个按钮——用于上传、下载和打开文件。
 
 让我们在应用程序构建器中打开
 :doc:`字段编辑器对话框 </admin/items/field_editor_dialog>`
-取消勾选 **Download btn**（下载按钮）复选框，并将
-**Accept**（接受）属性设置为 '.pdf'。
+取消勾选 **下载按钮(Download btn)** 复选框，并将 
+**接受(Accept)** 属性设置为 '.pdf'。
 
 在添加值之前，请查看 :doc:`可接受值列表 </admin/accept_string>`。
 
 .. image:: /intro/_images/appendix_interface_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: appendix_interface_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: appendix_interface_jampy.png
 
-让我们刷新项目页面，打开"Contacts"（联系人）编辑表单，
+让我们刷新项目页面，打开 “联系人(Contacts)”编辑表单，
 通过点击上传按钮上传文件：
 
 .. image:: /intro/_images/appendix_select_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: appendix_select_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: appendix_select_jampy.png
 
 现在，我们可以通过点击打开按钮在浏览器中打开文件。
 
 .. image:: /intro/_images/appendix_field2_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: appendix_field2_jampy.png
+    :scale: 50%
+    :align: center
+    :alt: appendix_field2_jampy.png
 
 .. image:: /intro/_images/appendix_pdf_open_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: appendix_pdf_open_jampy.png
-
-
+    :scale: 50%
+    :align: center
+    :alt: appendix_pdf_open_jampy.png
 
 .. note::
 
   文件和图像存储在服务器上的 *static/files* 文件夹中。
   
-  您可以通过在 :doc:`项目参数 </admin/project/parameters>` 中设置 **Max content length**（最大内容长度）属性
+  您可以通过在 :doc:`项目参数 </admin/project/parameters>` 中设置 **最大内容长度(Max content length)** 属性
   来限制可以上传到服务器的文件大小。
 
 另请参阅

@@ -1,28 +1,23 @@
 ==============
-Version 5.4.30
+版本 5.4.30
 ==============
 
-* Bug when creating a new project on some systems, related to encoding, fixed
+* 修复了在某些系统上创建新项目时与编码相关的错误
 
-* Greek language added
+* 添加了希腊语语言
 
-* For fields of longtext type when value is null value property returns empty string now.
+* 对于 longtext 类型的字段，当值为 null 时，value 属性现在返回空字符串。
 
-* :doc:`select_records </refs/client/item/m_select_records>` method reworked. all_record parameter added. If the all_records parameter
-  is set to true, all selected records are added, otherwise the method omits existing
-  records (they were selected earlier).
+* :doc:`select_records </refs/client/item/m_select_records>` 方法已重新设计。添加了 all_record 参数。如果 all_records 参数设置为 true，则添加所有选定的记录，否则该方法省略现有记录（它们之前已选中）。
   
-* view_form_created and edit_form_created methods added to the Task class (reserved for future use)
+* view_form_created 和 edit_form_created 方法已添加到 Task 类（为未来使用保留）
 
-* Code that used to create tables and detail tables in on_view_form_created event handler of task moved 
-  to create_view_tables method of Item class in jam.js module
+* 用于在任务的 on_view_form_created 事件处理程序中创建表和详细信息表的代码已移动到 jam.js 模块中 Item 类的 create_view_tables 方法
 
-* table_container_class and detail_container_class attributes added to items view_options to enable 
-  developer to change in on_view_form_created event hander of item
+* table_container_class 和 detail_container_class 属性已添加到实体项的 view_options 中，以允许开发人员在实体项的 on_view_form_created 事件处理程序中更改
   
-* inputs_container_class and detail_container_class attributes added to items edit_options to enable 
-  developer to change in on_увше_form_created event hander of item
+* inputs_container_class 和 detail_container_class 属性已添加到实体项的 edit_options 中，以允许开发人员在实体项的 on_edit_form_created 事件处理程序中更改
 
-* In jam.css and jam12.css fixed the btn groups left magrin in form-header and form-footer class
+* 在 jam.css 和 jam12.css 中修复了 form-header 和 form-footer 类中 btn 组的左边距
 
-* Some minor bugs fixed 
+* 修复了一些小错误 

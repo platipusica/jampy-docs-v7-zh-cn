@@ -3,22 +3,20 @@
 ===================
 
 每个活动数据集都有一个游标或指针，指向数据集中的当前行。
-数据集中的当前行是可以通过
-``edit``、``insert`` 和 ``delete`` 方法操作的行，也是其字段值
-当前显示在表单上数据感知控件中的行。
+数据集中的当前行是可以通过 ``edit`` 、 ``insert`` 和 ``delete`` 方法操作的行，
+也是其字段值当前显示在表单上数据感知控件中的行。
 
 您可以通过将游标移动到指向不同的行来更改当前行。
-下表列出了您可以在应用程序代码中用于移动到
-不同记录的方法：
+下表列出了您可以在应用程序代码中用于移动到不同记录的方法：
 
 .. csv-table:: 
    :header: 客户端方法, 服务器端方法, 描述
    :widths: 10, 10, 80
 
-   :doc:`first </refs/client/item/m_first>`, :doc:`first </refs/server/item/m_first>`, "将游标移动到项目数据集的第一行。"
-   :doc:`last </refs/client/item/m_last>`, :doc:`last </refs/server/item/m_last>`, "将游标移动到项目数据集的最后一行。"
-   :doc:`next </refs/client/item/m_next>`, :doc:`next </refs/server/item/m_next>`, "将游标移动到项目数据集的下一行。"
-   :doc:`prior </refs/client/item/m_prior>`, :doc:`prior </refs/server/item/m_prior>`, "将游标移动到项目数据集的上一行。"
+   :doc:`first </refs/client/item/m_first>`, :doc:`first </refs/server/item/m_first>`, "将游标移动到实体数据集的第一行。"
+   :doc:`last </refs/client/item/m_last>`, :doc:`last </refs/server/item/m_last>`, "将游标移动到实体数据集的最后一行。"
+   :doc:`next </refs/client/item/m_next>`, :doc:`next </refs/server/item/m_next>`, "将游标移动到实体数据集的下一行。"
+   :doc:`prior </refs/client/item/m_prior>`, :doc:`prior </refs/server/item/m_prior>`, "将游标移动到实体数据集的上一行。"
 
 除了这些方法之外，下表描述了两种在遍历数据集记录时
 提供有用信息的方法：
@@ -27,8 +25,8 @@
    :header: 客户端方法, 服务器端方法, 描述
    :widths: 10, 10, 80
    
-   :doc:`bof </refs/client/item/m_bof>`, :doc:`bof </refs/server/item/m_bof>`,  "如果该方法返回 true，则游标位于数据集的第一行；否则，未知游标是否位于数据集的第一行。"
-   :doc:`eof </refs/client/item/m_eof>`, :doc:`eof </refs/server/item/m_eof>`,  "如果该方法返回 true，则游标位于数据集的最后一行；否则，未知游标是否位于数据集的最后一行。"
+   :doc:`bof </refs/client/item/m_bof>`, :doc:`bof </refs/server/item/m_bof>`,  "如果该方法返回 true，则游标位于数据集的第一行；否则，不确定游标是否位于数据集的第一行。"
+   :doc:`eof </refs/client/item/m_eof>`, :doc:`eof </refs/server/item/m_eof>`,  "如果该方法返回 true，则游标位于数据集的最后一行；否则，不确定游标是否位于数据集的最后一行。"
 
 每次游标在数据集中移动到另一条记录时，都会触发以下事件：
 
@@ -66,8 +64,7 @@
 更简洁的浏览数据集方式
 ================================
 
-客户端上有 :doc:`each </refs/client/item/m_each>` 方法，可用于
-浏览数据集：
+客户端上有 :doc:`each </refs/client/item/m_each>` 方法，可用于浏览数据集：
 
 例如：
 

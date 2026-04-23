@@ -4,29 +4,18 @@
 
 框架的关键概念之一是表单概念。
 
-当用户点击主菜单的菜单项时，会执行
-相应项目的 :doc:`view </refs/client/item/m_view>`
-方法，该方法会创建查看表单。
+当用户点击主菜单的菜单项时，会执行相应实体的 :doc:`view </refs/client/item/m_view>` 方法，该方法会创建查看表单。
 
-此查看表单可以有 **New** （新建）和 **Edit** （编辑）按钮，点击这些按钮
-将执行
-:doc:`insert_record </refs/client/item/m_insert_record>`
+此查看表单可以有 **新建(New)** 和 **编辑(Edit)** 按钮，点击这些按钮将执行
+ :doc:`insert_record </refs/client/item/m_insert_record>` 
 和
-:doc:`edit_record </refs/client/item/m_edit_record>` 
-方法。这些方法会创建项目编辑表单。
+ :doc:`edit_record </refs/client/item/m_edit_record>` 方法。这些方法会创建实体编辑表单。
 
-表单基于 HTML
-:doc:`表单模板 <form_templates>`
-，这些模板决定了表单的布局。表单模板定义在
-项目的根文件夹中的
-:doc:`Index.html <index_html>`
-文件中。
+表单基于 HTML :doc:`表单模板 <form_templates>` ，这些模板决定了表单的布局。表单模板定义在项目的根目录中的 :doc:`Index.html <index_html>` 文件中。
 
-应用程序已具有用于查看和编辑数据、
-指定过滤器和报告参数的默认模板。
+应用程序已具有用于查看和编辑数据、指定过滤器和报告参数的默认模板。
 
 例如，演示项目的所有编辑表单都使用以下 html 模板：
-
 
 
 .. code-block:: html
@@ -47,23 +36,16 @@
     </div>
 
 
-您可以定义自己的表单模板来创建自定义表单。请参阅
-:doc:`表单模板 <form_templates>`。
+您可以定义自己的表单模板来创建自定义表单。请参阅 :doc:`表单模板 <form_templates>` 。
 
 当某些方法创建表单时，应用程序会查找相应的 html 模板。
 
-如果指定了 ``container`` （一个 Jquery 对象）参数，该方法会清空它
-并将 html 模板附加到其中；否则，它会创建一个空的模态表单
-并将模板附加到表单中。
+如果指定了 ``container`` （一个 Jquery 对象）参数，该方法会先清空它，再并将 html 模板添加到其中；否则，它会创建一个空的模态表单，并将模板添加到表单中。
 
-此后，它将项目的 ``prefix_form``
-属性分配给模板，触发 ``on_prefix_form_created`` 事件，
-显示表单并触发 ``on_prefix_form_shown`` 事件，其中 prefix 是
-表单的类型（view（查看）、edit（编辑）、filter（过滤）、param（参数））。
+此后，它将实体的 ``prefix_form`` 属性分配给模板，触发 ``on_prefix_form_created`` 事件，显示表单并触发 ``on_prefix_form_shown`` 事件，其中 prefix 是表单的类型（view（查看）、edit（编辑）、filter（过滤）、param（参数））。
 详情请参阅 :doc:`表单事件 <form_events>`。
 
 以下是任务的 ``on_edit_form_created`` 事件处理程序的示例：
-
 
 
 .. code-block:: js
@@ -85,43 +67,32 @@
       return true;
   }
 
-在此示例中，使用了 JQuery 的 ``find`` 方法来查找
-表单上的元素。
+在此示例中，使用了 JQuery 的 ``find`` 方法来查找表单上的元素。
 
-首先，我们为 **OK** （确定）和 **Cancel** （取消）按钮分配 JQuery ``click`` 事件，
+首先，我们为 **确定(OK)** 和 **取消(Cancel)** 按钮分配 JQuery 的 ``click`` 事件，
 以便在用户点击按钮时执行
-:doc:`cancel_edit </refs/client/item/m_cancel_edit>`
-和
-:doc:`apply_record </refs/client/item/m_apply_record>` 方法。
+ :doc:`cancel_edit </refs/client/item/m_cancel_edit>` 和
+ :doc:`apply_record </refs/client/item/m_apply_record>` 方法。
 这些方法分别取消或应用对记录所做的更改，并调用
 :doc:`close_edit_form </refs/client/item/m_close_edit_form>`
 方法来关闭表单。
 
-然后，如果项目不是明细表，并且在其所有者的客户端模块中定义了事件处理程序 ``on_edit_form_created``，
-则执行此事件处理程序。
+然后，如果实体不是明细表，并且在其所有者的客户端模块中定义了事件处理程序 ``on_edit_form_created``，则执行此事件处理程序。
 
-之后，如果项目在其客户端模块中定义了事件处理程序 ``on_edit_form_created``，
+之后，如果实体在其客户端模块中定义了事件处理程序 ``on_edit_form_created``，
 则执行此事件处理程序。
 
 在这些事件处理程序中，可以执行一些额外的操作。
-例如，您可以为编辑表单模板中包含的按钮或其他元素分配点击事件，更改
-:doc:`edit_options </refs/client/item/at_edit_options>`，
-使用
-:doc:`create_table </refs/client/item/m_create_table>`
-方法创建表格，等等。
+例如，您可以为编辑表单模板中包含的按钮或其他元素分配点击事件，更改 :doc:`edit_options </refs/client/item/at_edit_options>`，
+使用 :doc:`create_table </refs/client/item/m_create_table>` 方法创建表格，等等。
 
-然后调用
-:doc:`create_inputs </refs/client/item/m_create_inputs>`
-方法，在 class 为 "edit-body" 的元素中创建输入控件。
+然后调用 :doc:`create_inputs </refs/client/item/m_create_inputs>` 方法，在 class 为 "edit-body" 的元素中创建输入控件。
 
-最后，调用
-:doc:`create_detail_views </refs/client/item/m_create_detail_views>`
+最后，调用 :doc:`create_detail_views </refs/client/item/m_create_detail_views>`
 方法，在 class 为 "edit-detail" 的元素中创建明细表。
 
 .. note::
 
-  如果表单模板中缺少某些元素，不会引发异常。
+  即便表单模板中缺失部分元素，该方法也不会抛出异常。
 
-``close_prefix_form``，其中 ``prefix`` 是表单的类型，用于关闭
-该类型的表单。但在表单关闭之前，会触发 ``on_prefix_form_close_query``
-和 ``on_prefix_form_closed`` 事件。表单关闭后，会从 DOM 中移除。
+``close_prefix_form``，其中 ``prefix`` 是表单的类型，用于关闭该类型的表单。但在表单关闭之前，会触发 ``on_prefix_form_close_query`` 和 ``on_prefix_form_closed`` 事件。表单关闭后，会从 DOM 中移除。

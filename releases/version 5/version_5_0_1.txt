@@ -1,48 +1,47 @@
 =============
-Version 5.0.1
+版本 5.0.1
 =============
 
-Library:
+库:
 
-* Default font is 14px now
-  you can change it to 12px font by replacing
+* 在 index.html 中，默认字体大小是 14px，现在您可以通过替换来将其更改为 12px 字体，将
   
   .. code-block:: html
   
     <link href="jam/css/jam.css" rel="stylesheet"> 
-    
-  with  
-  
-  .. code-block:: html
-  
-    <link href="jam/css/jam12.css" rel="stylesheet"> 
-    
-  in index.html
-  
-* Administrator is renamed to Application builder
-  you can run it by typing 
-  127.0.0.1:8080/builder.html,
-  127.0.0.1:8080/admin.html is also supported
-  
-* Asterisk is added to required fields now
 
-  To cancel it add 
+  为
+
+  .. code-block:: html
+
+    <link href="jam/css/jam12.css" rel="stylesheet"> 
+
+ 
+  
+* Administrator 已重命名为 Application builder
+  您可以通过输入来运行它
+  127.0.0.1:8080/builder.html，
+  127.0.0.1:8080/admin.html 也受支持
+  
+* 现在为必填字段添加了星号
+
+  要取消它，请在 project.css 文件中添加 
   
   .. code-block:: css
   
       .control-label.required:after {
           content: "";
       }
-      
-  to project.css file
+
+
   
-* Selection of lookup list value in report parameters for fixed. 
+* 修复了报表参数中查找列表值的选择。
 
-Documentation:
+文档:
 
-* First version of Documentation completed
+* 文档的第一个版本已完成
 
-* New topics added:
+* 已添加新主题：
 
   :doc:`refresh_record </refs/client/item/m_refresh_record>`
   
@@ -50,8 +49,8 @@ Documentation:
   
   :doc:`search </refs/client/item/m_search>`
   
-* Jam.py roadmap added  
+* 已添加 Jam.py 路线图  
 
-Demo:
+演示:
 
-* Small font menu item is added to Themes menu
+* 小字体菜单项已添加到主题菜单

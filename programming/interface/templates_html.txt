@@ -4,11 +4,11 @@ templates.html
 
 当某些方法创建表单时，应用程序会在此文件中查找相应的 html 模板。
 
-您可以定义自己的表单模板来创建自定义表单。请参阅
-:doc:`表单模板 <form_templates>`。
+此文件位于项目的根目录中，可以通过点击 :doc:`任务(Task) </admin/task>` 树上的 ``templates.html [F9]`` 来访问或修改。
 
-默认的 ``template.html`` 内容：
+您可以定义自己的表单模板来创建自定义表单。请参阅 :doc:`表单模板 <form_templates>` 。
 
+默认的 ``template.html`` 内容如下：
 
 .. code-block:: html
 

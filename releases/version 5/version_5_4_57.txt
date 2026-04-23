@@ -1,32 +1,26 @@
 ==============
-Version 5.4.57
+版本 5.4.57
 ==============
 
-Library:
+库：
 
-* :doc:`Record locking </admin/record_locking>` bug, when PostgreSQL, MSSQL or
-  Firebird database is used, fixed
-  
+* 修复了使用 PostgreSQL、MSSQL 或 Firebird 数据库时的 :doc:`记录锁定 </admin/record_locking>` 错误
 
-To use record locking for items for which you defined
-:doc:`on_apply </refs/server/item/on_apply>` 
-event handler you must change.
-Add the connection parameter, create a cursor and use the cursor to execute 
-sql queries. Otherwise the record locking won't work.
+* 要为定义了 :doc:`on_apply </refs/server/item/on_apply>` 事件处理器的项目使用记录锁定，您必须改为：添加连接参数，创建游标并使用游标执行 sql 查询。否则记录锁定将不起作用。
 
-For example, the code
+例如，代码
 
 .. code-block:: py
 
   def on_apply(item, delta, params): 
       tracks_sql = []
-      delta.update_deleted()    
+      delta.update_deleted()
       for d in delta:
           for t in d.invoice_table:
               if t.rec_inserted():
                   sql = "UPDATE DEMO_TRACKS SET TRACKS_SOLD = COALESCE(TRACKS_SOLD, 0) + \
                   %s WHERE ID = %s" % \
-                  (t.quantity.value, t.track.value)                
+                  (t.quantity.value, t.track.value)
               elif t.rec_deleted():
                   sql = "UPDATE DEMO_TRACKS SET TRACKS_SOLD = COALESCE(TRACKS_SOLD, 0) - \
                   (SELECT QUANTITY FROM DEMO_INVOICE_TABLE WHERE ID=%s) WHERE ID = %s" % \
@@ -35,24 +29,24 @@ For example, the code
                   sql = "UPDATE DEMO_TRACKS SET TRACKS_SOLD = COALESCE(TRACKS_SOLD, 0) - \
                   (SELECT QUANTITY FROM DEMO_INVOICE_TABLE WHERE ID=%s) + %s WHERE ID = %s" % \
                   (t.id.value, t.quantity.value, t.track.value)
-              tracks_sql.append(sql)                
+              tracks_sql.append(sql) 
       sql = delta.apply_sql()
       return item.task.execute(tracks_sql + [sql])
 
-must be changed to 
+必须更改为 
 
 .. code-block:: py
 
   def on_apply(item, delta, params, connection): 
       with item.task.lock('invoice_saved'):
-          cursor = connection.cursor()         
-          delta.update_deleted()    
+          cursor = connection.cursor()
+          delta.update_deleted()
           for d in delta:
               for t in d.invoice_table:
                   if t.rec_inserted():
                       sql = "UPDATE DEMO_TRACKS SET TRACKS_SOLD = COALESCE(TRACKS_SOLD, 0) + \
                       %s WHERE ID = %s" % \
-                      (t.quantity.value, t.track.value)                
+                      (t.quantity.value, t.track.value) 
                   elif t.rec_deleted():
                       sql = "UPDATE DEMO_TRACKS SET TRACKS_SOLD = COALESCE(TRACKS_SOLD, 0) - \
                       (SELECT QUANTITY FROM DEMO_INVOICE_TABLE WHERE ID=%s) WHERE ID = %s" % \

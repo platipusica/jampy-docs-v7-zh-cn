@@ -1,18 +1,16 @@
-==============
-Authentication
-==============
+==========================================
+认证(Authentication)
+==========================================
 
-In the Jam.py repository there is the "Authentication" project 
-:doc:`export </admin/project/export>`
-file.
-This project demonstrates the first three topics of this section. 
+
+在 Jam.py 的代码仓库中有一个 “身份验证(Authentication)” 项目 
+:doc:`export </admin/project/export>` 文件。
+这个项目演示了本节的前三个主题。 
 
 https://jam-py.com/repository/auth.zip
 
-You can download it, create a new project and 
-:doc:`import </admin/project/import>`
-this file. 
-
+您可以将其下载，创建一个新项目，
+然后 :doc:`import </admin/project/import>` 这个文件。
 
 .. toctree::
     :maxdepth: 1

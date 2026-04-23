@@ -1,16 +1,14 @@
 ==============
-Version 5.4.14
+版本 5.4.14
 ==============
 
-Library:
+Library库
+* add_button 方法已添加
 
-* add_button method added
+* :doc:`select_records </refs/client/item/m_select_records>` 方法已添加
 
-* :doc:`select_records </refs/client/item/m_select_records>` method added
+* :doc:`alert </refs/client/abstr_item/m_alert>` 方法已修复
 
-* :doc:`alert </refs/client/abstr_item/m_alert>` method bugs fixed
+* bootstrap 主题按钮已更改
 
-* bootstrap theme buttons changed
-
-* Metadata import bug fixed - didn't display error that was raised when changes
-  to DB were commited
+* 元数据导入错误已修复 - 数据的更改提交到数据库有异常时不显示错误信息

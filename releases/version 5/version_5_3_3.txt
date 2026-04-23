@@ -1,18 +1,15 @@
 =============
-Version 5.3.3
+版本 5.3.3
 =============
 
-Library:
+库:
 
-* Safe mode bug (after version 5.3.1) fixed
+* 修复了安全模式 (版本 5.3.1 之后) 
   
-* Postgres import bug fixed
+* 已修复 Postgres 的导入错误已修复
 
-* Task attribute ``edit_form_container`` is defined in the on_page_loaded event 
-  handler of the task client module of a new project and demo application
-  
+* 在新项目和演示应用程序的任务客户端模块的处理程序 on_page_looaded 事件中添加了任务属性 “edit_form_container” 的定义
+
   .. code-block:: js
-  
-    task.edit_form_container = $("#content"); // comment this line to have modal edit forms
-  
-  
+
+    task.edit_form_container = $("#content"); // 注释此行以具有模态编辑表单

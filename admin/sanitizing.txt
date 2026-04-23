@@ -1,8 +1,8 @@
-==========
-数据清理
-==========
+================
+数据转义清理
+================
 
-为了防止跨站脚本（XSS）攻击，Jam.py 会清理在表格列中显示的字段值。
+为了防止跨站脚本（XSS）攻击，Jam.py 会转义清理在表格列中显示的字段值。
 
 例如，如果字段包含以下文本：
 
@@ -10,28 +10,28 @@
 
   <span style='color: red'>Norway</span>
 
-当未经过清理时，它将在表格列中显示如下：
+当未经过转义清理时，它将在表格列中显示如下：
 
 .. image:: /admin/_images/unsanitized_jampy.png
 	:align: center
 	:alt: unsanitized_jampy.png
 
-当字段文本经过清理后，它会转换为以下形式：
+当字段文本经过转义清理后，它会转换为以下形式：
 
 .. code-block:: html
 
   "&lt;span style='color: red'&gt;Norway&lt;/span&gt;"
 
 如您所见，符号 '<' 和 '>' 被替换为 '&lt;' 和 '&gt;'
-表格列将以下列方式显示：
+表格列将按以下列方式显示：
 
 .. image:: /admin/_images/sanitized_jampy.png
 	:align: center
 	:alt: sanitized_jampy.png
 
-有两种方法可以防止清理。
+有两种方法可以防止转义清理。
 
-第一种是在 :doc:`字段编辑器对话框 </admin/items/field_editor_dialog>` 的 Interface（界面）选项卡中设置 **Do not sanitize** （不清理）属性。
+第一种是在 :doc:`字段编辑器对话框 </admin/items/field_editor_dialog>` 的 Interface（界面）选项卡中设置 **Do not sanitize** （不转义清理）属性。
 
 .. image:: /admin/_images/fields_editr_interface_jampy.png
 	:align: center
@@ -39,4 +39,4 @@
 
 第二种是编写
 :doc:`on_field_get_html </refs/client/item/on_field_get_html>`
-事件处理程序。如果此事件处理程序返回一个值，则该值不会被清理。
+事件处理程序。如果此事件处理程序返回一个值，则该值不会被转义清理。

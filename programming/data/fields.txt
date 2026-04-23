@@ -2,9 +2,8 @@
 字段
 ======
 
-所有处理数据库表数据的项目都有一个
-:doc:`fields </refs/client/item/at_fields>`
-属性——一个字段对象列表，用于表示项目表记录中的字段。
+所有处理数据库表数据的实体都有一个 :doc:`fields </refs/client/item/at_fields>` 
+属性 —— 一个字段对象列表，用于表示实体表记录中的字段。
 
 每个字段都有以下属性：
 
@@ -12,14 +11,16 @@
    :header: 客户端, 服务器端, 描述
    :widths: 10, 10, 80
 
-   :doc:`owner </refs/client/field/at_owner>`, :doc:`owner </refs/server/field/at_owner>`, "拥有此字段的项目。"
+   :doc:`owner </refs/client/field/at_owner>`, :doc:`owner </refs/server/field/at_owner>`, "拥有此字段的实体。"
    :doc:`field_name </refs/client/field/at_field_name>`, :doc:`field_name </refs/server/field/at_field_name>`, "字段的名称，将在编程代码中用于访问字段对象。"   
    :doc:`field_caption </refs/client/field/at_field_caption>`, :doc:`field_caption </refs/server/field/at_field_caption>`, "向用户显示的字段名称。"   
-   :doc:`field_type </refs/client/field/at_field_type>`, :doc:`field_type </refs/server/field/at_field_type>`, "字段类型，为以下值之一：**text**、**integer**、**float**、**currency**、**date**、**datetime**、**boolean**、**blob**。"      
-   :doc:`field_size </refs/client/field/at_field_size>`, :doc:`field_size </refs/server/field/at_field_size>`, "类型为 **text** 的字段大小"   
+   :doc:`field_type </refs/client/field/at_field_type>`, :doc:`field_type </refs/server/field/at_field_type>`, "字段类型，为以下值之一： **text** 、 **integer** 、 **float** 、 **currency** 、 **date** 、 **datetime** 、 **boolean** 、 **blob** 。"      
+   :doc:`field_size </refs/client/field/at_field_size>`, :doc:`field_size </refs/server/field/at_field_size>`, "类型为 **text** 的字段的
+
+大小"   
    :doc:`required </refs/client/field/at_required>`, :doc:`required </refs/server/field/at_required>`, "指定字段是否需要非空值。"   
 
-为了访问项目数据集数据，Field 类具有以下属性：
+为了访问实体的数据集数据，Field 类具有以下属性：
 
 .. csv-table:: 
    :header: Client, Server, Description
@@ -29,22 +30,20 @@
    :doc:`text </refs/client/field/at_text>`, :doc:`text </refs/server/field/at_text>`, "使用此属性以文本形式获取或设置字段的值。"
    :doc:`lookup_value </refs/client/field/at_lookup_value>`, :doc:`lookup_value </refs/server/field/at_lookup_value>`, "使用此属性获取或设置查找值，请参阅 :doc:`查找字段 <lookup_fields>`。"
    :doc:`lookup_text </refs/client/field/at_lookup_text>`, :doc:`lookup_text </refs/server/field/at_lookup_text>`, "使用此属性以文本形式获取或设置字段的查找值，请参阅 :doc:`查找字段 <lookup_fields>`。"
-   :doc:`display_text </refs/client/field/at_display_text>`, :doc:`display_text </refs/server/field/at_display_text>`, "表示字段值在数据感知控件中的显示形式。如果字段是查找字段，则其值为 lookup_text 值；否则，考虑到项目区域设置参数，其为 text 值。此行为可由拥有该字段的项目的 :doc:`on_field_get_text </refs/client/item/on_field_get_text>` 事件处理程序覆盖。"   
+   :doc:`display_text </refs/client/field/at_display_text>`, :doc:`display_text </refs/server/field/at_display_text>`, "表示字段值在数据感知控件中的显示形式。如果字段是查找字段，则其值为 lookup_text 值；否则，根据项目区域设置参数，取其 text 值。此行为可由拥有该字段的实体的 :doc:`on_field_get_text </refs/client/item/on_field_get_text>` 事件处理程序覆盖。"   
    :doc:`raw_value </refs/client/field/at_raw_value>`, :doc:`raw_value </refs/server/field/at_raw_value>`, "使用此属性获取当前记录的字段值，如其存储在数据库中的形式。不进行任何转换。"      
 
-此外，每个字段都是其所属项目的一个属性。因此，要
-访问项目的字段，请使用以下语法：``item.field_name``
+此外，每个字段都是其所属实体的一个属性。因此，要访问实体的字段，请使用以下语法： ``item.field_name`` 
 
 
 .. code-block:: js
     
     invoices.total.value  
     
-``invoices.total`` 是对 **Invoices** （发票）项目的 **Total** （总计）字段的引用，
-而 ``invoices.total.value`` 是该字段的值。
+``invoices.total`` 是对 **发票(Invoices)** 实体的 **总计(Total)** 字段的引用，而  ``invoices.total.value`` 是该字段的值。
 
     
-以下是 :doc:`演示项目 </intro/demo_project>` 中 **invoices** （发票）项目字段的属性值：
+以下是 :doc:`演示项目 </intro/demo_project>` 中 **发票(Invoices)** 实体的字段的属性值：
 ::
 
   customer integer 

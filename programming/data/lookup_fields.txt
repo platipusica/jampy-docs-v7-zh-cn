@@ -2,45 +2,34 @@
 查找字段
 =============
 
-查找字段可以显示一个用户友好的值，该值绑定到
-另一个表或值列表中的另一个值。例如，查找字段可以
-显示一个客户名称，该名称绑定到另一个项目表或列表中的相应客户 ID 号。
+查找字段可以显示一个用户友好的值，该值绑定到另一个表或值列表中的另一个值。例如，查找字段可以显示一个客户名称，该名称绑定到另一个实体表或列表中的相应客户 ID 号。
 
-在查找字段中输入值时，用户可以从值列表中选择。
-这可以使数据输入更快、更准确。
+要在查找字段中输入值时，用户可以从值列表中选择。这可以使数据输入更快、更准确。
 
-您可以创建的查找字段有两种类型：基于查找项目的查找字段，
-和基于值列表的查找字段。
+您可以创建的查找字段有两种类型：基于查找实体的查找字段，和基于值列表的查找字段。
 
-基于查找项目的查找字段
+基于查找实体的查找字段
 ==============================
 
-在框架中，您可以向项目添加一个字段，以在另一个
-项目表中查找信息。例如，在演示应用程序的 **Albums** （专辑）目录中，有一个
-**Artist** （艺术家）查找字段。
+在框架中，您可以向实体添加一个字段，以查找另一个实体表中信息。
+例如，在演示应用程序的 **Albums** （专辑）目录中，有一个 **艺术家(Artist)** 查找字段。
 
 .. image:: /programming/_images/albums_edit_form_jampy.png
 	:align: center
 	:alt: albums_edit_form_jampy.png
 
-要设置字段的值，用户必须点击字段输入框右侧的按钮，
-并从出现的 ''Artists'' （艺术家）目录中选择一条记录。
-然后该字段的值将是该记录的 id。
-设置字段值的另一种方法是使用预输入，如果在
-:doc:`字段编辑器对话框 </admin/items/field_editor_dialog>` 中设置了 **Typeahead** （预输入）
-标志：
+要设置字段的值，用户必须点击字段输入框右侧的按钮，并从出现的 ''艺术家(Artist)'' 目录列表中中选择一条记录。然后该字段的值将是选中记录的 id。
+如果在 :doc:`字段编辑器对话框 </admin/items/field_editor_dialog>` 中设置了  **预输入(Typeahead)** 标志，设置字段值的另一种方法可以使用预输入 ：
 
 .. image:: /programming/_images/artist_field_jampy.png
 	:align: center
 	:alt: 查找字段
 
-对于此类字段，必须在
-:doc:`字段编辑器对话框 </admin/items/field_editor_dialog>` 中指定 **Lookup item** （查找项目）和 **Lookup field** （查找字段）：
+对于此类字段，必须在 :doc:`字段编辑器对话框 </admin/items/field_editor_dialog>`  中指定 **查找实体(Lookup item)** 和 **查找字段(Lookup field)** ：
 
-当调用 ``open`` 方法且 ``expanded`` 参数设置为 true（默认）时，服务器上生成的 SQL 查询
-使用 ``JOIN`` 子句来
-获取此类字段的查找值。因此，每个这样的字段都有一对值：
-第一个值存储对查找项目表中记录的引用（其主键字段的值），
+当调用 ``open`` 方法且 ``expanded`` 参数设置为 true（默认）时，服务器上生成的 SQL 查询使用 ``JOIN`` 子句来获取此类字段的查找值。
+因此，每个这样的字段都有一对值：
+第一个值存储对查找实体表中记录的引用（其主键字段的值），
 第二个值具有该记录中查找字段的值。
 
 要访问这些值，请使用查找字段的以下属性：
@@ -49,54 +38,40 @@
    :header: 客户端, 服务器端, 描述
    :widths: 10, 10, 80
 
-   :doc:`value </refs/client/field/at_value>`, :doc:`value </refs/server/field/at_value>`, "存储在项目表中的值，即对查找项目表中记录的引用。"
-   :doc:`lookup_value </refs/client/field/at_lookup_value>`, :doc:`lookup_value </refs/server/field/at_lookup_value>`, "查找项目表中查找字段的值。"
+   :doc:`value </refs/client/field/at_value>`, :doc:`value </refs/server/field/at_value>`, "存储在实体表中的值，它是对查找实体表中记录的引用。"
+   :doc:`lookup_value </refs/client/field/at_lookup_value>`, :doc:`lookup_value </refs/server/field/at_lookup_value>`, "查找实体表中查找字段的值。"
 
-有时需要从查找项目表中的同一记录获取两个或多个值。
-例如，演示中的 ""Invoices" （发票）日志有多个
-查找字段（"Customer"（客户）、"Billing Address"（账单地址）、"Billing City"（账单城市）等），
-这些字段包含有关客户的信息，所有这些信息都存储在
-"Customers" （客户）项目表的一条记录中，用于描述该客户。为了避免在
-"Invoices" （发票）项目表中创建不必要的字段，存储相同的记录引用，
-并为每个此类字段创建 ``JOIN``，除"Customers"（客户）之外的所有查找字段
-都将其 **Master field** （主字段）值指向 "Customers" （客户）
-字段。这些字段在项目底层的数据库表中没有对应的字段。
-它们的 value 属性始终等于主字段的 value 属性，并且当调用
-open 方法时，服务器上生成的 SQL 查询对所有此类字段使用一个 ``JOIN`` 子句。
+有时需要从查找实体表中的同一记录获取两个或多个值。
+例如，演示中的 "发票(Invoices)" 日志有多个查找字段（"客户(Customer)"、"账单地址(Billing Address)"、"账单城市(Billing City)" 等），这些字段包含有关客户的信息，所有这些信息都存储在 "客户(Customers)" 实体表的一条记录中，用于描述该客户。
+为了避免在 "发票(Invoices)" 实体表中创建不必要的字段，存储相同的记录引用，并为每个此类字段创建 ``JOIN``，除 "客户(Customers)" 之外的所有查找字段都将其 **主字段(Master field)** 值指向 "客户(Customers)" 字段。
+这些字段在实体底层的数据库表中没有对应的字段。
+它们的 value 属性始终等于主字段的 value 属性，并且当调用 open 方法时，在服务器上生成的 SQL 查询对所有此类字段使用一个 ``JOIN`` 子句。
 
 .. image:: /programming/_images/master_field_example_jampy.png
 	:align: center
 	:alt: 主字段示例
 
-当用户点击字段输入框右侧的按钮或使用预输入时，
-应用程序会创建字段查找项目的副本，设置其
-:doc:`lookup_field </refs/client/item/at_lookup_field>`
-属性为该字段，并触发
-:doc:`on_field_select_value </refs/client/item/on_field_select_value>`
-事件。编写此事件处理程序以指定将显示的字段，
-在打开查找项目并显示给用户以选择字段值之前，为其设置过滤器。
+当用户点击字段输入框右侧的按钮或使用预输入时，应用程序会创建字段查找实体的副本，设置其 :doc:`lookup_field </refs/client/item/at_lookup_field>` 属性为该字段，并触发 :doc:`on_field_select_value </refs/client/item/on_field_select_value>` 事件。
+编写此事件处理程序以指定将显示的字段，在打开查找实体并显示给用户以选择字段值之前，为其设置过滤器。
 
-查找项目中的查找字段也可以是查找字段，例如：
+查找实体中的查找字段也可以是查找字段，例如：
 
 .. image:: /programming/_images/tracks_lookup_field_jampy.png
 	:align: center
 	:alt: tracks_lookup_field_jampy.png
 
-要设置此类字段，请使用 **Lookup field 2** （查找字段 2）和 **Lookup field 3** （查找字段 3）属性。
+要设置此类字段，请使用 **查找字段 2(Lookup field 2)** 和 **查找字段 3(Lookup field 3)** 属性。
 
 值列表
 ==========
 
-有时，查找字段的来源可以定义为值列表。例如，
-:doc:`演示项目 </intro/demo_project>` 的 **Tracks** （曲目）目录中的 **MediaType** （媒体类型）字段
-具有 **Lookup value list** （查找值列表）属性，设置为 MediaTypes（媒体类型）查找列表：
+有时，查找字段的来源可以定义为值列表。例如， :doc:`演示项目 </intro/demo_project>` 的 **曲目(Tracks)** 目录中的 **媒体类型(MediaType)** 字段具有 **查找值列表(Lookup value list)** 属性，设置为 MediaTypes(媒体类型)查找列表：
 
 .. image:: /programming/_images/mediatype_field_jampy.png
 	:align: center
 	:alt: MediaType 字段定义
 
-使用任务的 :doc:`查找列表对话框 </admin/lookup_lists>` 来定义
-此类查找列表。
+使用任务的 :doc:`查找列表对话框 </admin/lookup_lists>` 来定义此类查找列表。
 
 另请参阅
 ========

@@ -2,17 +2,14 @@
 初始化应用程序
 ========================
 
-:doc:`on_page_loaded </refs/client/task/on_page_loaded>`
-事件是应用程序在客户端触发的第一个事件。
+:doc:`on_page_loaded </refs/client/task/on_page_loaded>` 事件是应用程序在客户端触发的第一个事件。
 
-新项目使用
-:doc:`on_page_loaded </refs/client/task/on_page_loaded>`
-事件处理程序来动态构建应用程序的主菜单，并使用 JQuery 为菜单项附加
-点击事件处理程序。
+新项目使用 :doc:`on_page_loaded </refs/client/task/on_page_loaded>` 事件处理程序来动态构建应用程序的主菜单，并使用 JQuery 为菜单项添加点击事件处理程序。
 
 
 
 .. code-block:: js
+
 
     function on_page_loaded(task) { 
         
@@ -44,8 +41,7 @@
         });
 
 
-此事件处理程序使用 JQuery 从
-:doc:`index.html <index_html>` 中选择元素，以设置它们的属性并分配事件。
+此事件处理程序使用 JQuery 从 :doc:`index.html <index_html>` 中选择元素，以设置它们的属性并分配事件。
 
 .. code-block:: html
 
@@ -71,6 +67,4 @@
         </div>
 
 
-最后，调用任务的
-:doc:`create_menu </refs/client/task/m_create_menu>`
-方法来动态创建项目主菜单。
+最后，调用任务的 :doc:`create_menu </refs/client/task/m_create_menu>` 方法来动态创建项目主菜单。

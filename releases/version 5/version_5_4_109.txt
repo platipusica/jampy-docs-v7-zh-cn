@@ -1,35 +1,19 @@
 ===============
-Version 5.4.109
+版本 5.4.109
 ===============
 
-* The work on sanitizing of field values is completed. 
-  See :doc:`Sanitizing </admin/sanitizing>`
+* 字段值的转义清理工作已完成。
+  请参阅 :doc:`Sanitizing </admin/sanitizing>`
 
-* The **TextArea** attribute is added the **Interface Tab** of the
-  :doc:`Edit Form Dialog </admin/items/edit_form_dialog>` for TEXT fields
+* 为 TEXT 字段在 :doc:`编辑表单对话框 </admin/items/edit_form_dialog>` 的 **界面选项卡** 中添加了 **TextArea** 属性
   
-* The **Do not sanitize** attribute is added the **Interface Tab** of the
-  :doc:`Edit Form Dialog </admin/items/edit_form_dialog>`.
-  See :doc:`Sanitizing </admin/sanitizing>`
+* 在 :doc:`编辑表单对话框 </admin/items/edit_form_dialog>` 的 **Interface Tab** 中添加了 **不转义清理** 属性。
+  请参阅 :doc:`Sanitizing </admin/sanitizing>`
 
-* The **Accept** attribute of the **Interface Tab** of the
-  :doc:`Edit Form Dialog </admin/items/edit_form_dialog>` for FILE fields
-  is required now. Uploaded files are checked on the server 
-  against this attribute.  
+* 现在，在 :doc:`编辑表单对话框 </admin/items/edit_form_dialog>` 的 **界面选项卡** 中，用于 FILE 字段的 **Accept** 属性是必需的。
+  上传的文件在服务器上根据此属性进行检查。  
 
-* The **Upload file extensions** attribute is added to the 
-  :doc:`Project parameters </admin/project/parameters>` that defines 
-  file types that are allowed to be uploaded by the task
-  :doc:`upload </refs/client/task/m_upload>` method.
+* 在 :doc:`项目参数 </admin/project/parameters>` 中添加了 **Upload file extensions** 属性，该属性定义了任务 :doc:`upload </refs/client/task/m_upload>` 方法允许上传的文件类型。
   
-* The ``expanded`` options is added to the 
-  :doc:`add_edit_button </refs/client/item/m_add_edit_button>` and
-  :doc:`add_view_button </refs/client/item/m_add_view_button>`
-  methods.
-  
-
-  
-
-  
-
+* 为 :doc:`add_edit_button </refs/client/item/m_add_edit_button>` 和 :doc:`add_view_button </refs/client/item/m_add_view_button>` 方法添加了 ``expanded`` 选项。
 

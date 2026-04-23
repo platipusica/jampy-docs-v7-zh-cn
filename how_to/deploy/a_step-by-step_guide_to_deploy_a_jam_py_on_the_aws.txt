@@ -1,93 +1,93 @@
 ==================================================
-A step-by-step guide to deploy a Jam.py on the AWS
+在 AWS 上部署 Jam.py 的逐步指南
 ==================================================
 
 
-This is adapted from 
+本文改编自 
 https://devops.profitbricks.com/tutorials/install-and-configure-mod_wsgi-on-ubuntu-1604-1/ 
 
-I hope someone finds it useful.
+希望对大家有所帮助。
 
-* Create an AWS account and login
-* Go to EC2, create an instance (in this case an Ubuntu 16.04 t2.micro)
-* Download the private key when prompted
-* Convert pem to ppk using Puttygen (see: https://stackoverflow.com/questions/3190667/convert-pem-to-ppk-file-format)
-* Get EC2 instance public DNS from AWS dashboard
-* SSH into EC2 instance using Putty (pointed to the Public DNS and your ppk)
-* Username is ubuntu
-* Refresh package library: 
+* 创建一个 AWS 账户并登录
+* 进入 EC2，创建一个实例（本例中使用 Ubuntu 16.04 t2.micro）
+* 按提示下载私钥
+* 使用 Puttygen 将 pem 转换为 ppk (参加: https://stackoverflow.com/questions/3190667/convert-pem-to-ppk-file-format)
+* 从 AWS 控制台获取 EC2 实例的公共 DNS
+* 使用 Putty SSH 登录到 EC2 实例（指向公共 DNS 和您的 ppk）
+* 用户名为 ubuntu
+* 更新软件包信息库： 
 
   .. code-block:: console
   
     sudo apt-get update
 
-* Install pip: 
+* 安装 pip: 
 
   .. code-block:: console
   
     sudo apt-get install python3-pip
 
-* Install jam.py: 
+* 安装 jam.py: 
 
   .. code-block:: console
   
     sudo pip3 install jam.py
 
-* Install Apache: 
+* 安装 Apache: 
   
   .. code-block:: console
   
     sudo apt-get install apache2 apache2-utils libexpat1 ssl-cert
 
-* Install mod-wsgi: 
+* 安装 mod-wsgi: 
   
   .. code-block:: console
   
     sudo apt-get install libapache2-mod-wsgi-py3
 
-* Restart Apache: 
+* 重启 Apache: 
 
   .. code-block:: console
   
     sudo /etc/init.d/apache2 restart
 
-* Move here: 
+* 切换到此处: 
 
   .. code-block:: console
   
     cd /var/www/html/
 
-* Create directory: 
+* 创建目录: 
 
   .. code-block:: console
   
     sudo mkdir [appname]
 
-* Move here:
+* 切换到此处:
 
   .. code-block:: console
   
      cd [appname]
 
-* Create app: 
+* 创建应用: 
 
   .. code-block:: console
   
     sudo jam-project.py
 
-* Check it's there: 
+* 检查应用是否存在: 
 
   .. code-block:: console
   
     ls
 
-* Create the config: 
+* 创建配置: 
 
   .. code-block:: console
   
     sudo nano /etc/apache2/conf-available/wsgi.conf
 
-* Paste the following
+* 粘贴以下内容：
 
   .. code-block:: apache
   
@@ -106,44 +106,43 @@ I hope someone finds it useful.
       Require all granted
     </Directory>
 
-* Exit and save
+* 退出并保存
 
-* Give file permissions to apache: 
+* 给 apache 文件权限: 
 
   .. code-block:: console
 
     sudo chmod 777 /var/www/html/[appname]
 
-* Give ownership to apache: 
+* 给 apache 所有权: 
 
   .. code-block:: console
   
     sudo chown -R www-data:www-data /var/www
 
-* Enable wsgi: 
+* 启用 wsgi: 
 
   .. code-block:: console
   
     sudo a2enconf wsgi
 
-* Restart apache: 
+* 重启 apache: 
 
   .. code-block:: console
   
     sudo /etc/init.d/apache2 restart
 
-* Create security group on AWS to allow you to connect HTTP on port 80
+* 在 AWS 上创建安全组，允许您在端口 80 上连接 HTTP
 
-* Assign instance to security group
+* 将实例分配到安全组
 
-* Test
+* 测试
 
-* If it's not working, check the error logs to see what's going on: 
+* 如果不工作，检查错误日志以了解情况： 
 
   .. code-block:: console
   
     nano /var/log/apache2/error.log
 
-
-*This was initially published by Simon Cox on*
+*本文最初由 Simon Cox 发布于* 
 https://groups.google.com/forum/#!msg/jam-py/Zv5JfkLRFy4/22tolZ-hAQAJ

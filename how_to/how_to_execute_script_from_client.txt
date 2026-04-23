@@ -1,24 +1,19 @@
 ======================================
-How to execute Python code from client
+如何从客户端执行 Python 代码
 ======================================
 
 
+虽然在操作系统层面通过 ``Popen`` 命令执行任意 Python 脚本是可行的，
+但我们首先演示 ** 服务端模块 [F8]** 代码的使用方法。
 
-While it is possible to execute any Python script on the OS level with the 
-``Popen`` command, first we will demonstrate using the ``Server module[F8]`` code.
+你可以调用 :doc:`server </refs/client/abstr_item/m_server>` 方法向服务端发送请求，
+以执行在实体的服务端模块中定义的函数。
 
-You can use 
-:doc:`server </refs/client/abstr_item/m_server>`
-method to send a request to the server to execute a function defined in the 
-server module of an item.
+在下方示例中，我们创建了一个 jQuery 对象类型的 ``btn`` 按钮，随后通过其点击事件绑定一个函数，
+该函数会调用实体的 :doc:`server </refs/client/abstr_item/m_server>` 方法，
+运行在实体的服务端模块中定义的 ``calculate`` （计算）函数。
 
-In the example below we create the ``btn`` button that is a JQuery object. 
-Then we use its click method to attach a function that calls the 
-:doc:`server </refs/client/abstr_item/m_server>`
-method of the item to run the ``calculate`` function defined in the server module
-of the item.
-
-The code in the client module:
+客户端模块中的代码如下：
 
 .. code-block:: js
 
@@ -36,19 +31,15 @@ The code in the client module:
       });
   }
   
-
-The code in the server module:
+在服务端中的代码如下：
 
 .. code-block:: py
 
   def calculate(item, a, b, c):
       return a + b + c
       
-      
 
-To execute the OS script, we could use the Server module code with ``Popen`` and 
-a button similar to above:
-
+要执行操作系统脚本，我们可以使用带有 ``Popen`` 和类似于上面的按钮的服务器端模块代码：
 
 .. code-block:: py
 
@@ -57,8 +48,7 @@ a button similar to above:
         result = result.decode("utf-8") 
 
 
-To review the build result, we can use JavaScript modal form with a button to 
-display it:
+要查看构建结果，我们可以使用带有按钮的 JavaScript 模态表单来显示它：
 
 .. code-block:: js
 
@@ -86,8 +76,7 @@ display it:
         }
 
 
-On this example, the Sphinx ``make`` command is used to build Jam.py Docs.
-
+在这个例子中，用 Sphinx 的 ``make`` 命令来构建 Jam.py 的文档。
 
 .. image:: /how_to/_images/how_to_run_python_script_jampy.png
 	:align: center

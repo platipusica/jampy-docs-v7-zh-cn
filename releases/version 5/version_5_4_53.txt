@@ -1,30 +1,28 @@
 ==============
-Version 5.4.53
+版本 5.4.53
 ==============
 
-Library:
+库:
 
-* :doc:`on_login </refs/server/task/on_login>` event changed
+* 更改了 :doc:`on_login </refs/server/task/on_login>` 事件
 
-* :doc:`generate_password_hash </refs/server/task/m_generate_password_hash>` and
-  :doc:`check_password_hash </refs/server/task/m_check_password_hash>` mathods 
-  added
+* 添加了 :doc:`generate_password_hash </refs/server/task/m_generate_password_hash>` 和
+  :doc:`check_password_hash </refs/server/task/m_check_password_hash>` 方法
 
-* bugs related to moving to SQLAlchemy and tables with virtual scroll are fixed.
+* 已得修复与迁移到 SQLAlchemy 和具有虚拟滚动的表相关的错误
 
-* tables resizing bug for numneric fields fixed
+* 修复了含有 numneric 类型字段的表大小调整错误
 
-* tables with freezed cols bugs fixed
+* 已修复带有冻结的列的表格的错误
 
-* details bug when renaming copy fixed
+* 已修复重命名副本时的详细表错误
 
-* minor bugs fixed
+* 修复了一些小错误
 
-Documentation:
+文档:
 
-* latest docs changes
+* 更改到最新文档
 
-* how to section bug fixed
+* 已修复如何实现切片
 
-* 'How to lock a record so that users cannot edit it at the same time' topic
-  removed - other algorithm will be used
+* other algorithm will be used 已删除 “如何锁定记录，使用户无法同时编辑” 主题 - 将使用其他算法

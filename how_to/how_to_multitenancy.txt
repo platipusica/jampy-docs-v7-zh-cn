@@ -1,11 +1,10 @@
-=================================================================================================
-How to implement some sort of basic multi-tenancy? For example, to have users with separate data.
-=================================================================================================
+==================================================================================================
+如何实现基础的多用户？例如，让不同用户拥有各自独立的数据。
+==================================================================================================
 
-You can implement a multi-tenancy using Jam.py.
+你可以通过 Jam.py 实现多用户。
 
-For example, if some item has a user_id field (type INT), the following code in the 
-server module of the item will do the job. The authentication must be enabled:
+例如，如果某个数据项有一个 user_id 字段（类型为 INT），可以在该项的服务器模块中添加如下代码即可实现。前提是必须启用认证功能：
 
 .. code-block:: py
 
@@ -29,42 +28,27 @@ server module of the item will do the job. The authentication must be enabled:
                           raise Exception('You are not allowed to change record.')
                   elif d.rec_deleted():
                       if d.user_id.old_value != user_id:
-                          raise Exception('You are not allowed to delete record.')                  
+                          raise Exception('You are not allowed to delete record.')
 
-It uses a 
-:doc:`session </refs/server/abstr_item/at_session>`
-attribute of the item to get a unique user id
-and 
-:doc:`on_open </refs/server/item/on_open>` and
-:doc:`on_apply </refs/server/item/on_apply>`
-event handlers.
+上述代码，在 :doc:`on_open </refs/server/item/on_open>` 和 :doc:`on_apply </refs/server/item/on_apply>` 事件处理程序中，利用了数据项的 :doc:`session </refs/server/abstr_item/at_session>` 属性来获取唯一的用户 ID。
 
-The 
-:doc:`on_open </refs/server/item/on_open>`
-event handler ensures that the sql select statement that applications generates 
-will return only records where the user_id field will be the same as the ID of 
-the user that sends the request.
+:doc:`on_open </refs/server/item/on_open>` 事件处理程序确保应用程序生成的 SQL 查询只会返回 user_id 字段等于当前请求用户 ID 的记录。
 
-And the 
-:doc:`on_apply </refs/server/item/on_apply>`
-event handler sets the user_id to the ID of the user that appended or modified 
-the records.
+:doc:`on_apply </refs/server/item/on_apply>` 事件处理程序会将 user_id 设置为新增或修改记录的用户 ID。
 
-You can use a more general approach and add the following code to the server
-module of the task. Then a multi-tenancy will be applied to every item that has 
-a user_id field:
+你还可以采用更通用的方式，将如下代码添加到任务的服务器模块中。这样，所有包含 user_id 字段的数据项都会自动应用多用户逻辑：
 
 .. code-block:: py
   
   def on_open(item, params):
-      if item.field_by_name('user_id'):    
+      if item.field_by_name('user_id'):
           if item.session:
               user_id = item.session['user_info']['user_id']
               if user_id:
                   params['__filters'].append(['user_id', item.task.consts.FILTER_EQ, user_id])
   
   def on_apply(item, delta, params, connection):
-      if item.field_by_name('user_id'):    
+      if item.field_by_name('user_id'):
           if item.session:    
               user_id = item.session['user_info']['user_id']
               if user_id:
@@ -78,7 +62,6 @@ a user_id field:
                               raise Exception('You are not allowed to change record.')
                       elif d.rec_deleted():
                           if d.user_id.old_value != user_id:
-                              raise Exception('You are not allowed to delete record.')      
-                              
-                              
-The user might combine the above with the :doc:`authentication </how_to/authentication/index>`.
+                              raise Exception('You are not allowed to delete record.')
+
+用户还可以将上述方法与 :doc:`authentication </how_to/authentication/index>` 结合使用。

@@ -1,28 +1,25 @@
 ==============
-Version 5.4.21
+版本 5.4.21
 ==============
 
-Library:
+库:
 
-* SQLITE - case insensitive search implemented
+* SQLITE - 已实现不区分大小写的搜索
 
-* MSSQL bugs fixed
+* 修复 MSSQL 相关错误
 
-* Search reworked
+* 搜索已重构
 
-* Field Dialogs - you can spesify default values for DATE, DATETIME, BOOLEAN 
-  fields and for lookup fields that are based on lookup lists. 
-  Theses default values are assigned to fields when append or insert methods of 
-  element are called on the client or server. These default values are not 
-  applied when you are changing table record using direct SQL query.
+* 字段对话框-您可以指定 DATE、DATETIME、BOOLEAN 字段和基于查找列表的查找字段的默认值。 
+  当在客户端或服务器上调用元素的 append 或 insert 方法时，这些默认值被分配给字段。
+  当您使用直接 SQL 查询更改表记录时，会使用这些不默认值。
 
-* select_records method reworked
+* select_records 已重构
 
-* add_view_button, add_edit_button methods added
+* add_view_button, add_edit_button 方法已添加
 
-* When user tries to close or reload page and there is an item that is being 
-  edited and its data has been modified the applcation warns user about it.
+* 当用户试图关闭或重新加载页面，并且有一个正在编辑的实体项且其数据已被修改时，应用程序会警告用户。
 
-* A lot of miscellaneous bug fixed
+* 修复了许多杂项错误
 
-* FAQ, Application Builder, Into chapter in the documentation reworked
+* 常见问题解答、应用程序构建器、文档信息已重新编写

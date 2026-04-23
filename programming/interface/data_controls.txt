@@ -2,38 +2,31 @@
 数据感知控件
 ===================
 
-要创建一个表格来显示项目的数据集，请使用
-:doc:`create_table </refs/client/item/m_create_table>`
-方法：
+要创建一个表格来显示实体的数据集，请使用 
+:doc:`create_table </refs/client/item/m_create_table>` 方法：
 
 .. code-block:: js
 
     item.create_table(item.view_form.find(".view-table"), table_options);
 
 要创建数据控件来编辑数据集的字段，请使用
-:doc:`create_inputs </refs/client/item/m_create_inputs>`
-方法：
+:doc:`create_inputs </refs/client/item/m_create_inputs>` 方法：
 
 .. code-block:: js
 
     item.create_inputs(item.edit_form.find(".edit-body"), input_options);
 
-这些方法有两个参数——**container**（容器）和 **options**（选项）。第一个
-参数是一个 JQuery 容器，控件将放置在其中。第二个
-——选项，满足数据显示的方式。详细信息
-请参阅它们的 API 参考。
+这些方法有两个参数 —— **container(容器)** 和 **options(选项)** 。
+第一个参数是一个 JQuery 容器，控件将放置在其中；第二个参数指定数据显示的方式。
+详细信息请参阅它们的 API 参考。
 
-这些方法通常在 **on_view_form_created** 和
-**on_edit_form_created** 事件处理程序中使用。
+这些方法通常在 **on_view_form_created** 和 **on_edit_form_created** 事件处理程序中使用。
 
-所有由这些方法创建的可视控件（表格、输入框、复选框）
-都是数据感知的。这意味着它们会立即反映项目数据集的任何更改。
+所有由这些方法创建的可视控件（表格、输入框、复选框）都是数据感知的。这意味着它们会立即反映实体数据集的任何更改。
 
-有时需要禁用这种交互。为此，请分别使用
-:doc:`disable_controls </refs/client/item/m_disable_controls>`
-和
-:doc:`enable_controls </refs/client/item/m_enable_controls>`
-方法。
+有时需要禁用这种交互。
+为此，请分别使用 :doc:`disable_controls </refs/client/item/m_disable_controls>`
+和 :doc:`enable_controls </refs/client/item/m_enable_controls>` 方法。
 
 视频
 ======

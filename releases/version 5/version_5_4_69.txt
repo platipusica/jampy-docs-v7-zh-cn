@@ -1,69 +1,63 @@
 ==============
-Version 5.4.69
+版本 5.4.69
 ==============
 
-Library:
+库：
 
-* Werkzeug library upgraded to the version 0.15.4
+* Werkzeug 库升级到版本 0.15.4
 
-* common.py module rewritten, consts object created
+* 重写了 common.py 模块，创建了 consts 对象
 
-* adm_server.py module removed 
+* 移除了 adm_server.py 模块
 
-* admin folder is created with modules 
+* 创建了 admin 文件夹，其中包含模块
 
-  * admin.py - application builder server side module
+  * admin.py - 应用程序构建器服务器端模块
   
-  * task.py - loading of task from admin.sqlite database
+  * task.py - 从 admin.sqlite 数据库加载任务
   
   * export_metadata.py
   
   * import_metadata.py
 
-* builder folder added to package that contains Application Builder project that 
-  is used to create Jam.py Application Builder, see read.me file in the folder.
+* 添加了 builder 文件夹到包中，该文件夹包含用于创建 Jam.py 应用程序构建器的应用程序构建器项目，请参阅文件夹中的 read.me 文件。
 
-* task loading accelerated
+* 任务加载加速
 
-* import of metadata rewritten
+* 重写了元数据导入
 
-* import of metadata accelerated
+* 元数据导入加速
 
-* :doc:`permissions </refs/client/item/at_permissions>` property added
+* 添加了 :doc:`permissions </refs/client/item/at_permissions>` 属性
   
-* logging created (currently under development and not documented yet)
+* 创建了日志记录（目前正在开发中，尚无文档）
 
-* edit method on the client and server checks now if item state is in edit mode
-  and if it is does nothing
+* 客户端和服务器上的 edit 方法现在检查项目状态是否处于编辑模式，如果是则不执行任何操作
 
-* round methods are corrected on the client and server, value of currency fields 
-  are rounded before they are assigned   
+* 客户端和服务器上的 round 方法已更正，货币字段的值在分配之前被四舍五入
 
-* inline editing is now available for any items (not details only)
+* 内联编辑现在可用于任何数据项（不仅仅是明细）
 
-* inline editing of lookup fields, list fields, date and datetime inputs reworked,
-  bugs fixed
+* 重做了查找字段、列表字段、日期和日期时间输入的内联编辑，修复了错误
   
-* fixed columns of tables bugs fixed
+* 修复了表格固定列的错误
 
-* tables striped option added
+* 添加了表格条纹选项
 
-* search input is focused now by Ctrl-F, Escape returns focus to the table 
+* 现在通过 Ctrl-F 使搜索输入框获取输入焦点，而 Escape 会将焦点返回到表格
 
-* :doc:`enable_controls </refs/client/item/m_enable_controls>` redraws controls
-  now, no need to call update_controls method
+* 现在已重绘 :doc:`enable_controls </refs/client/item/m_enable_controls>` 控件，无需调用 update_controls 方法
   
-* lot of bugs fixed  
+* 修复了很多错误
 
-Application builder:
+应用程序构建器：
 
-* a link to the form-related documentation page has been added to the 
-  application Builder form headers
+* 在应用程序构建器表单标题中添加了指向表单相关文档页面的链接
   
-Documentation:
+文档：
 
-* search bug fixed
+* 修复了搜索错误
 
-* topics related to the server on_apply and on_open events rewritten
+* 重写了与服务器 on_apply 和 on_open 事件相关的主题
  
-* new topic added :doc:`How to prohibit changing record </how_to/how_to_prohibit_changing_record>` 
+* 添加了新主题 :doc:`How to prohibit changing record </how_to/how_to_prohibit_changing_record>` 

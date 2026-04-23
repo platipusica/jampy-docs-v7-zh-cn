@@ -1,74 +1,66 @@
-=======
+==============
 明细表
-=======
+==============
 
 Jam.py V7 中的明细表是指以主/明细关系链接的任何数据库表。
-为了逻辑上对数据库表进行分组，我们可以使用 :doc:`明细表组 <groups/table_group_editor>`
-来"存储"项目的明细表，如下方截图所示。
+为了逻辑上对数据库表进行分组，我们可以使用 :doc:`明细表组 <groups/table_group_editor>` 来 “存储” 实体项的明细表，如下方截图所示。
 
-要处理项目的明细表，请展开拥有该项目的组节点，并在树中选择该项目。
-在应用程序构建器的中心，将显示该项目的所有明细表。
+要处理实体项的明细表，请展开拥有该实体项的组节点，并在树中选择该实体项。
+在应用程序构建器的中心，将显示该实体项的所有明细表。
 
 页面的右侧面板有以下按钮：
 
 * **Client module** （客户端模块）- 点击此按钮打开
-  :doc:`代码编辑器 </admin/code_editor>`
-  以编辑明细表的客户端模块，请参阅
-  :doc:`使用模块 </programming/modules>`。
+  :doc:`代码编辑器 </admin/code_editor>` 
+  以编辑明细表的客户端模块，请参阅 
+  :doc:`使用模块 </programming/modules>` 。
 
 * **Server module** （服务器模块）- 点击此按钮打开
   :doc:`代码编辑器 </admin/code_editor>`
-  以编辑明细表的服务器模块，请参阅
-  :doc:`使用模块 </programming/modules>`。
+  以编辑明细表的服务器模块，请参阅 
+  :doc:`使用模块 </programming/modules>` 。
 
-* **View Form** （查看表单）- 使用此按钮调用
-  :doc:`查看表单对话框 <items/view_form_dialog>`
+* **View Form** （查看表单）- 使用此按钮调用 
+  :doc:`查看表单对话框 <items/view_form_dialog>` 
   以设置在客户端表格中默认显示的字段及其顺序。
-  请参阅
-  :doc:`create_table </refs/client/item/m_create_table>` 
-  方法。
+  请参阅 :doc:`create_table </refs/client/item/m_create_table>` 方法。
 
-* **Edit Form** （编辑表单）- 使用此按钮调用
-  :doc:`编辑表单对话框 <items/edit_form_dialog>`
+* **Edit Form** （编辑表单）- 使用此按钮调用 
+  :doc:`编辑表单对话框 <items/edit_form_dialog>` 
   以设置在客户端编辑表单中默认显示的字段及其顺序。
-  请参阅
-  :doc:`create_inputs </refs/client/item/m_create_inputs>`
-  方法。
+  请参阅 :doc:`create_inputs </refs/client/item/m_create_inputs>` 方法。
 
 * **Filters** （过滤器）- 使用此按钮调用
-  :doc:`过滤器对话框 <items/filters_dialog>`
-  以创建、修改和删除项目过滤器。请参阅
-  :doc:`过滤器 </programming/data/filters>`。
+  :doc:`过滤器对话框 <items/filters_dialog>` 
+  以创建、修改和删除实体项的过滤器。
+  请参阅 :doc:`过滤器 </programming/data/filters>` 。
 
 * **Details** （明细表）- 使用此按钮调用
-  :doc:`明细表对话框 <items/details_dialog>`
-  以添加或删除链接到该项目的明细表。
+  :doc:`明细表对话框 <items/details_dialog>` 
+  以添加或删除链接到该实体项的明细表。
 
-* **Order** （排序）- 使用此按钮调用
-  :doc:`排序对话框 <items/order_dialog>`
-  以指定记录的默认排序方式。请参阅
-  :doc:`open </refs/client/item/m_open>`
-  方法。
+* **Order** （排序）- 使用此按钮调用 
+  :doc:`排序对话框 <items/order_dialog>` 
+  以指定记录的默认排序方式。
+  请参阅 :doc:`open </refs/client/item/m_open>` 方法。
 
-* **Indices** （索引）- 点击此按钮打开
-  :doc:`索引对话框 <items/indices_dialog>`
-  为项目数据库表创建和删除索引。
+* **Indices** （索引）- 点击此按钮打开 
+  :doc:`索引对话框 <items/indices_dialog>` 
+  为实体项的数据库表创建和删除索引。
 
-..
-    * **Foreign keys** （外键）- 点击此按钮打开
-      :doc:`外键对话框 <items/foreign_keys_dialog>`
-      为数据库表创建外键。
+* **Foreign keys** （外键）- 点击此按钮打开
+  :doc:`外键对话框 <items/foreign_keys_dialog>`
+  为数据库表创建外键。
 
-* **Reports** （报告）- 点击此按钮打开
-  :doc:`报告对话框 <items/reports_dialog>`
-  以指定可为项目打印的报告。
+* **Reports** （报告）- 点击此按钮打开 
+  :doc:`报告对话框 <items/reports_dialog>` 
+  以指定可为实体项打印的报告。
   新项目有一个可用于创建下拉按钮以打印报告的功能。
   
 * **Privileges** （权限）- 点击此按钮打开一个对话框，配置
-  分配给用户角色对此项目的权限。
+  用户的角色对此实体项的权限。
   
-使用页面底部的 **Edit** （编辑）按钮更改 `detail`（明细表）的 ``item_name`` 或
-``caption``。
+使用页面底部的 **Edit** （编辑）按钮更改 `detail`（明细表）的 ``item_name`` 或 ``caption`` 。
 
 .. image:: _images/details_jampy.png
 	:align: center

@@ -1,5 +1,5 @@
 ===============
-Version 7.0.64
+版本 7.0.64
 ===============
 
-Added links to events and modules, and ACE shortcuts button.
+添加了事件和模块的链接，以及 ACE 的快捷键按钮。

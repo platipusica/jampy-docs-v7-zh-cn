@@ -1,31 +1,30 @@
-=====================================================
-How to deploy jam-py app at Linux Apache http server?
-=====================================================
+================================================================
+如何在 Linux Apache HTTP 服务器上部署 Jam-py 应用？
+================================================================
 
-So basically deploying straight into the ie an cloud server with open 22, 80 
-and 443 port. Prerequisite is a signed certificate for the DNS server name 
-(YOUR_SERVER DNS entry from below). One can use a self signed, etc, not covering 
-those. Also, Python installed and sudo access (or root for Linux). 
-I have no idea at all about the MS Servers, sorry.
+抱歉，因为我对 MS 服务器完全不了解，
+因此，这里基本说的是直接部署到云服务器上，它们通常开放 22、80 和 443 端口。
+前提是拥有 DNS 服务器名称的签名证书（即，下面的 YOUR_SERVER DNS ）。
+也可以使用自签名证书等，这里不涵盖这些内容。
+此外，还需要安装 Python 和授予 sudo 访问权限（或 Linux 的 root 权限）。 
 
-The App is in read only mode. You can access admin.html page, but can't change 
-anything. Took me some fiddling with Google Cloud server, this is a micro Ubuntu 
-instance, plain apache2 install with apt-get.
+应用处于只读模式。您可以访问 admin.html 页面，但无法更改任何内容。
+我在 Google Cloud 服务器上进行了一些调整，这是一个微型 Ubuntu 实例，
+使用 apt-get 进行普通的 apache2 安装。
 
-* Install wsgi module for Apache : 
+* 为 Apache 安装 wsgi 模块 : 
   
     .. code-block:: console
   
       apt-get install libapache2-mod-wsgi
     
-* Enable ssl, wsgi module for apache:
+* 为 apache 启用 ssl 和 wsgi 模块 :
 
   .. code-block:: console
   
     a2enmod ssl wsgi
     
-* Create a custom file for jam-py app, ie /etc/apache2/sites-available/test.conf, 
-  for example (still wip):
+* 为 jam-py 应用创建自定义配置文件，例如 /etc/apache2/sites-available/test.conf（仍在完善中）：
   
   .. code-block:: apache
   
@@ -79,32 +78,30 @@ instance, plain apache2 install with apt-get.
       </VirtualHost>
     </IfModule>
     
-  The above file is using signed certificate your.crt with your.key, and CA, 
-  chain file obtained from CA. Please review resources on the net about 
-  certificates and the dns. You'll need to obtain and copy those files 
-  in /etc/ssl/private folder. Change YOUR_xyz with your preference.
-  
-  The /var/www/html is the default Ubuntu folder for serving web pages.     
-  
-* Install jam-py as usual.  
+  上面的文件使用带有 your.key 的签名证书 your.crt ，以及从 CA 获取的 CA 和链文件。
+  请查看网络上关于证书和 DNS 的资源。
+  您需要获取并将这些文件复制到 /etc/ssl/private 文件夹中。将 YOUR_xyz 更改为您的自己的内容。
 
-  I created the /var/www/html/simpleassets folder where unzipped jam-py 
-  SimpleAssets project. Follow procedure explained there how to deploy these: 
+  The /var/www/html 是 Ubuntu 用于提供网页的默认文件夹。
   
-  Basically, Export your project, save the zip file and copy it to your web 
-  hosting server desired folder. Copy admin.sqlite and your database as well 
-  (providing you're using sqlite3 database). If using some other database ie 
-  mysql, you'll need to export/import the database.
+* 像往常一样安装 jam-py   
+
+  我创建了 /var/www/html/simpleassets 文件夹，在那里解压了 jam-py SimpleAssets 项目。
+  按照那里解释的步骤来部署这些：
+
+  简单来说，导出您的项目，保存好 zip 文件，并将其复制到您的网络托管服务器的所需文件夹中。
+  同时复制 admin.sqlite 和您的数据库（假设您使用的是 sqlite3 数据库）。
+  如果使用其他数据库，例如 mysql，您需要导出/导入数据库。
   
-* Enable test.conf  (the above file name with no extension):  
+* 启用 test.conf  (上面没有扩展名的文件名):  
 
   .. code-block:: console
     
     a2ensite test; systemctl restart apache2
     
-  That is it. At the moment, I've left port 80 as is, and jam-py is running only 
-  on https port. To debug problems, I would start with SeLinux or apparmor. 
-  With Ubuntu this might help:
+
+  就是这样。目前，我保留了 80 端口不变，jam-py 只在 https 端口上运行。
+  要调试问题，我会从 SeLinux 或 apparmor 开始。 在 Ubuntu 上，这可能会有所帮助：
   
   .. code-block:: console
   
@@ -112,15 +109,14 @@ instance, plain apache2 install with apt-get.
 
 
 Now, here is the question of how to run TWO jam-py instances on one https server?
+现在，问题是如何在一个 https 服务器上运行两个 jam-py 实例？
 
-One possible answer to this problem is the DNS. You might decide to set your 
-DNS to ie second_instance.YOUR_SERVER name (the above live example would be 
-jam2.research...).
+这个问题的一个可能答案是 DNS。您可以将您的 DNS 
+设置为例如 second_instance.YOUR_SERVER 名称（上面的实际例子是 jam2.research...）。
 
-So the above test.conf file would be almost the same except YOUR_SERVER is now 
-called second_instance.YOUR_SERVER
+因此，上面的 test.conf 文件几乎相同，只是 YOUR_SERVER 被称为 second_instance.YOUR_SERVER。
 
-The /etc/apache2/sites-available/test3.conf file:
+ /etc/apache2/sites-available/test3.conf 文件内容如下 :
 
 .. code-block:: apache
 
@@ -171,11 +167,9 @@ The /etc/apache2/sites-available/test3.conf file:
     </VirtualHost>
   </IfModule>
   
-The jam-py application second_instance lives now in ie /var/www/html/simpleassets3, 
-and WSGIDaemonProcess is adjusted to new daemon, called assets3. Everything else 
-is almost the same.
+Jam-py 应用的 second_instance 现在位于例如 /var/www/html/simpleassets3 中，
+并且 WSGIDaemonProcess 已调整为新的守护进程，称为 assets3。其他一切几乎相同。
 
-This is possible because the SSL certificate is a * (star, or wildcard) 
-certificate, enabling you to run multiple services on one DNS domain.  
+这是可能的，因为 SSL 证书是 *（星号或通配符）证书，使您能够在一个 DNS 域上运行多个服务。
   
-*This was initialy published by Dražen Babić on* https://github.com/jam-py/jam-py/issues/35
+*本文最初由 Dražen Babić 发布于* https://github.com/jam-py/jam-py/issues/35

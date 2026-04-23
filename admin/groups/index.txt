@@ -2,15 +2,14 @@
 组
 ======
 
-选择名为任务的节点以访问项目
+选择名为任务的节点以访问项目 
 :doc:`任务树 </programming/task_tree>` 的组。
 
 页面底部有 3 个按钮：
 
 * **Delete** （删除）- 点击此按钮删除一个空组。
 
-* **Edit** （编辑）- 点击此按钮修改选定的组，
-  将出现相应的组编辑器。
+* **Edit** （编辑）- 点击此按钮修改选定的组，将出现相应的组编辑器。
 
 * **New** （新建）- 使用此按钮创建新项目。
 
@@ -31,8 +30,8 @@
 
 使用页面右侧面板中的按钮编辑所选组的客户端和服务器模块，请参阅：
 
-* :doc:`使用模块 </programming/modules>`，
-* :doc:`代码编辑器 </admin/code_editor>`
+* :doc:`使用模块 </programming/modules>` 
+* :doc:`代码编辑器 </admin/code_editor>` 
 
 .. image:: /admin/_images/groups_jampy.png
 	:align: center

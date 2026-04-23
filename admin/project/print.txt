@@ -1,5 +1,5 @@
-=====
-Print
-=====
+=========
+打印
+=========
 
-Press this button to print all modules of the project.
+按此按钮打印项目的所有模块。

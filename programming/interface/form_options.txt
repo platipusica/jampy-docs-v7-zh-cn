@@ -2,7 +2,7 @@
 表单选项
 ============
 
-对于每种类型的表单，项目都有一个控制模态表单行为的属性：
+对于每种类型的表单，实体都有一个控制模态表单行为的属性：
 
 * :doc:`view_options </refs/client/item/at_view_options>`
 
@@ -14,34 +14,19 @@
 
 这是一个对象，具有以下属性，用于指定模态表单的参数：
 
-* ``width`` - 模态表单的宽度，默认值为 560 px，
-* ``title`` - 模态表单的标题，默认值为
-  :doc:`item_caption </refs/client/abstr_item/at_item_caption>`
-  属性的值，
-* ``close_button`` - 如果为 true，将在表单的右上角创建关闭按钮，默认值为 true，
-* ``close_caption`` - 如果为 true 且 close_button 为 true，将在按钮附近显示 'Close - [Esc]'（关闭 - [Esc]）
+* ``width`` - 模态表单的宽度，默认值为 560 px 。
+* ``title`` - 模态表单的标题，默认值为 :doc:`item_caption </refs/client/abstr_item/at_item_caption>` 属性的值。
+* ``close_button`` - 如果为 true，将在表单的右上角创建关闭按钮，默认值为 true。
+* ``close_caption`` - 如果为 true 且 close_button 为 true，将在按钮附近显示 “Close - [Esc]”（关闭 - [Esc]）。
 * ``close_on_escape`` - 如果为 true，按下 Escape 键将触发相应的 close_form 方法。
-* ``close_focusout`` - 如果为 true，当表单失去焦点时，将调用相应的 close_form 方法
-* ``template_class`` - 如果指定，将在任务的
-  :doc:`templates </refs/client/task/at_templates>` 
-  属性中搜索具有此 class 的 div，并在创建表单时用作表单 html 模板
-* ``label_on_top`` - 在顶部显示的标签
+* ``close_focusout`` - 如果为 true，当表单失去焦点时，将调用相应的 close_form 方法。
+* ``template_class`` - 如果指定，将在任务的 :doc:`templates </refs/client/task/at_templates>` 属性中搜索具有此 class 的 div，并在创建表单时用作表单 html 模板。
+* ``label_on_top`` - 在顶部显示的标签。
 
-:doc:`edit_options </refs/client/item/at_edit_options>` 
-有一个 ``fields`` 属性，用于指定字段名称列表，
-如果其 ``options`` 参数的 ``fields`` 属性未指定，则
-:doc:`create_inputs </refs/client/item/m_create_inputs>`
-方法将使用此列表，默认值是在应用程序构建器的
-:doc:`Edit Form Dialog </admin/items/edit_form_dialog>`
-中设置的字段名称列表。
+:doc:`edit_options </refs/client/item/at_edit_options>` 有一个 ``fields`` 属性，用于指定字段名称列表。如果其 ``options`` 参数的 ``fields`` 属性未指定，则 :doc:`create_inputs </refs/client/item/m_create_inputs>` 方法将使用此列表，
+默认值是在应用程序构建器的 :doc:`Edit Form Dialog </admin/items/edit_form_dialog>` 中设置的字段名称列表。
 
-:doc:`view_options </refs/client/item/at_view_options>` 
-有一个 ``fields`` 属性，用于指定字段名称列表，
-如果其 ``options`` 参数的 ``fields`` 属性未指定，则
-:doc:`create_table </refs/client/item/m_create_table>`
-方法将使用此列表，默认值是在应用程序构建器的
-:doc:`View Form Dialog </admin/items/view_form_dialog>`
-中设置的字段名称列表。
+:doc:`view_options </refs/client/item/at_view_options>` 有一个 ``fields`` 属性，用于指定字段名称列表。如果其 ``options`` 参数的 ``fields`` 属性未指定，则 :doc:`create_table </refs/client/item/m_create_table>` 方法将使用此列表，默认值是在应用程序构建器的 :doc:`View Form Dialog </admin/items/view_form_dialog>` 中设置的字段名称列表。
 
 在以下示例中创建的模态表单的宽度将为 700 px。
 
@@ -50,5 +35,3 @@
     function on_edit_form_created(item) {
         item.edit_options.width = 700;
     }
-
-

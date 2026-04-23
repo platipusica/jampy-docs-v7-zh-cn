@@ -1,24 +1,22 @@
 ==============
-Version 5.4.37
+版本 5.4.37
 ==============
 
-Library:
+库:
 
-* Jam.py can now be deployed on `PythonAnywhere <https://www.pythonanywhere.com>`_.
-  See :doc:`How to deploy project on PythonAnywhere </how_to/deploy/how_to_deploy_project_on_pythonanywhere>`
+* 现在可以将 Jam.py 部署到 `PythonAnywhere <https://www.pythonanywhere.com>`_ 。
+  参见 :doc:`How to deploy project on PythonAnywhere </how_to/deploy/how_to_deploy_project_on_pythonanywhere>`
 
-* Directory of the project can be passed to the create_application function now 
-  (jam/wsgi.py module).
+* 现在，可以将项目目录传递给 create_application 函数（ jam/wsgi.py 模块）。
 
-* Multiprocessing connection pool parameter removed from project
-  :doc:`Parameters </admin/project/parameters>`
+* 已从项目 :doc:`Parameters </admin/project/parameters>` 中移除多进程连接池参数
   
-* Bugs related to processing of keyboard events by forms fixed
+* 修复了与表单键盘事件处理相关的错误
 
-* Some bugs fixed
+* 修复了一些错误
 
-Documentation:
+文档:
 
-* :doc:`How to </how_to/index>` section created. That section will contain code 
-  examples that can be useful to quickly accomplish common tasks.
+* 已创建 :doc:`How to </how_to/index>` 部分。
+  该部分将包含可用于快速完成常见任务的代码示例。
 

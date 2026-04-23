@@ -1,19 +1,17 @@
-===================
+============================
 字段编辑器对话框
-===================
+============================
 
 使用 **Field Editor Dialog** （字段编辑器对话框）创建新字段或修改现有字段。
 
 .. note::
 
-    对于某些操作，必须将 :doc:`DB manual mode </admin/project/database>` （数据库手动模式）设置为 true。
-    例如，更改字段类型。由于数据库处于"手动模式"，更改类型
-    不会反映在数据库结构中。请谨慎使用。
+    对于某些操作，必须将 :doc:`DB manual mode </admin/project/database>` （数据库手动模式）设置为 true。例如，更改字段类型。由于数据库处于"手动模式"，更改类型不会反映在数据库结构中。请谨慎使用。
 
 该对话框有以下选项卡：**Field** （字段）、**Lookup** （查找）、**Interface** （界面）和 **Calculation** （计算）。
 
 字段选项卡
-===========
+====================
 
 .. image:: /admin/_images/fields_editr_field_jampy.png
 	:align: center
@@ -41,33 +39,34 @@
 
 * **Default value** （默认值）- 字段的默认值，对于布尔字段使用 0 或 1
 
-* **Required** （必填）- 如果勾选此复选框，如果此字段为空，post 方法将引发异常。请参阅 :doc:`修改数据集 </programming/data/modifying_datasets>`。
+* **Required** （必填）- 如果勾选此复选框，此字段为空时，post 方法将引发异常。
+请参阅 :doc:`修改数据集 </programming/data/modifying_datasets>` 。
 
 * **Read only** （只读）- 如果勾选此复选框，字段值无法在客户端通过 :doc:`create_inputs </refs/client/item/m_create_inputs>` 方法创建的界面控件中更改。
 
 查找选项卡
-==========
+=================
 
 .. image:: /admin/_images/fields_editr_lookup_jampy.png
 	:align: center
 	:alt: fields_editr_lookup_jampy.png
 
-* **Lookup item** （查找项目）- :doc:`查找字段 </programming/data/lookup_fields>` 的查找项目
+* **Lookup item** （查找实体项）- 用于 :doc:`查找字段 </programming/data/lookup_fields>` 的查找实体项
 
-* **Lookup field** （查找字段）- :doc:`查找字段 </programming/data/lookup_fields>` 的查找字段
+* **Lookup field** （查找字段）- 用于 :doc:`查找字段 </programming/data/lookup_fields>` 的查找字段
 
-* **Lookup field 2** （查找字段 2）- :doc:`查找字段 </programming/data/lookup_fields>` 的查找字段 2
+* **Lookup field 2** （查找字段 2）- 用于 :doc:`查找字段 </programming/data/lookup_fields>` 的查找字段 2
 
-* **Lookup field 3** （查找字段 3）- :doc:`查找字段 </programming/data/lookup_fields>` 的查找字段 3
+* **Lookup field 3** （查找字段 3）- 用于 :doc:`查找字段 </programming/data/lookup_fields>` 的查找字段 3
 
-* **Master field** （主字段）- :doc:`查找字段 </programming/data/lookup_fields>` 的主字段
+* **Master field** （主字段）- 用于 :doc:`查找字段 </programming/data/lookup_fields>` 的主字段
 
 * **Typeahead** （预输入）- 如果勾选此复选框，则为查找字段启用预输入功能
 
 * **Lookup value list** （查找值列表）- 用于为整数字段指定 :doc:`查找列表 </admin/lookup_lists>`
 
 界面选项卡
-=============
+==================
 
 .. image:: /admin/_images/fields_editr_interface_jampy.png
 	:align: center
@@ -77,11 +76,11 @@
 
 * **TextArea** （文本区域）- 对于文本字段，如果设置了此属性，将在 :doc:`编辑表单对话框 <edit_form_dialog>` 中为这些字段创建 textarea 元素
 
-* **Do not sanitize** （不清理）- 设置此属性以防止字段值的默认清理，请参阅 :doc:`数据清理 </admin/sanitizing>`
+* **Do not sanitize** （不清理）- 设置此属性以防止默认清理字段值，请参阅 :doc:`数据清理 </admin/sanitizing>`
 
 * **Alignment** （对齐方式）- 确定在显示此字段的控件中文本的对齐方式。
 
-* **Placeholder** （占位符）- 使用此属性指定字段输入将显示的占位符。
+* **Placeholder** （占位符）- 使用此属性指定字段输入框将显示的占位符。
 
 * **Help** （帮助）- 如果指定了任何文本/HTML 消息，将在输入框右侧显示一个问号，当用户将鼠标指针移到该标记上时，将弹出一个窗口显示此消息。
 
@@ -105,7 +104,7 @@ FILE 字段的界面选项卡
 .. note::
 
   请注意，**Accept** （接受）属性是必需的。
-  上传的文件会在服务器端根据此属性进行检查。
+  在服务器端，会根据此属性检查上传的文件。
 
 图像字段的界面选项卡
 =============================
@@ -139,4 +138,4 @@ FILE 字段的界面选项卡
 
 * **Calc. field** （计算字段）- 指定在其上执行计算的字段。
 
-* **Function** （函数）- 指定服务器端函数（SUM、COUNT、MIN、MAX、AVG）。
+* **Function** （函数）- 指定服务器端函数（SUM、COUNT、MIN、MAX、AVG 等）。

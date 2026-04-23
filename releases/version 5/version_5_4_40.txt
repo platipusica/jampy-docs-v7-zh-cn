@@ -1,18 +1,17 @@
 ==============
-Version 5.4.40
+版本 5.4.40
 ==============
 
-Library:
+库:
 
-* Jam.py now uses SQLAlchemy connection poll
+* Jam.py 现在使用 SQLAlchemy 连接池
 
-* when image field read_only attribute is set user can not change the image by 
-  double-clicking on it
+* 当图像字段的 read_only 属性设置时，用户不能通过双击更改图像
 
-* Some bugs fixed
+* 修复了一些错误
 
-Documentation:
+文档:
 
-deployment section added to :doc:`How to </how_to/index>`
+已向 :doc:`How to </how_to/index>` 添加部署章节
 
-How to lock a record so that users cannot edit it at the same time topic added
+已添加“如何锁定记录以防止用户同时编辑”的主题

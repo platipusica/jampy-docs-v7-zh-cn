@@ -2,24 +2,19 @@
 公共字段
 =============
 
-可以访问数据库数据的项目可以拥有公共字段。它们
-在它们所属的组中定义：
+可以访问数据库数据的实体可以拥有公共字段。这在实体所属的组中定义：
 
 .. image:: /programming/_images/common_fields_jampy.png
 	:align: center
 	:alt: 公共字段
 
-这里定义了两个字段：**id** 和 **deleted**。
+这里定义了两个字段： **id** 和 **deleted** 。
 
-**id** 字段被设置为主键，将存储数据库表中
-每条记录的唯一标识符。当向表中插入新记录时，
-此值由框架自动生成。
+**id** 字段被设置为主键，将存储数据库表中每条记录的唯一标识符。
+当向表中插入新记录时，此值由框架自动生成。
 
-**deleted** 字段被设置为删除标志。当在
-:doc:`项目编辑器对话框 </admin/items/item_editor_dialog>` 中
-勾选 'Soft delete' （软删除）复选框时，
-删除方法不会从表中物理删除记录，而是使用
-此字段将记录标记为已删除。当生成 SQL 查询以从数据库表中获取记录时，
-open 方法会考虑这一点。
+**deleted** 字段被设置为删除标志。
+当在 :doc:`实体编辑器对话框 </admin/items/item_editor_dialog>` 中勾选 'Soft delete' （软删除）复选框时，删除方法不会从表中物理删除记录，而是使用此字段将记录标记为已删除。
+当生成从数据库表中获取记录的 SQL 查询时，open 方法会考虑到这一点。
 
-**Record version** （记录版本）字段用于 :doc:`记录锁定 </admin/record_locking>`。
+**记录版本(Record version)** 字段用于 :doc:`记录锁定 </admin/record_locking>`。

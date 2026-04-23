@@ -1,118 +1,92 @@
 ==========
-Parameters
+参数
 ==========
 
-After clicking on the **Parameters** button the Parameters Dialog will appear. 
-It has two tabs **General** and **Interface**.
+点击 **Parameters** 按钮后，将出现参数对话框。
+它有两个选项卡： **常规(General)** 和 **(界面)Interface** 。
 
-General tab
+常规选项卡
 ===========
 
 .. image:: /admin/_images/parameters_jampy.png
 	:align: center
 	:alt: Project parameters dialog
 
-On the General tab, you can specify general parameters of the project:
+在常规选项卡上，您可以指定项目的常规参数：
 
-* **Production** - if this checkbox is checked, the access to Application Builder is disabled.
-  To enable the access, the ``builder.html`` file should be deleted from the application folder.
+* **Production** （生成环境） - 如果选中此复选框，则禁用对应用程序构建器的访问。
+  要启用访问，应从应用程序文件夹中删除 ``builder.html`` 文件。
 
-* **Safe mode** - if safe mode is enabled, authentication  is needed for user to 
-  work in the system (See 
-  :doc:`Users </admin/users>`
-  and 
-  :doc:`Roles </admin/roles>`
-  ). 
+* **Safe mode** （安全模式）- 如果启用安全模式，用户需要身份验证才能在系统中工作。
+  （请参阅 :doc:`Users </admin/users>` 和 :doc:`Roles </admin/roles>` ）
   
-* **Debugging** - if this checkbox is checked, the Werkzeug library debugger will
-  be invoked when an error on the server occurs.
+* **Debugging** （调试） - 如果选中此复选框，当服务器上发生错误时，将调用 Werkzeug 库调试器。
 
-* **Show SELECT SQL** - if this checkbox is checked, the SELECT SQL will be displayed.
+* **Show SELECT SQL** （） - 如果选中此复选框，将显示 SELECT SQL 。
 
-* **Language** - use it to open Language Dialog. See 
-  :doc:`Language support </admin/language_support>`
+* **Language** （语言） - 使用它打开语言对话框。
+  请参阅 :doc:`Language support </admin/language_support>`
 
-* **Persistent connection** - if this checkbox is checked the application creates 
-  a connection pool otherwise a connection is created before executing the sql query.
+* **Persistent connection** （持久连接） - 如果选中此复选框，应用程序将创建连接池，否则在执行 sql 查询之前创建连接。
   
-* **Connection pool size** — the size of the server database connection pool. 
+* **Connection pool size** （连接池的大小） — 服务器数据库连接池的大小。 
 
-* **Compressed JS, CSS files** - If this button is checked the server returns 
-  compressed *js* and *css* files when *index.html* page is loaded.
+* **Compressed JS, CSS files** （压缩 JS，CSS 文件） - 如果选中此按钮，当加载 *index.html* 页面时，服务器将返回压缩后的 *js* 和 *css* 文件。
 
-* **All JS modules in a single file** - If this checkbox is unchecked, the 
-  application will generate a javascript file in the project *js* folder for 
-  every item in the :doc:`task tree </programming/task_tree>`, that has code in
-  its Client module, with the name *item_name.js*, where *item_name* is the name 
-  of an item. 
-  Otherwise, the application will generate a javascript file with the name 
-  *task_name.js*, where *task_name* is the name of the project 
-  :doc:`task </admin/task>` (for example *demo.js*), that will contain javascript
-  code of all items, except items, whose **External js module** checkbox in the 
-  :doc:`Item Editor Dialog </admin/items/item_editor_dialog>`
-  is checked (separate files will be created for them). 
+* **All JS modules in a single file** （单文件的 JS 模块） - 
+  如果未选中此复选框，应用程序将在项目的 *js* 文件夹中为
+  :doc:`task tree </programming/task_tree>` 中的每个实体生成一个 javascript 文件，
+  该文件包含对应实体在客户端模块中的代码，其名称为 *item_name.js* ，
+  其中 *item_name* 是对应的实体项的名称。
+  否则，应用程序将生成一个名为 *task_name.js* 的 javascript 文件，
+  其中 *task_name* 是项目 :doc:`任务 </admin/task>` 的名称（例如 *demo.js* ），
+  该文件将包含所有实体项的 javascript 代码，除了那些在 
+  :doc:`实体编辑器对话框 </admin/items/item_editor_dialog>` 中选中 
+  **外部的 js 模块(External js module)** 复选框的项目（将为它们创建单独的文件）。
   
-* **Dynamic JS modules loading** - If this checkbox is unchecked and the 
-  application generates more than one javascript file, only file named 
-  *task_name.js* will be loaded when application is run. All other files must be 
-  loaded dynamically. See :doc:`Working with modules </programming/modules>`.
+* **Dynamic JS modules loading** （动态加载 JS 模块） - 如果未选中此复选框且应用程序生成多个 javascript 文件，则在运行应用程序时，只会加载名为 *task_name.js* 的文件。所有其他文件必须动态加载。请参阅 :doc:`使用模块 </programming/modules>` 。
   
-* **History item** - to specify item, that will store change history, see 
-  :doc:`Saving audit trail/change history made by users </admin/saving_history>`
+* **History item** （历史数据项） - 指定将存储更改历史的数据项，请参阅 :doc:`保存用户创建的审计跟踪/更改历史记录 </admin/saving_history>`
 
-* **Session timeout (seconds)** - number of seconds of inactivity that is allowed 
-  before the session expires.
+* **Session timeout (seconds)** （会话超时） - 允许会话在过期之前不活动的秒数。
 
-* **Session ignore change ip** - if false, the session is only valid when 
-  it is accessed from the same ip address that created the session.
+* **Session ignore change ip** （会话忽略 ip） - 如果为 false，则会话仅在从创建会话的同一 ip 地址访问时有效。
   
-* **Max content length (MB)** - use it to limit the total content length of the
-  request to the server, in megabytes.
+* **Max content length (MB)** （最大内容长度） - 使用它限制请求服务器的总内容长度，以兆字节为单位。
   
-* **Import delay (seconds)** - if set the application will wait the number of 
-  seconds set in the parameter before changing the project dataset while 
-  :doc:`importing project metadata <metadata_file>`
-  , 
-  otherwise it waits for 5 minutes or until all previous request 
-  to the server in the current process will be processed.
+* **Import delay (seconds)** （） - 如果设置，
+  在 :doc:`导入项目元数据 <metadata_file>` 时，
+  应用程序将在更改项目数据集之前先等待参数中设置的秒数，
+  否则它等待 5 分钟或直到当前进程中所有以前的服务器请求被处理之后，再导入数据。
   
-* **Delete reports after (hours)** - if a value is specified the generated 
-  reports that are located in the static/reports folder will be deleted after
-  specified number of hours have passed.
+* **Delete reports after (hours)** （多久后删除报表） - 如果指定了值，则位于 static/reports 文件夹中的已生成的报表将在指定的小时数之后被删除。
   
-* **Upload file extensions** - is an :doc:`Accept string </admin/accept_string>`
-  that defines the types of files that could be uploaded to the server by the
-  task :doc:`upload </refs/client/task/m_upload>` method. Uploading files that 
-  do not match these types is prohibited.
+* **Upload file extensions** （上传文件的扩展名） - 是一个 :doc:`Accept string </admin/accept_string>` ，它定义了可以通过任务的 :doc:`upload </refs/client/task/m_upload>` 方法上传到服务器的文件类型。系统禁止上传不匹配这些类型的文件。
   
-* **Version** — specify the version of the project here.
+* **Version** （版本）— 在此处指定项目的版本。
 
 .. note::
-   When **Connection pool size** or **Persistent connection** parameters are 
-   changed, the server application must be restarted for changes to take effect.
+
+   要使更改的 **Connection pool size** 或 **Persistent connection** 参数生效，
+   必须重新启动服务器应用程序。
 
 
-Interface tab
+界面选项卡
 =============
 
 .. image:: /admin/_images/parameters_interface_jampy.png
 	:align: center
 	:alt: parameters_interface_jampy.png
 	
-On the Interface tab, you can specify interface parameters of the project:	
+在界面选项卡上，您可以指定项目的界面参数：	
 
-* **Theme** - use this parameter to select the theme of the project from one of
-  predefined themes
+* **Theme** （主题） - 使用此参数从预定义主题中选择项目使用的主题
 
-* **Docs Link** - use this parameter to specify the Docs location (TBA)
+* **Docs Link** （文档链接） - 使用此参数指定文档位置（TBA）
 
+* **Small font** （小字号） - 如果选中此按钮，默认字体大小将为 12px ，否则为 14px
 
-* **Small font** - if this button is checked, the default font size will be 12px,
-  otherwise it is 14px
+* **Full width** （全部宽度） - 如果选中此按钮，项目将填充页面宽度，没有左右边距
 
-* **Full width** - if this button is checked the project will fill the page width,
-  without left and right margins
-
-* **Display forms in tabs** - if this button is checked, the forms will be opened 
-  tabs
+* **Display forms in tabs** （在选项卡中打开表单） - 如果选中此按钮，表单将在选项卡中打开
 

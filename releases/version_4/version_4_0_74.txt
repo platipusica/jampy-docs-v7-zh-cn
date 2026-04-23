@@ -1,24 +1,22 @@
 ==============
-Version 4.0.74
+版本 4.0.74
 ==============
 
 Jam.py:
 
-* Bug with 
-  :doc:`open </refs/server/item/m_open>` 
-  method, when order_by parameter is an empty list fixed
-  
-* Bug with sql generated when default order is set and fields parameter do not 
-  contain any of field of default order in the
-  :doc:`open </refs/server/item/m_open>` method fixed
+* 修复了 :doc:`open </refs/server/item/m_open>` 方法在 order_by 参数为空列表时出错的错误
 
-* The exception handling of errors occuring in the code, when inplace editor 
-  is used reworked so developer can find the reson of an error
+* 修复了在 :doc:`open </refs/server/item/m_open>` 方法中设置默认顺序且 fields 参数不包含任何默认排序字段时生成的 sql 错误
 
-Administrator:
+* 已对使用就地编辑器（inplace editor）时代码中出现的错误进行了异常处理优化，
+  以便开发人员能够定位错误原因
 
-* Tabs are now created for opened modules.
 
-Demo application:
+管理员:
 
-* Search for catalogs reworked.
+* 现在，可为打开的模块创建选项卡
+
+
+演示应用程序:
+
+* 重新设计了搜索目录。

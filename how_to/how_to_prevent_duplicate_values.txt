@@ -1,19 +1,14 @@
 =================================================
-How to prevent duplicate values in a table field 
+如何防止表的字段中出现重复值
 =================================================
 
-One of the ways to do it is to write the
-:doc:`on_apply </refs/server/item/on_apply>`
-event handler.
+其中一种方法是编写 :doc:`on_apply </refs/server/item/on_apply>` 事件处理程序。
 
-In the example below, the delta parameter is a dataset that contains the changes 
-that will be stored in the users table. 
+在下面的示例中，delta 参数是一个数据集，包含将要存储到 users 表中的更改。
 
-We go through the records of changes and if the record was not deleted or the 
-login field didn't change we look for a record in the table with the same login 
-and if it exists raise the exception. If the user is editing the record 
-on the client using an edit form he won't be able to save it and will see the 
-corresponding alert message. 
+我们遍历所有记录的更改，如果该记录没有被删除，或者 login 字段发生了更改，
+则查找表中是否存在相同登录名的记录，如果存在则抛出异常。
+如果用户在客户端使用编辑表单编辑记录，则无法保存该记录，并会看到相应的提示信息。
 
 .. code-block:: py
 

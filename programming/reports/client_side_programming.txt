@@ -1,36 +1,27 @@
 ==============================
-客户端报告编程
+客户端报表编程
 ==============================
 
-要在客户端打印报告，请使用
-:doc:`print </refs/client/report/m_print>` 
-方法。
+要在客户端打印报表，请使用 :doc:`print </refs/client/report/m_print>` 方法。
 
-调用此函数的结果是，客户端会调用
-:doc:`create_param_form </refs/client/report/m_create_param_form>`
-方法，基于 index.html 文件中定义的 html 模板，
-创建一个用于编辑报告参数的表单
-（参见 :doc:`表单 </programming/interface/forms>`）。
+调用此函数的结果是，客户端会调用 
+:doc:`create_param_form </refs/client/report/m_create_param_form>` 
+方法，基于 index.html 文件中定义的 html 模板，创建一个用于编辑报表参数的表单
+（参见 :doc:`表单 </programming/interface/forms>` ）。
 
 此方法在创建表单后，会触发以下事件：
 
-* 任务的
-  :doc:`on_param_form_created </refs/client/task/on_param_form_created>`。
+* 任务的  :doc:`on_param_form_created </refs/client/task/on_param_form_created>`
 
-* 拥有该报告的报告组的
-  :doc:`on_param_form_created </refs/client/reports/on_param_form_created>`
-  （如果已定义）。
+* 拥有该报表的报表组的  :doc:`on_param_form_created </refs/client/reports/on_param_form_created>`  （如果已定义）
 
-* 报告的
-  :doc:`on_param_form_created </refs/client/report/on_param_form_created>`
-  （如果已定义）。
+* 报表的  :doc:`on_param_form_created </refs/client/report/on_param_form_created>`  （如果已定义）
 
-默认代码中有一个为任务定义的
-:doc:`on_param_form_created </refs/client/report/on_param_form_created>`
-事件处理程序。在此事件中，点击 **Print** （打印）
-按钮会连接到报告的
-:doc:`process_report </refs/client/report/m_process_report>`
-方法。
+默认代码中有一个为任务定义的 
+:doc:`on_param_form_created </refs/client/report/on_param_form_created>` 
+事件处理程序。
+在此事件中，点击 **打印(Print)** 按钮会调用报表的
+:doc:`process_report </refs/client/report/m_process_report>` 方法。
 
 .. code-block:: js
 
@@ -44,25 +35,17 @@
         });
     }
 
-接着，
-:doc:`process_report </refs/client/report/m_process_report>`    
-方法会触发：
+接着，会触发 :doc:`process_report </refs/client/report/m_process_report>`  方法：
 
-* 报告组的
-  :doc:`on_before_print_report </refs/client/reports/on_before_print_report>` 
-  事件处理程序
+* 报表组的  :doc:`on_before_print_report </refs/client/reports/on_before_print_report>`  事件处理程序
   
-* 报告的
-  :doc:`on_before_print_report </refs/client/report/on_before_print_report>` 
-  事件处理程序
+* 报表的  :doc:`on_before_print_report </refs/client/report/on_before_print_report>`  事件处理程序
 
-在这些事件处理程序中，开发人员可以定义报告的一些通用（报告组
-事件处理程序）或特定（报告事件处理程序）属性。
+在这些事件处理程序中，开发人员可以定义报表的一些通用（报表组事件处理程序）
+或特定（报表事件处理程序）属性。
 
-例如，在默认代码中，有一个报告组的 on_before_print_report 事件
-处理程序，其中定义了报告的
-:doc:`extension </refs/client/report/at_extension>`
-属性：
+例如，在默认代码中，有一个报表组的 on_before_print_report 事件处理程序，
+其中定义了报表的 :doc:`extension </refs/client/report/at_extension>` 属性：
 
 .. code-block:: js
 
@@ -77,9 +60,7 @@
         }
     }
 
-在以下事件处理程序中，该处理程序定义在演示应用程序的
-**invoice** （发票）报告的客户端模块中，设置了报告
-**id** 参数的值：
+在以下事件处理程序中，在演示应用程序的 **发票(invoice)** 报表的客户端模块中定义的处理程序，设置了报表 **id** 参数的值：
 
 .. code-block:: js
 
@@ -87,20 +68,16 @@
         report.id.value = report.task.invoices.id.value;
     }
 
-之后，
-:doc:`process_report </refs/client/report/m_process_report>`    
-方法会向服务器发送异步请求以生成报告
-（参见 :doc:`服务器端编程 <server_side_programming>`）。
+之后， :doc:`process_report </refs/client/report/m_process_report>`    
+方法会向服务器发送异步请求以生成报表（参见 :doc:`服务器端编程 <server_side_programming>` ）。
 
-服务器会向该方法返回一个指向生成报告文件的 url。
+服务器会向该方法返回一个指向已生成的报表文件的 url 。
 
-然后，该方法检查是否定义了报告组的
+然后，该方法检查是否定义了报表组的
 :doc:`on_open_report </refs/client/reports/on_open_report>` 事件处理程序。
 如果定义了此事件处理程序，则调用它；
-否则检查报告的
-:doc:`on_open_report </refs/client/report/on_open_report>`。如果已定义，
-则调用它。
+否则检查报表的 :doc:`on_open_report </refs/client/report/on_open_report>`。
+如果已定义，则调用它。
 
-如果这些事件都未定义，则根据报告的
-:doc:`extension </refs/client/report/at_extension>`
-属性，在浏览器中打开报告或将其保存到磁盘。
+如果这些事件都未定义，则根据报表的 :doc:`extension </refs/client/report/at_extension>`
+属性，在浏览器中打开报表或将其保存到磁盘。

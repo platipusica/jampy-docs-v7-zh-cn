@@ -4,34 +4,27 @@
 
 对于每个可以访问数据库表的项目，都可以创建一个过滤器对象列表。
 
-要创建过滤器，请使用
-应用程序构建器的 :doc:`过滤器对话框 </admin/items/filters_dialog>`。
+要创建过滤器，请使用应用程序构建器的 :doc:`过滤器对话框 </admin/items/filters_dialog>` 。
 
-过滤器为用户提供了一种便捷的方式来可视化指定
-应用程序向项目数据库发出请求的参数。
+过滤器为用户提供了一种可视化的便捷方式来指定应用程序向项目数据库发出的请求的参数。
 
 每个过滤器都有以下属性：
 
-* ``owner`` – 拥有此过滤器的项目，
+* ``owner`` — 拥有此过滤器的实体，
 * ``filter_name`` — 过滤器的名称，可在编程代码中使用
-* ``filter_caption`` - 过滤器的名称，用于客户端应用程序中的可视化表示
-* ``filter_type`` — 过滤器的类型，请参阅
-  :doc:`筛选记录 <filtering_records>`，
-* ``visible`` — 如果此属性的值为 ``true``，当未指定 ``filters`` 选项时，
-  :doc:`create_filter_inputs </refs/client/item/m_create_filter_inputs>`
-  方法将为此过滤器创建可视化表示，
-* value — 过滤器的值，
+* ``filter_caption`` — 过滤器的名称，用于客户端应用程序中的可视化表示
+* ``filter_type`` — 过滤器的类型，请参阅  :doc:`筛选记录 <filtering_records>`
+* ``visible`` — 如果此属性的值为 ``true`` ，当未指定 ``filters`` 选项时， :doc:`create_filter_inputs </refs/client/item/m_create_filter_inputs>`  方法将为此过滤器创建可视化表示
+* value — 过滤器的值
 
-项目的所有过滤器都是其对象 ``filters`` 的属性。
-通过使用 ``filter_name``，我们可以访问过滤器对象：
+实体的所有过滤器都是其对象 ``filters`` 的属性。
+通过使用 ``filter_name`` ，我们可以访问过滤器对象：
 
 .. code-block:: js
 
     invoices.filters.invoicedate1.value = new Date()
 
-另一种访问过滤器的方法是使用
-:doc:`filter_by_name </refs/client/item/m_filter_by_name>`
-方法：
+另一种访问过滤器的方法是使用 :doc:`filter_by_name </refs/client/item/m_filter_by_name>` 方法：
 
 .. code-block:: js
 

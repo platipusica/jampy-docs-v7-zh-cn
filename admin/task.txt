@@ -1,16 +1,15 @@
-====
+========
 任务
-====
+========
 
-选择 **Task** （任务）节点以访问项目
+选择 **Task** （任务）节点以访问项目 
 :doc:`任务树 </programming/task_tree>` 的根节点。
 
-按页面底部的 **Edit** （编辑）按钮以更改任务的名称和标题。
+使用页面底部的 **Edit** （编辑）按钮来更改任务的名称和标题。
 
 使用页面右侧面板中的按钮来编辑：
     
-* 任务的 ``Client Module [F7]`` （客户端模块 [F7]）和 ``Server Module [F8]`` （服务器模块 [F8]），请参阅 :doc:`使用模块 </programming/modules>` 和
-  :doc:`代码编辑器 <code_editor>`
+* 任务的 ``Client Module [F7]`` （客户端模块 [F7]）和 ``Server Module [F8]`` （服务器模块 [F8]），请参阅 :doc:`使用模块 </programming/modules>` 和  :doc:`代码编辑器 <code_editor>`
   
 * 项目根文件夹中包含项目页面的 ``index.html [F10]`` 文件
 
@@ -19,8 +18,7 @@
 * 项目根文件夹中 **css** 目录下的 ``project.css [F11]`` 文件，请参阅
   :doc:`代码编辑器 <code_editor>`
 
-* ``Lookup lists`` （查找列表）- 点击按钮打开 
-  :doc:`查找列表 <lookup_lists>` 对话框
+* ``Lookup lists`` （查找列表）- 点击按钮打开 :doc:`查找列表 <lookup_lists>` 对话框
   
 .. image:: _images/task_jampy.png
 	:align: center

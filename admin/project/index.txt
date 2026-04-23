@@ -6,9 +6,9 @@
 应用程序构建器页面将如下所示：
 
 .. image:: /admin/_images/project_node_jampy.png
-	:scale: 50%
-	:align: center
-	:alt: 项目管理
+        :scale: 50%
+        :align: center
+        :alt: 项目管理
 
 
 .. important::
