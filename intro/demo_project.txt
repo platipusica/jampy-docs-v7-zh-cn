@@ -4,7 +4,7 @@
 
 该框架包含一个功能完整的演示应用程序，展示了框架中使用的编程技术。
 
-演示程序位于从 Github 下载的 Jam.py 软件包的 demo 文件夹中。此外，还提供了一个适用于 Windows x64 的独立版或便携式应用程序，可从 `此处 <https://github.com/platipusica/jampy-exe/releases/download/Pump/jampy_win_64.exe>`_ 获取。
+演示程序位于从 Github 下载的 Jam.py v7 软件包的 demo 文件夹中。此外，还提供了一个适用于 Jam.py v5 Windows x64 的独立版或便携式应用程序，可从 `此处 <https://github.com/platipusica/jampy-exe/releases/download/Pump/jampy_win_64.exe>`_ 获取。
 
 该便携式应用程序仅依赖 LibreOffice 生成报告，无需其他配置。只需运行它，并按照以下步骤在浏览器中访问即可。
 
@@ -45,7 +45,7 @@
 业务应用程序构建器 ：
 
 
-.. image:: /intro/_images/demo_admin_jampy.png
+.. image:: /intro/_images/demo_admin_jampy_zh.jpg
 	:scale: 70 %
 	:align: center
 	:alt: 演示项目的应用程序构建器
