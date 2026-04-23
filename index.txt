@@ -29,11 +29,11 @@ Jam.py V7 文档
 
 已发布 LLMS-full.txt 文件：
 
-https://jampy-docs-v7.readthedocs.io/en/latest/llms-full.txt
+https://jampy-docs-v7.readthedocs.io/zh-cn/latest/llms-full.txt
 
 以及：
 
-https://jampy-docs-v7.readthedocs.io/en/latest/llms.txt
+https://jampy-docs-v7.readthedocs.io/zh-cn/latest/llms.txt
 
 GitHub 上的 Jam.py 代码仓库：
 
